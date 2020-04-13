@@ -12,12 +12,11 @@ import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule ],
+  imports:      [ BrowserModule, FormsModule, MatSelectModule ],
   declarations: [
     AppComponent,
     SelectComponent,
-    FormComponent,
-    MatSelectModule ],
+    FormComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

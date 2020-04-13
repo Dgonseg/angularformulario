@@ -7,6 +7,8 @@ import { SelectComponent } from './components/form/select/select.component';
 import { FormComponent } from './containers/form/form.component';
 //services
 
+//angular Material
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -14,7 +16,8 @@ import { FormComponent } from './containers/form/form.component';
   declarations: [
     AppComponent,
     SelectComponent,
-    FormComponent ],
+    FormComponent,
+    MatSelectModule ],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

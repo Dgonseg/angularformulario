@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -7,6 +7,7 @@ import { FormControl } from '@angular/forms';
   styleUrls: ['./select.component.css']
 })
 export class SelectComponent implements OnInit {
+  @Input() selectOptions: String[];
   toppings : FormControl
   toppingList: string[];
   constructor() { }

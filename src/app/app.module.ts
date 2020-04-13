@@ -11,7 +11,12 @@ import {MaterialsModule} from './materialModules';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatNativeDateModule} from '@angular/material/core';
+import {HttpClientModule} from '@angular/common/http';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
+
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import { InputComponent } from './components/form/input/input.component';
 
 
 @NgModule({
@@ -25,7 +30,8 @@ import {MatNativeDateModule} from '@angular/material/core';
   declarations: [
     AppComponent,
     SelectComponent,
-    FormComponent],
+    FormComponent,
+    InputComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

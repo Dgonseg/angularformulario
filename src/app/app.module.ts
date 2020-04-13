@@ -9,10 +9,18 @@ import { FormComponent } from './containers/form/form.component';
 
 //angular Material
 import {MatSelectModule} from '@angular/material/select';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, MatSelectModule ],
+  imports:      [
+    BrowserModule,
+    FormsModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule ],
   declarations: [
     AppComponent,
     SelectComponent,

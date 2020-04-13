@@ -8,7 +8,7 @@ import { FormComponent } from './containers/form/form.component';
 //services
 
 //angular Material
-import {MatSelectModule} from '@angular/material/select';
+import {MaterialsModule} from './materialModules';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -18,7 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports:      [
     BrowserModule,
     FormsModule,
-    MatSelectModule,
+    MaterialsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule ],
   declarations: [

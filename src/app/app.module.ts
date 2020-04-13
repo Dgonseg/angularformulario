@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 //components
 import { AppComponent } from './app.component';
 import { SelectComponent } from './components/form/select/select.component';
@@ -9,18 +8,20 @@ import { FormComponent } from './containers/form/form.component';
 
 //angular Material
 import {MaterialsModule} from './materialModules';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatNativeDateModule} from '@angular/material/core';
 
 
 
 @NgModule({
   imports:      [
     BrowserModule,
-    FormsModule,
     MaterialsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule ],
+    BrowserAnimationsModule,
+    MatNativeDateModule,
+    FormsModule ],
   declarations: [
     AppComponent,
     SelectComponent,

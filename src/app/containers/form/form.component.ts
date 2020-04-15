@@ -16,6 +16,7 @@ export class FormComponent implements OnInit {
   }
 
   save() {
-    console.log('save')
+    console.log('save');
+    
   }
 }

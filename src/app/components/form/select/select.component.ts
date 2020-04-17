@@ -6,15 +6,8 @@ import { FormControl } from '@angular/forms';
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.css']
 })
-export class SelectComponent implements OnInit {
+export class SelectComponent {
   @Input() selectOptions: String[];
-  toppings : FormControl
-  toppingList: string[];
-  constructor() { }
-
-  ngOnInit() {
-    this.toppings = new FormControl();
-    this.toppingList = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
-  }
-
+  @Input() selectLabel: String[];
+  
 }

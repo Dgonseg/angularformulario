@@ -7,14 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormComponent implements OnInit {
   label: String;
+
+  
   selectOptions: String[];
   selectOptions1: String[];
   selectOptions2: String[];
   selectOptions3: String[];
+  selectLabel: String;
+
+
   constructor() { }
 
   ngOnInit() {
-    this.label = "name";
+    this.label = "Nombre";
+    this.selectLabel = "holis";
     this.selectOptions = ['merchahn', 'def'];
     this.selectOptions1 = ['op4', 'op4', 'mustang'];
     this.selectOptions2 = ['op5', 'op5op2', 'op3'];
@@ -22,7 +28,7 @@ export class FormComponent implements OnInit {
   }
 
   save() {
-    console.log('save', this);
+    alert('holi')
     
   }
 }

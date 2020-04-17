@@ -1,9 +1,11 @@
 <div class="test">
   <app-input [label]="label"></app-input>
-  <form-select [selectOptions]="selectOptions" [selectLabel]="selectLabel" ></form-select>
-  <form-select [selectOptions]="selectOptions1"></form-select>
-  <form-select [selectOptions]="selectOptions2"></form-select>
-  <form-select [selectOptions]="selectOptions3"></form-select>
+  <!-- Select Banu -->
+  <form-select [selectOptions]="selectOptions" [selectLabel]="selectLabelBanu" ></form-select>
+  
+  <form-select [selectOptions]="selectOptions1" [selectLabel]="selectLabelBanu"></form-select>
+  <form-select [selectOptions]="selectOptions2" [selectLabel]="selectLabelBanu"></form-select>
+  <form-select [selectOptions]="selectOptions3" [selectLabel]="selectLabelBanu"></form-select>
 
-  <button (click)="save">save</button>
+  <button (click)="save()">Save</button>
 </div>

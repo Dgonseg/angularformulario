@@ -18,12 +18,16 @@ import { HttpClientModule} from '@angular/common/http';
 import { platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
 
-import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { InputComponent } from './components/form/input/input.component';
+
 // firebase
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+// Auth
+import { AuthService } from "./services/auth.service";
 
 
 var config = {
@@ -44,10 +48,10 @@ var config = {
     BrowserAnimationsModule,
     MatNativeDateModule,
     FormsModule,
-   AngularFireModule.initializeApp(config),
+    AngularFireModule.initializeApp(config),
     AngularFireAuthModule,
     AngularFirestoreModule,
-     ],
+  ],
   declarations: [
     AppComponent,
     SelectComponent,

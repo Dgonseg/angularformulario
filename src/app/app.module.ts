@@ -27,7 +27,7 @@ import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 // Auth
-import { AuthService } from "./services/auth.service";
+import { AuthService } from "./services/auth.services";
 
 
 var config = {
@@ -52,6 +52,7 @@ var config = {
     AngularFireAuthModule,
     AngularFirestoreModule,
   ],
+  providers: [AuthService],
   declarations: [
     AppComponent,
     SelectComponent,

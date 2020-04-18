@@ -28,6 +28,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 // Auth
 import { AuthService } from "./services/auth.services";
+import { dashboardComponent } from './components/dashboard/dashboard.component';
 
 
 var config = {
@@ -58,7 +59,8 @@ var config = {
     SelectComponent,
     FormComponent,
     InputComponent,
-    LoginComponent],
+    LoginComponent,
+    Componenets/dashboardComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

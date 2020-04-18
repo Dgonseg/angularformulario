@@ -29,6 +29,10 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 // Auth
 import { AuthService } from "./services/auth.services";
 import { dashboardComponent } from './components/dashboard/dashboard.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 
 
 var config = {
@@ -60,7 +64,11 @@ var config = {
     FormComponent,
     InputComponent,
     LoginComponent,
-    Componenets/dashboardComponent],
+    dashboardComponent,
+    SignInComponent,
+    SignUpComponent,
+    ForgotPasswordComponent,
+    VerifyEmailComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

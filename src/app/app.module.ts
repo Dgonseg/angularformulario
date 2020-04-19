@@ -34,15 +34,15 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDmeg09xntmdUxvyJwIxAWFAOC_Z0UTGzQ",
-  authDomain: "hformulario-b0a55.firebaseapp.com",
-  databaseURL: "https://hformulario-b0a55.firebaseio.com",
-  projectId: "hformulario-b0a55",
-  storageBucket: "hformulario-b0a55.appspot.com",
-  messagingSenderId: "267439002356",
-  appId: "1:267439002356:web:9eb8bb49dbd407ca5244a1"
-};
+var firebaseConfig = {
+    apiKey: "AIzaSyDmeg09xntmdUxvyJwIxAWFAOC_Z0UTGzQ",
+    authDomain: "hformulario-b0a55.firebaseapp.com",
+    databaseURL: "https://hformulario-b0a55.firebaseio.com",
+    projectId: "hformulario-b0a55",
+    storageBucket: "hformulario-b0a55.appspot.com",
+    messagingSenderId: "267439002356",
+    appId: "1:267439002356:web:20d63d805ea100355244a1"
+  };
 
 @NgModule({
   imports:      [
@@ -53,7 +53,7 @@ const firebaseConfig = {
     BrowserAnimationsModule,
     MatNativeDateModule,
     FormsModule,
-    AngularFireModule.initializeApp(config),
+    AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
   ],

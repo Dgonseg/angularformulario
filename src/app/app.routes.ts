@@ -18,8 +18,6 @@ import {SecureInnerPagesGuard} from './shared/guard/secure-inner-pages.guard';
 import {AuthGuard} from './shared/guard/auth.guard';
 
 const routes: Routes = [
-    //{path: 'form' , component: FormComponent},
-    //{path: 'login' , component: LoginComponent},
   { path: '', redirectTo: '/sign-in', pathMatch: 'full'},
   { path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard]},
   { path: 'register-user', component: SignUpComponent, canActivate: [SecureInnerPagesGuard]},

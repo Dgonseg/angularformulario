@@ -35,6 +35,7 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { MenuComponent } from './containers/menu/menu.component';
 
 var firebaseConfig = {
     apiKey: "AIzaSyDmeg09xntmdUxvyJwIxAWFAOC_Z0UTGzQ",
@@ -46,8 +47,11 @@ var firebaseConfig = {
     appId: "1:267439002356:web:20d63d805ea100355244a1"
   };
 
+if (!firebase.apps.length) {
+    firebase.initializeApp(firebaseConfig);
+}
 
-firebase.initializeApp(firebaseConfig);
+
 
 @NgModule({
   imports:      [
@@ -73,7 +77,8 @@ firebase.initializeApp(firebaseConfig);
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
-    VerifyEmailComponent],
+    VerifyEmailComponent,
+    MenuComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

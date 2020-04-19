@@ -23,8 +23,11 @@ import { InputComponent } from './components/form/input/input.component';
 
 // firebase
 import { AngularFireModule } from "@angular/fire";
-import { AngularFireAuthModule } from "@angular/fire/auth";
-import { AngularFirestoreModule } from '@angular/fire/firestore';
+import * as firebase from 'firebase';
+
+// import { AngularFireAuthModule } from "@angular/fire/auth";
+// import { AngularFirestoreModule } from '@angular/fire/firestore';
+// import { AngularFirestore } from '@angular/fire/firestore';
 
 // Auth
 import { AuthService } from "./shared/services/auth.services";
@@ -44,6 +47,9 @@ var firebaseConfig = {
     appId: "1:267439002356:web:20d63d805ea100355244a1"
   };
 
+
+firebase.initializeApp(firebaseConfig);
+
 @NgModule({
   imports:      [
     AppRoutingModule,
@@ -53,9 +59,9 @@ var firebaseConfig = {
     BrowserAnimationsModule,
     MatNativeDateModule,
     FormsModule,
-    AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireAuthModule,
-    AngularFirestoreModule,
+    //firebase.initializeApp(firebaseConfig),
+    // AngularFireAuthModule,
+    // AngularFirestoreModule,
   ],
   providers: [AuthService],
   declarations: [

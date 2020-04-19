@@ -34,14 +34,14 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 
-
-var config = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    databaseURL: "YOUR_DATABASE_URL",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID"
+const firebaseConfig = {
+  apiKey: "AIzaSyDmeg09xntmdUxvyJwIxAWFAOC_Z0UTGzQ",
+  authDomain: "hformulario-b0a55.firebaseapp.com",
+  databaseURL: "https://hformulario-b0a55.firebaseio.com",
+  projectId: "hformulario-b0a55",
+  storageBucket: "hformulario-b0a55.appspot.com",
+  messagingSenderId: "267439002356",
+  appId: "1:267439002356:web:9eb8bb49dbd407ca5244a1"
 };
 
 @NgModule({

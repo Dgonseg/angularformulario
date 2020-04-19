@@ -1,6 +1,6 @@
-<div class="displayTable">
+<!-- <div class="displayTable">
   <div class="displayTableCell">
-
+<!-- 
     <div class="authBlock">
       <h3>Sign In</h3>
       <div class="formGroup">
@@ -12,30 +12,57 @@
       </div>
 
       <!-- Calling SignIn Api from AuthService -->
-      <div class="formGroup">
+      <!-- <div class="formGroup">
         <input type="button" class="btn btnPrimary" value="Log in" (click)="authService.SignIn(userName.value, userPassword.value)">
-      </div>
-
+      </div> -->
+<!-- 
       <div class="formGroup">
         <span class="or"><span class="orInner">Or</span></span>
-      </div>
+      </div> -->
 
       <!-- Calling GoogleAuth Api from AuthService -->
-      <div class="formGroup">
+      <!-- <div class="formGroup">
         <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
           <i class="fab fa-google-plus-g"></i>
-          Log in with Google
+          Google
         </button>
-      </div>
+      </div> -->
 
-      <div class="forgotPassword">
+      <!-- <div class="forgotPassword">
         <span routerLink="/forgot-password">Forgot Password?</span>
+      </div> -->
+    <!-- </div> -->
+<!--  -->
+    <!-- <div class="redirectToLogin">
+      <span>Don't have an account?<span class="redirect" routerLink="/register-user"> Sign Up</span></span>
+    </div> -->
+<!-- 
+  </div>
+</div> --> 
+<div class="container pt-3">
+  <div class="row justify-content-sm-center">
+    <div class="col-sm-10 col-md-6">
+      <div class="card border-info">
+        <div class="card-header">Login</div>
+        <div class="card-body">
+          <div class="row">
+            <!-- <div class="col-md-4 text-center">
+              <img src="https://placeimg.com/128/128/nature">
+            </div> -->
+            <div class="col-md-8">
+               <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
+                <i class="fab fa-google-plus-g"></i>
+                Google
+              </button>
+              <!-- <form>
+                <input type="text" class="form-control mb-2" placeholder="Email" required autofocus>
+                <input type="password" class="form-control mb-2" placeholder="Password" required>
+                <button class="btn btn-lg btn-primary btn-block mb-1" type="submit">Login</button>
+              </form> -->
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-
-    <div class="redirectToLogin">
-      <span>Don't have an account?<span class="redirect" routerLink="/register-user"> Sign Up</span></span>
-    </div>
-
   </div>
 </div>

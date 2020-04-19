@@ -36,6 +36,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { MenuComponent } from './containers/menu/menu.component';
+import { AddshipComponent } from './components/form/addship/addship.component';
 
 var firebaseConfig = {
     apiKey: "AIzaSyDmeg09xntmdUxvyJwIxAWFAOC_Z0UTGzQ",
@@ -78,7 +79,8 @@ if (!firebase.apps.length) {
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    MenuComponent],
+    MenuComponent,
+    AddshipComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

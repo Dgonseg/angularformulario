@@ -23,8 +23,8 @@ import { InputComponent } from './components/form/input/input.component';
 
 // firebase
 import { AngularFireModule } from "@angular/fire";
-import { AngularFireAuth } from "@angular/fire/auth";
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 // Auth
 import { AuthService } from "./shared/services/auth.services";

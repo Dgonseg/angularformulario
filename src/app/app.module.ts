@@ -24,7 +24,6 @@ import { InputComponent } from './components/form/input/input.component';
 // firebase
 import { AngularFireModule } from "@angular/fire";
 import * as firebase from 'firebase';
-
 // import { AngularFireAuthModule } from "@angular/fire/auth";
 // import { AngularFirestoreModule } from '@angular/fire/firestore';
 // import { AngularFirestore } from '@angular/fire/firestore';

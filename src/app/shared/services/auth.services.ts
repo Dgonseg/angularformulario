@@ -95,6 +95,7 @@ export class AuthService {
   AuthLogin(provider) {
     return firebase.auth().signInWithPopup(provider)
     .then((result) => {
+      console.log(result)
        this.ngZone.run(() => {
           this.router.navigate(['dashboard']);
         })

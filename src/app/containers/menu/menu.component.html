@@ -1,3 +1,22 @@
-<p>
-menu works!
-</p>
+<div class="wrapper">
+    <!-- Sidebar -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h3>Dashboard</h3>
+        </div>
+
+        <ul class="list-unstyled components">
+            <!-- <p>Dummy Heading</p> -->
+            <li class="active">
+                <a  data-toggle="collapse" aria-expanded="false">Profile</a>
+            </li>
+             <li class="active">
+               
+               <a class="nav-link" (click)="authService.SignOut()">
+                <i class="fas fa-sign-out-alt"></i>Log out
+              </a>
+            </li>
+            <!-- href="#homeSubmenu" -->
+             <!-- class="dropdown-toggle" -->
+        </ul>
+    </nav>

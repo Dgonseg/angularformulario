@@ -96,6 +96,7 @@ export class AuthService {
     return firebase.auth().signInWithPopup(provider)
     .then((result) => {
       console.log(result)
+      this.saveLocalStorageUser(result.user);
        this.ngZone.run(() => {
           this.router.navigate(['dashboard']);
         })
@@ -103,6 +104,18 @@ export class AuthService {
     }).catch((error) => {
       window.alert(error)
     })
+  }
+
+  saveLocalStorageUser(user) {
+     if (user) {
+        this.userData = user;
+        localStorage.setItem('user', JSON.stringify(this.userData));
+        JSON.parse(localStorage.getItem('user'));
+      } else {
+        localStorage.setItem('user', null);
+        JSON.parse(localStorage.getItem('user'));
+      }
+
   }
 
   /* Setting up user data when sign in with username/password, 

@@ -15,6 +15,8 @@ export class FormComponent implements OnInit {
   // /new
   selectShipsbyBrandOptions: String[];
   selectBrandOptions: String[];
+  dataTable: any;
+  datatableColumns:String[]
 
 
   constructor() { }
@@ -22,30 +24,11 @@ export class FormComponent implements OnInit {
   ngOnInit() {
     this.selectShipsbyBrandOptions = ['Banu', 'anvil'];
     this.selectBrandOptions = ['merchahn', 'Defender'];
-
-
-    //rellena el select de Banu soil
-    // this.rellenarSelectBanu();
-
-    // this.rellenarSelectAnvil();
-
-
-    // this.selectOptions1 = ['op4', 'op4', 'mustang'];
-    // this.selectOptions2 = ['op5', 'op5op2', 'op3'];
-    // this.selectOptions3 = ['op1', 'op2', 'op3'];
+    this.dataTable = [];
   }
 
-  // rellenarSelectBanu() {
-  //   this.selectLabelBanu = "Banu";
-  //   this.selectOptions = ['merchahn', 'Defender'];
-  // }
-
-  // rellenarSelectAnvil() {
-  //   // this.
-  // }
-
-  // save() {
-  //   console.log('this', this);
-    
-  // }
+  populateTable($event) {
+    this.dataTable.push($event);
+    this.datatableColumns= ['name','ships'];
+  }
 }

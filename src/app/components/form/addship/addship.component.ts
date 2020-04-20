@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit,ViewChild, Output, EventEmitter } from '@angular/core';
 import {SelectComponent} from '../select/select.component';
 
 @Component({
@@ -7,7 +7,8 @@ import {SelectComponent} from '../select/select.component';
   styleUrls: ['./addship.component.css']
 })
 export class AddshipComponent implements OnInit {
-    @ViewChild(SelectComponent) selectComponent: SelectComponent;
+  @ViewChild(SelectComponent) selectComponent: SelectComponent;
+  @Output() populateTable: EventEmitter<any> = new EventEmitter();
 
   // /new
   selectShipsbyBrandOptions: String[];
@@ -25,7 +26,9 @@ export class AddshipComponent implements OnInit {
   }
 
   save() {
-    this.selectComponent.returnValues();
+    let shipValue =  this.selectComponent.returnValues();
+    console.log('shipValue', shipValue);
+    this.populateTable.emit(shipValue);
 
   }
 

@@ -1,9 +1,14 @@
 <div>
-  <!-- <app-table></app-table> -->
+  <app-table
+    *ngIf="dataTable"
+    [dataTable]="dataTable"
+    [datatableColumns]="datatableColumns"
+    ></app-table>
 </div>
 <div class="test">
   <h1>Formulario</h1>
-  <app-addship>
+  <app-addship
+  (populateTable)="populateTable($event)">
   </app-addship>
   <!-- <button (click)="save()">Save</button> -->
 </div>

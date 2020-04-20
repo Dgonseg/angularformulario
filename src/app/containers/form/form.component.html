@@ -1,6 +1,6 @@
 <div>
   <app-table
-    *ngIf="dataTable"
+    *ngIf="dataTable.length > 0"
     [dataTable]="dataTable"
     [datatableColumns]="datatableColumns"
     ></app-table>

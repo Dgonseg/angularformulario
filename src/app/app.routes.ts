@@ -19,12 +19,14 @@ import {AuthGuard} from './shared/guard/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full'},
-  { path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard]},
-  { path: 'register-user', component: SignUpComponent, canActivate: [SecureInnerPagesGuard]},
+  // { path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard]},
+  // { path: 'sign-in', component: SignInComponent},
+  // { path: 'register-user', component: SignUpComponent, canActivate: [SecureInnerPagesGuard]},
+  // { path: 'register-user', component: SignUpComponent, canActivate: [SecureInnerPagesGuard]},
   { path: 'dashboard', component: dashboardComponent, canActivate: [AuthGuard] },
   // { path: 'dashboard', component: dashboardComponent },
-  { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
-  { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] }
+  // { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
+  // { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

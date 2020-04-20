@@ -7,7 +7,7 @@ import { LoginComponent } from './containers/login/login.component';
 
 
 //login test
-import { dashboardComponent } from './components/dashboard/dashboard.component';
+import { dashboardComponent } from './containers/dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';

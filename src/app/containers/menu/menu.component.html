@@ -1,4 +1,5 @@
-<div class="wrapper">
+<div class="menu" *ngIf="AuthService.isLoggedIn()">
+  <div class="wrapper">
     <!-- Sidebar -->
     <nav id="sidebar">
         <div class="sidebar-header">
@@ -20,3 +21,4 @@
              <!-- class="dropdown-toggle" -->
         </ul>
     </nav>
+</div>

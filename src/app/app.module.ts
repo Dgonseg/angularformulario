@@ -30,7 +30,7 @@ import * as firebase from 'firebase';
 
 // Auth
 import { AuthService } from "./shared/services/auth.services";
-import { dashboardComponent } from './components/dashboard/dashboard.component';
+import { dashboardComponent } from './containers/dashboard/dashboard.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';

@@ -7,9 +7,13 @@ import { AuthService } from './shared/services/auth.services';
   styleUrls: [ './app.component.css' ]
 })
 export class AppComponent  {
-  constructor(
-         public authService: AuthService
-  ) {
+  opened:boolean = false;
+  constructor( public authService: AuthService) {
+
+  }
+
+  toggle() {
+    return !this.opened
 
   }
 }

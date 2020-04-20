@@ -5,7 +5,7 @@ import * as firebase from 'firebase';
 import { auth } from 'firebase/app';
 // import { AngularFireAuth } from "@angular/fire/auth";
 // import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { AngularFirestoreDocument } from '@angular/fire';
+// import { AngularFirestoreDocument } from '@angular/fire';
 import { Router } from "@angular/router";
 
 @Injectable({

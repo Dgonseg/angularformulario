@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
+import {SelectComponent} from '../select/select.component';
 
 @Component({
   selector: 'app-addship',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./addship.component.css']
 })
 export class AddshipComponent implements OnInit {
+    @ViewChild(SelectComponent) selectComponent: SelectComponent;
+
   // /new
   selectShipsbyBrandOptions: String[];
   selectBrandOptions: String[];
@@ -15,21 +18,15 @@ export class AddshipComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.selectShipsbyBrandOptions = ['Banu', 'anvil'];
-    this.selectBrandOptions = ['merchahn', 'Defender'];
+    this.selectBrandOptions = ['Banu', 'anvil'];
+    this.selectShipsbyBrandOptions = ['merchahn', 'Defender'];
     this.selectBrandLabel="brand"
     this.selectShipsLabel="ships"
+  }
 
+  save() {
+    this.selectComponent.returnValues();
 
-    //rellena el select de Banu soil
-    // this.rellenarSelectBanu();
-
-    // this.rellenarSelectAnvil();
-
-
-    // this.selectOptions1 = ['op4', 'op4', 'mustang'];
-    // this.selectOptions2 = ['op5', 'op5op2', 'op3'];
-    // this.selectOptions3 = ['op1', 'op2', 'op3'];
   }
 
 }

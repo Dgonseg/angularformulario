@@ -23,8 +23,8 @@ const routes: Routes = [
   // { path: 'sign-in', component: SignInComponent},
   // { path: 'register-user', component: SignUpComponent, canActivate: [SecureInnerPagesGuard]},
   // { path: 'register-user', component: SignUpComponent, canActivate: [SecureInnerPagesGuard]},
-  { path: 'dashboard', component: dashboardComponent, canActivate: [AuthGuard] },
-  // { path: 'dashboard', component: dashboardComponent },
+  // { path: 'dashboard', component: dashboardComponent, canActivate: [AuthGuard] },
+  { path: 'dashboard', component: dashboardComponent },
   // { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
   // { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] }
 ];

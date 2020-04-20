@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {TableComponent} from "../../components/table/table.component";
 
 @Component({
   selector: 'app-form',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
-  
+  @ViewChild(TableComponent) tableComponent: TableComponent;
+
   selectOptions: String[];
   selectOptions1: String[];
   selectOptions2: String[];
@@ -28,10 +30,8 @@ export class FormComponent implements OnInit {
   }
 
   populateTable($event) {
-    let oldData = this.dataTable;
-    this.dataTable = [];
-    oldData.push($event)
-    this.dataTable = oldData;
+    this.dataTable.push($event);
     this.datatableColumns= ['name','ships'];
+    this.tableComponent.refresh();
   }
 }

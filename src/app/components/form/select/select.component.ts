@@ -8,6 +8,8 @@ import { FormControl } from '@angular/forms';
 })
 export class SelectComponent {
   @Input() selectOptions: String[];
-  @Input() selectLabel: String[];
-  
-}
+  @Input() selectBrandLabel: String[];
+  @Input() selectShipsLabel: String[];
+  @Input() selectShipsbyBrandOptions: String[];
+  @Input() selectBrandOptions: String[];
+}   

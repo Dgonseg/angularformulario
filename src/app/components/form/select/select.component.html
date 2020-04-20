@@ -1,13 +1,13 @@
 <mat-form-field class="mat-app-background basic-container">
-  <mat-label>{{selectLabel}}</mat-label>
-  <mat-select []="toppings" multiple>
-    <mat-option *ngFor="let topping of selectOptions" [value]="topping">{{topping}}</mat-option>
+  <mat-label>{{selectBrandLabel}}</mat-label>
+  <mat-select [(ngModel)]="brand.name" #ctrl="ngModel">
+    <mat-option *ngFor="let brand of selectBrandOptions" [value]="brand">{{brand}}</mat-option>
   </mat-select>
 </mat-form-field>
 
-<mat-form-field class="mat-app-background basic-container">
-  <mat-label>{{selectLabel}}</mat-label>
-  <mat-select [formControl]="toppings" multiple>
-    <mat-option *ngFor="let topping of selectOptions" [value]="topping">{{topping}}</mat-option>
+<mat-form-field *ngIf="brand.name" class="mat-app-background basic-container">
+  <mat-label>{{selectShipsLabel}}</mat-label>
+  <mat-select [(ngModel)]="brand.ships" #ctrl="ngModel" multiple>
+    <mat-option *ngFor="let ship of selectShipsbyBrandOptions" [value]="ship">{{ship}}</mat-option>
   </mat-select>
 </mat-form-field>

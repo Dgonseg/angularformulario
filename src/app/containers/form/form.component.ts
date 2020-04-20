@@ -17,7 +17,6 @@ export class FormComponent implements OnInit {
   selectBrandOptions: String[];
   dataTable: any;
   datatableColumns:String[]
-  showtable: boolean = false;
 
 
   constructor() { }
@@ -29,9 +28,10 @@ export class FormComponent implements OnInit {
   }
 
   populateTable($event) {
-    this.showtable = false;
-    this.dataTable.push($event);
+    let oldData = this.dataTable;
+    this.dataTable = [];
+    oldData.push($event)
+    this.dataTable = oldData;
     this.datatableColumns= ['name','ships'];
-     this.showtable = true;
   }
 }

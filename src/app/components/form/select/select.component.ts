@@ -25,6 +25,15 @@ export class SelectComponent implements OnInit {
 
 
   returnValues() {
-    return this.brand
+    let value =  this.brand
+    this.resetValues();
+    return value
+  }
+
+  resetValues() {
+    this.brand = {
+      name: '',
+      ships: []
+    }
   }
 }   

@@ -36,4 +36,8 @@ export class SelectComponent implements OnInit {
       ships: []
     }
   }
+
+  onChange() {
+    this.brand.ships= [];
+  }
 }   

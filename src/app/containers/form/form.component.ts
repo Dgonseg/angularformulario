@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {TableComponent} from "../../components/table/table.component";
+import {DataService} from '../../shared/services/data.services';
 
 @Component({
   selector: 'app-form',
@@ -19,11 +20,26 @@ export class FormComponent implements OnInit {
   selectBrandOptions: String[];
   dataTable: any;
   datatableColumns:String[]
+  brands =[];
 
 
-  constructor() { }
+  constructor(private db: DataService) { }
 
   ngOnInit() {
+    this.db.getBrand().subscribe(
+      (brands)=>{
+        console.log('ok', brands);
+          var test = [];
+          brands.forEach((brand: any) => {
+           this.brands.push({
+            id: brand.payload.doc.id,
+            data: brand.payload.doc.data()
+          });
+        })
+      },
+      (ko)=>{console.log('ko',  this.brands)}
+    );
+    console.log()
     this.selectShipsbyBrandOptions = ['Banu', 'anvil'];
     this.selectBrandOptions = ['merchahn', 'Defender'];
     this.dataTable = [];

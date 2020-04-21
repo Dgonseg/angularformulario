@@ -23,11 +23,14 @@ import { InputComponent } from './components/form/input/input.component';
 
 // firebase
 import { AngularFirestore } from '@angular/fire/firestore';
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
 // import { AngularFireAuthModule } from "@angular/fire/auth";
 // import { registerFirestore } from '@firebase/firestore';
 // import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 // Auth
 import { AuthService } from "./shared/services/auth.services";
 import { dashboardComponent } from './containers/dashboard/dashboard.component';
@@ -49,9 +52,9 @@ var firebaseConfig = {
     appId: "1:267439002356:web:20d63d805ea100355244a1"
   };
 
-if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-}
+// if (!firebase.apps.length) {
+//     firebase.initializeApp(firebaseConfig);
+// }
 
 
 
@@ -64,7 +67,9 @@ if (!firebase.apps.length) {
     BrowserAnimationsModule,
     MatNativeDateModule,
     FormsModule,
-    AngularFireDatabaseModule
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAnalyticsModule,
+    AngularFirestoreModule
   ],
   providers: [AuthService,AngularFirestore],
   declarations: [

@@ -1,6 +1,5 @@
-import { Component, OnInit,ViewChild, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit,ViewChild, Output, EventEmitter, Input } from '@angular/core';
 import {SelectComponent} from '../select/select.component';
-import {DataService} from '../../../shared/services/data.services';
 
 @Component({
   selector: 'app-addship',
@@ -18,11 +17,13 @@ export class AddshipComponent implements OnInit {
   selectBrandOptions: String[];
   selectBrandLabel: String;
   selectShipsLabel: String;
+  @Input() brands: any[]
 
-  constructor(dataService: DataService) { }
+
+  constructor() { }
 
   ngOnInit() {
-    this.getBrand();
+    // this.getBrand();
     this.selectBrandOptions = ['Banu', 'anvil'];
     this.selectShipsbyBrandOptions = ['merchahn', 'Defender'];
     this.selectBrandLabel="brand"
@@ -34,10 +35,10 @@ export class AddshipComponent implements OnInit {
     this.populateTable.emit(shipValue);
   }
 
-  getBrand() {
+  // getBrand() {
 
-    debugger
-    this.dataService.getBrand();
-  }
+  //   debugger
+  //   this.dataService.getBrand();
+  // }
 
 }

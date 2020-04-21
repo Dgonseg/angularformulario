@@ -6,8 +6,10 @@
     ></app-table>
 </div>
 <div class="test">
-  <h1>Formulario</h1>
+  <h1>Añadir Nave</h1>
   <app-addship
-  (populateTable)="populateTable($event)">
+    *ngIf="brands.length > 0"
+    [brands]="brands"
+    (populateTable)="populateTable($event)">
   </app-addship>
 </div>

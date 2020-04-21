@@ -1,7 +1,7 @@
 <mat-form-field class="mat-app-background basic-container">
   <mat-label>{{selectBrandLabel}}</mat-label>
-  <mat-select [(ngModel)]="brand.name" #ctrl="ngModel">
-    <mat-option *ngFor="let brand of selectBrandOptions" [value]="brand">{{brand}}</mat-option>
+  <mat-select [(ngModel)]="brand.name" #ctrl="ngModel" (ngModelChange)="onChange($event)">
+    <mat-option *ngFor="let brand of selectBrandOptions" [value]="brand.data">{{brand.data.name |json}}</mat-option>
   </mat-select>
 </mat-form-field>
 

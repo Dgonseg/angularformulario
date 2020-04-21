@@ -1,13 +1,31 @@
-<mat-form-field class="mat-app-background basic-container">
-  <mat-label>{{selectBrandLabel}}</mat-label>
-  <mat-select [(ngModel)]="brand.name" #ctrl="ngModel" (ngModelChange)="onChange($event)">
-    <mat-option *ngFor="let brand of selectBrandOptions" [value]="brand.data.name">{{brand.data.name}}</mat-option>
-  </mat-select>
-</mat-form-field>
+<div *ngIf="!insertMode">
+  <mat-form-field class="mat-app-background basic-container">
+    <mat-label>{{selectBrandLabel}}</mat-label>
+    <mat-select [(ngModel)]="brand.name" #ctrl="ngModel" (ngModelChange)="onChange($event)">
+      <mat-option *ngFor="let brand of selectBrandOptions" [value]="brand.data.name">{{brand.data.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
 
-<mat-form-field *ngIf="brand.name" class="mat-app-background basic-container">
-  <mat-label>{{selectShipsLabel}}</mat-label>
-  <mat-select [(ngModel)]="brand.ships" #ctrl="ngModel" multiple>
-    <mat-option *ngFor="let ship of selectShipsbyBrandOptions" [value]="ship">{{ship}}</mat-option>
-  </mat-select>
-</mat-form-field>
+  <mat-form-field *ngIf="brand.name" class="mat-app-background basic-container">
+    <mat-label>{{selectShipsLabel}}</mat-label>
+    <mat-select [(ngModel)]="brand.ships" #ctrl="ngModel" multiple>
+      <mat-option *ngFor="let ship of selectShipsbyBrandOptions" [value]="ship">{{ship}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<div *ngIf="insertMode">
+  <mat-form-field class="mat-app-background basic-container">
+    <mat-label>{{selectBrandLabel}}</mat-label>
+    <mat-select [(ngModel)]="newModel.brand" #ctrl="ngModel">
+      <mat-option *ngFor="let brand of selectBrandOptions" [value]="brand.data">{{brand.data.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field *ngIf="newModel.brand" class="mat-app-background basic-container">
+      <mat-label>Modelo</mat-label>
+      <input matInput placeholder="Modelo" [(ngModel)]="newModel.model" value="brand.ships">
+  </mat-form-field>
+</div>
+
+{{ctrl}}

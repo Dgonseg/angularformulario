@@ -13,13 +13,23 @@ export class SelectComponent implements OnInit {
   @Input() selectShipsbyBrandOptions: String[];
   @Input() selectBrandOptions: String[];
 
+  @Input() insertMode: boolean;
+
 
   brand: any;
+  newModel: any;
 
   ngOnInit() {
     this.brand = {
       name: '',
       ships: []
+    }
+    this.newModel = {
+      brand:  {
+        id: null,
+        name: null
+      },
+      model: null
     }
   }
 
@@ -29,6 +39,13 @@ export class SelectComponent implements OnInit {
     this.resetValues();
     return value
   }
+
+    returnValuesNewModel() {
+    let value =  this.newModel
+    this.resetValues();
+    return value
+  }
+
 
   resetValues() {
     this.brand = {

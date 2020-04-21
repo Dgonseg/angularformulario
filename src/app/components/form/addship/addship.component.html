@@ -1,4 +1,5 @@
 <div>
+  <h1>Añadir Nave</h1>
   <form-select
     [selectBrandLabel]="selectBrandLabel"
     [selectShipsLabel]="selectShipsLabel"
@@ -7,4 +8,17 @@
   ></form-select>
 
   <button (click)="save()">save</button>
+</div>
+
+<div>
+    <h1>Añadir Modelo</h1>
+  <form-select
+    [selectBrandLabel]="selectBrandLabel"
+    [selectShipsLabel]="selectShipsLabel"
+    [selectShipsbyBrandOptions]="selectShipsbyBrandOptions"
+    [selectBrandOptions]="brands"
+    [insertMode] ="true"
+  ></form-select>
+
+  <button (click)="saveModel()">save</button>
 </div>

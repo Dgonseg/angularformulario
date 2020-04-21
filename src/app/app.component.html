@@ -1,6 +1,5 @@
 <mat-sidenav-container class="example-container">
-   <mat-sidenav *ngIf="authService.isLoggedIn()" #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
-               (closed)="events.push('close!')">
+   <mat-sidenav #sidenav mode="side" [(opened)]="opened">
     <app-menu></app-menu>
     </mat-sidenav>
   <mat-sidenav-content>

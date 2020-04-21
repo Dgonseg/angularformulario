@@ -34,11 +34,4 @@ export class AddshipComponent implements OnInit {
     let shipValue =  this.selectComponent.returnValues();
     this.populateTable.emit(shipValue);
   }
-
-  // getBrand() {
-
-  //   debugger
-  //   this.dataService.getBrand();
-  // }
-
 }

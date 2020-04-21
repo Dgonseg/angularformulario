@@ -1,11 +1,11 @@
 <mat-sidenav-container class="example-container">
-   <mat-sidenav #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
+   <mat-sidenav *ngIf="authService.isLoggedIn()" #sidenav mode="side" [(opened)]="opened" (opened)="events.push('open!')"
                (closed)="events.push('close!')">
     <app-menu></app-menu>
     </mat-sidenav>
   <mat-sidenav-content>
 
-    <mat-toolbar>
+    <mat-toolbar *ngIf="authService.isLoggedIn()">
       <button mat-button (click)="sidenav.toggle()">Menu</button>
     </mat-toolbar>
     <router-outlet></router-outlet>

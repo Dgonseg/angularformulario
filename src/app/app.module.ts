@@ -22,13 +22,12 @@ import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 import { InputComponent } from './components/form/input/input.component';
 
 // firebase
-// import { AngularFireModule } from "@angular/fire";
+import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
 // import { AngularFireAuthModule } from "@angular/fire/auth";
 // import { registerFirestore } from '@firebase/firestore';
 // import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
-
 // Auth
 import { AuthService } from "./shared/services/auth.services";
 import { dashboardComponent } from './containers/dashboard/dashboard.component';
@@ -67,7 +66,7 @@ if (!firebase.apps.length) {
     FormsModule,
     AngularFireDatabaseModule
   ],
-  providers: [AuthService],
+  providers: [AuthService,AngularFirestore],
   declarations: [
     AppComponent,
     SelectComponent,

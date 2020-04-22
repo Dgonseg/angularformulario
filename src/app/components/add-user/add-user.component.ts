@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddUserComponent implements OnInit {
 
+  profile: object;
+
   constructor() { }
 
   ngOnInit() {
+    // this.profile
   }
 
 }

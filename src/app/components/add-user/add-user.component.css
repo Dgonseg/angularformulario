@@ -13,7 +13,12 @@
 }
 
 .card-button {
-  displa
-  position: right;
+  position: relative;
+  /* left: 100%; */
 
+}
+
+.title {
+  /* display: flex; */
+  max-width: 300px;
 }

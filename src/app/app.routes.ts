@@ -20,7 +20,7 @@ import {AuthGuard} from './shared/guard/auth.guard';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/sign-in', pathMatch: 'full'},
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  { path: '', redirectTo: '/sign-in', pathMatch: 'full'},
   // { path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard]},
   { path: 'sign-in', component: SignInComponent},
   { path: 'add-user', component: AddUserComponent},

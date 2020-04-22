@@ -41,6 +41,7 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { MenuComponent } from './containers/menu/menu.component';
 import { AddshipComponent } from './components/form/addship/addship.component';
 import { TableComponent } from './components/table/table.component';
+
 // containers
 import { AdminComponent } from './containers/admin/admin.component';
 import { ProfileComponent } from './components/profile/profile.component';

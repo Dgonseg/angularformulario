@@ -1,14 +1,38 @@
-<div>
-  <app-table
-    *ngIf="dataTable.length > 0"
-    [dataTable]="dataTable"
-    [datatableColumns]="datatableColumns"
-    ></app-table>
+<!-- //perfil o modo edicion -->
+<div *ngIf="!adminMode">
+  <div>
+    <app-table
+      *ngIf="dataTable.length > 0"
+      [dataTable]="dataTable"
+      [datatableColumns]="datatableColumns"
+      ></app-table>
+  </div>
+  <div class="test">
+    <app-addship
+      *ngIf="brands.length > 0"
+      [brands]="brands"
+      (populateTable)="populateTable($event)">
+    </app-addship>
+  </div>
 </div>
-<div class="test">
-  <app-addship
-    *ngIf="brands.length > 0"
-    [brands]="brands"
-    (populateTable)="populateTable($event)">
-  </app-addship>
+
+
+
+<div *ngIf="adminMode">
+  <div>
+    <app-table
+      *ngIf="dataTable.length > 0"
+      [dataTable]="dataTable"
+      [datatableColumns]="datatableColumns"
+      ></app-table>
+  </div>
+  <div class="test">
+    <app-addship
+      [adminMode]="adminMode"
+      *ngIf="brands.length > 0"
+      [brands]="brands"
+      (populateTable)="populateTable($event)"
+      (selectBrad)="selectBrad($event)">
+    </app-addship>
+  </div>
 </div>

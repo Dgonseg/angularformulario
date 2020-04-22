@@ -17,4 +17,12 @@ export class DataService {
     return this.db.collection('marca').snapshotChanges();
   }
 
+  createModel(model) {
+     return new Promise<any>((resolve, reject) =>{
+        this.db
+            .collection("modelo")
+            .add(model)
+            .then(res => {}, err => reject(err));
+    }); 
+  }
 }

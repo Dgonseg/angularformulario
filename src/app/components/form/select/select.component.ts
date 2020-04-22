@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 @Component({
@@ -14,6 +14,9 @@ export class SelectComponent implements OnInit {
   @Input() selectBrandOptions: String[];
 
   @Input() insertMode: boolean;
+
+  // @Input() selectBrad: any
+   @Output() changeBrand: EventEmitter<any> = new EventEmitter();
 
 
   brand: any;
@@ -56,5 +59,7 @@ export class SelectComponent implements OnInit {
 
   onChange() {
     this.brand.ships= [];
+    console.log('onChange',this.brand.name);
+    this.changeBrand.emit('test')
   }
 }   

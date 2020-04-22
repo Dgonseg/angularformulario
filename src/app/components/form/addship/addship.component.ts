@@ -1,5 +1,6 @@
 import { Component, OnInit,ViewChild, Output, EventEmitter, Input } from '@angular/core';
 import {SelectComponent} from '../select/select.component';
+import {DataService} from '../../../shared/services/data.services';
 
 @Component({
   selector: 'app-addship',
@@ -9,8 +10,11 @@ import {SelectComponent} from '../select/select.component';
 export class AddshipComponent implements OnInit {
   @ViewChild(SelectComponent) selectComponent: SelectComponent;
   @Output() populateTable: EventEmitter<any> = new EventEmitter();
+  @Output() selectBrad: EventEmitter<any> = new EventEmitter();
+  @Input() adminMode : boolean;
 
-  dataService: any
+
+  // dataService: any
 
   // /new
   selectShipsbyBrandOptions: String[];
@@ -20,7 +24,7 @@ export class AddshipComponent implements OnInit {
   @Input() brands: any[]
 
 
-  constructor() { }
+  constructor(private db: DataService) { }
 
   ngOnInit() {
     // this.getBrand();
@@ -38,6 +42,10 @@ export class AddshipComponent implements OnInit {
   saveModel() {
     let shipValue =  this.selectComponent.returnValuesNewModel();
     console.log('ship', shipValue)
+    this.db.createModel(shipValue);
+  }
 
+  changeBrand($event) {
+    this.selectBrad.emit($event)
   }
 }

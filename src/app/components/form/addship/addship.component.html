@@ -1,16 +1,17 @@
-<div>
+<div *ngIf="!adminMode">
   <h1>Añadir Nave</h1>
   <form-select
     [selectBrandLabel]="selectBrandLabel"
     [selectShipsLabel]="selectShipsLabel"
     [selectShipsbyBrandOptions]="selectShipsbyBrandOptions"
     [selectBrandOptions]="brands"
+    (changeBrand) ="changeBrand($event)"
   ></form-select>
 
   <button (click)="save()">save</button>
 </div>
 
-<div>
+<div *ngIf="adminMode">
     <h1>Añadir Modelo</h1>
   <form-select
     [selectBrandLabel]="selectBrandLabel"

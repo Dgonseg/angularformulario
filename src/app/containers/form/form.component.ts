@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import {TableComponent} from "../../components/table/table.component";
 import {DataService} from '../../shared/services/data.services';
 
@@ -9,6 +9,7 @@ import {DataService} from '../../shared/services/data.services';
 })
 export class FormComponent implements OnInit {
   @ViewChild(TableComponent) tableComponent: TableComponent;
+  @Input() adminMode : boolean;
 
   selectOptions: String[];
   selectOptions1: String[];
@@ -28,7 +29,6 @@ export class FormComponent implements OnInit {
   ngOnInit() {
     this.db.getBrand().subscribe(
       (brands)=>{
-        console.log('ok', brands);
           var test = [];
           brands.forEach((brand: any) => {
            this.brands.push({
@@ -37,11 +37,10 @@ export class FormComponent implements OnInit {
           });
         })
       },
-      (ko)=>{console.log('ko',  this.brands)}
+      (ko)=>{console.log('ko',  ko)}
     );
-    console.log()
     this.selectShipsbyBrandOptions = ['Banu', 'anvil'];
-    this.selectBrandOptions = ['merchahn', 'Defender'];
+    this.selectBrandOptions = [];
     this.dataTable = [];
   }
 
@@ -49,5 +48,14 @@ export class FormComponent implements OnInit {
     this.dataTable.push($event);
     this.datatableColumns= ['name','ships'];
     this.tableComponent.refresh();
+  }
+
+  selectBrad($event) {
+    console.log('thuis!!!!')
+    this.getmodel($event);
+  }
+
+  getmodel(brand) {
+
   }
 }

@@ -44,6 +44,7 @@ import { TableComponent } from './components/table/table.component';
 // containers
 import { AdminComponent } from './containers/admin/admin.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
 
 var firebaseConfig = {
     apiKey: "AIzaSyDmeg09xntmdUxvyJwIxAWFAOC_Z0UTGzQ",
@@ -90,7 +91,8 @@ if (!firebase.apps.length) {
     AddshipComponent,
     TableComponent,
     AdminComponent,
-    ProfileComponent],
+    ProfileComponent,
+    AddUserComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

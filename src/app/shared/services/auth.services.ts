@@ -40,6 +40,7 @@ export class AuthService {
   SignIn(email, password) {
     return firebase.auth().signInWithEmailAndPassword(email, password)
       .then((result) => {
+        console.log(result);
         this.ngZone.run(() => {
           this.router.navigate(['dashboard']);
         });
@@ -90,7 +91,6 @@ export class AuthService {
 
   // Sign in with Google
   GoogleAuth() {
-    
     return this.AuthLogin(new auth.GoogleAuthProvider());
   }
 
@@ -98,14 +98,16 @@ export class AuthService {
   AuthLogin(provider) {
     return firebase.auth().signInWithPopup(provider)
     .then((result) => {
-      console.log(result)
+      console.log(result);
+      this.getUserInformation();
       this.saveLocalStorageUser(result.user);
        this.ngZone.run(() => {
           this.router.navigate(['dashboard']);
         })
       this.SetUserData(result.user);
     }).catch((error) => {
-      window.alert(error)
+      console.log(error)
+      // window.alert(error)
     })
   }
 
@@ -146,4 +148,7 @@ export class AuthService {
     })
   }
 
+  getUserInformation() {
+    console.log('getUserInformation');
+  }
 }

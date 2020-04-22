@@ -12,7 +12,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
-
+import { AddUserComponent } from './components/add-user/add-user.component';
 //guards
 import {SecureInnerPagesGuard} from './shared/guard/secure-inner-pages.guard';
 import {AuthGuard} from './shared/guard/auth.guard';
@@ -22,6 +22,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   // { path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard]},
   { path: 'sign-in', component: SignInComponent},
+  { path: 'add-user', component: AddUserComponent},
   // { path: 'register-user', component: SignUpComponent, canActivate: [SecureInnerPagesGuard]},
   // { path: 'register-user', component: SignUpComponent, canActivate: [SecureInnerPagesGuard]},
   // { path: 'dashboard', component: dashboardComponent, canActivate: [AuthGuard] },

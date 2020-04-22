@@ -43,6 +43,7 @@ import { AddshipComponent } from './components/form/addship/addship.component';
 import { TableComponent } from './components/table/table.component';
 // containers
 import { AdminComponent } from './containers/admin/admin.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 var firebaseConfig = {
     apiKey: "AIzaSyDmeg09xntmdUxvyJwIxAWFAOC_Z0UTGzQ",
@@ -88,7 +89,8 @@ if (!firebase.apps.length) {
     MenuComponent,
     AddshipComponent,
     TableComponent,
-    AdminComponent],
+    AdminComponent,
+    ProfileComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

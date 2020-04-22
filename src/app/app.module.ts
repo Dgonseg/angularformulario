@@ -41,6 +41,8 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { MenuComponent } from './containers/menu/menu.component';
 import { AddshipComponent } from './components/form/addship/addship.component';
 import { TableComponent } from './components/table/table.component';
+// containers
+import { AdminComponent } from './containers/admin/admin.component';
 
 var firebaseConfig = {
     apiKey: "AIzaSyDmeg09xntmdUxvyJwIxAWFAOC_Z0UTGzQ",
@@ -85,7 +87,8 @@ if (!firebase.apps.length) {
     VerifyEmailComponent,
     MenuComponent,
     AddshipComponent,
-    TableComponent],
+    TableComponent,
+    AdminComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

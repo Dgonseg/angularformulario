@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 //containers
 import { FormComponent } from './containers/form/form.component';
 import { LoginComponent } from './containers/login/login.component';
-
+import { AdminComponent } from './containers/admin/admin.component';
 
 //login test
 import { dashboardComponent } from './containers/dashboard/dashboard.component';
@@ -19,12 +19,14 @@ import {AuthGuard} from './shared/guard/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full'},
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
   // { path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard]},
   { path: 'sign-in', component: SignInComponent},
   // { path: 'register-user', component: SignUpComponent, canActivate: [SecureInnerPagesGuard]},
   // { path: 'register-user', component: SignUpComponent, canActivate: [SecureInnerPagesGuard]},
   // { path: 'dashboard', component: dashboardComponent, canActivate: [AuthGuard] },
   { path: 'dashboard', component: dashboardComponent },
+  { path: 'admin', component: AdminComponent },
   // { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
   // { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] }
 ];

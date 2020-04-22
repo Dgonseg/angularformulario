@@ -1,21 +1,35 @@
   
-  <div class="profile">
+  <div class="creacion">
     <mat-card>
-      <img mat-card-image>
-      <mat-card-title>
-        name
+      <mat-card-title class="card-button">
+        Creación Usuario
+        <button mat-raised-button color="primary">Accent</button>
       </mat-card-title>
-      <mat-card-subtitle>
-        Rol
-      </mat-card-subtitle>
-      <mat-card-subtitle>
-        nave Favorita
-      </mat-card-subtitle>
-      <mat-card-content>
-        Description
-      </mat-card-content>
-      <mat-card-subtitle>
-       ORganizacion
-      </mat-card-subtitle>
+      <form class="example-form">
+        <mat-form-field class="example-full-width">
+          <mat-label>Username</mat-label>
+          <input matInput placeholder="Nombre StarCitizen" value="" required>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Rol</mat-label>
+          <input matInput placeholder="Nombre StarCitizen" value="" required>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Nave Favorita</mat-label>
+          <input matInput placeholder="Nave favorita" value="" required>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Rol</mat-label>
+          <input matInput placeholder="Nombre StarCitizen" value="" required>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Organizacion</mat-label>
+          <input matInput placeholder="Nave favorita" value="" required>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Descripción</mat-label>
+          <textarea matInput placeholder=""></textarea>
+        </mat-form-field>
+      </form>
     </mat-card>
   </div>

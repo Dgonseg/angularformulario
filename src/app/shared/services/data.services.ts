@@ -18,33 +18,32 @@ export class DataService {
   }
 
   getModel(brand):any {
-    console.log('getModel')
-      // return this.db.collection('modelo').where("name", "==", brand)
-      //   .get(
+    // console.log('getModel')
+    // debugger
+    this.db.collection("modelo") 
+    // .get()
+    // .then(function(querySnapshot) {
+    //     querySnapshot.forEach(function(doc) {
+    //         // doc.data() is never undefined for query doc snapshots
+    //         console.log(doc.id, " => ", doc.data());
+    //     });
+    // })
+    // .catch(function(error) {
+    //     console.log("Error getting documents: ", error);
+    // });
 
-      //   ));
-
-        this.db.collection("modelo").where("name", "==", brand)
-        .get()
-        .then(function(querySnapshot) {
-            querySnapshot.forEach(function(doc) {
-                // doc.data() is never undefined for query doc snapshots
-                console.log(doc.id, " => ", doc.data());
-            });
-        })
-        .catch(function(error) {
-            console.log("Error getting documents: ", error);
-        });
   }
 
 
   createModel(model) {
-     return new Promise<any>((resolve, reject) =>{
-        this.db
-            .collection("modelo")
-            .doc(model.brand.id)
-            .add(model)
-            .then(res => {}, err => reject(err));
-    }); 
+    console.log(model);
+    this.db.collection("modelo").doc(model.brand.id).set(model)
+    //  return new Promise<any>((resolve, reject) =>{
+    //     this.db
+    //         .collection("modelo")
+    //         .doc(model.brand.id)
+    //         .add(model)
+    //         .then(res => {}, err => reject(err));
+    // }); 
   }
 }

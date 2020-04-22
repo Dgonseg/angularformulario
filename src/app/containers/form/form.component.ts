@@ -51,11 +51,12 @@ export class FormComponent implements OnInit {
   }
 
   selectBrad($event) {
-    console.log('thuis!!!!')
+    console.log('thuis!!!!', $event)
     this.getmodel($event);
   }
 
   getmodel(brand) {
+    this.db.getModel(brand)
 
   }
 }

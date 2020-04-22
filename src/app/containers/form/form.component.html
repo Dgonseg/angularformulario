@@ -11,7 +11,10 @@
     <app-addship
       *ngIf="brands.length > 0"
       [brands]="brands"
-      (populateTable)="populateTable($event)">
+      [brandModels]="brandModels"
+      (populateTable)="populateTable($event)"
+      (selectBrad)="selectBrad($event)"
+      >
     </app-addship>
   </div>
 </div>
@@ -31,8 +34,7 @@
       [adminMode]="adminMode"
       *ngIf="brands.length > 0"
       [brands]="brands"
-      (populateTable)="populateTable($event)"
-      (selectBrad)="selectBrad($event)">
+      (populateTable)="populateTable($event)">
     </app-addship>
   </div>
 </div>

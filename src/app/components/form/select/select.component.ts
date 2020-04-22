@@ -59,7 +59,6 @@ export class SelectComponent implements OnInit {
 
   onChange() {
     this.brand.ships= [];
-    console.log('onChange',this.brand.name);
-    this.changeBrand.emit('test')
+    this.changeBrand.emit(this.brand.name)
   }
 }   

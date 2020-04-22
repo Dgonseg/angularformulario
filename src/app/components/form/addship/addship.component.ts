@@ -12,26 +12,24 @@ export class AddshipComponent implements OnInit {
   @Output() populateTable: EventEmitter<any> = new EventEmitter();
   @Output() selectBrad: EventEmitter<any> = new EventEmitter();
   @Input() adminMode : boolean;
+  @Input() brands: any[]
 
-
-  // dataService: any
+  @Input() brandModels : boolean;
 
   // /new
-  selectShipsbyBrandOptions: String[];
+  selectShipsbyBrandOptions: any;
   selectBrandOptions: String[];
   selectBrandLabel: String;
   selectShipsLabel: String;
-  @Input() brands: any[]
 
 
   constructor(private db: DataService) { }
 
   ngOnInit() {
-    // this.getBrand();
     this.selectBrandOptions = ['Banu', 'anvil'];
-    this.selectShipsbyBrandOptions = ['merchahn', 'Defender'];
-    this.selectBrandLabel="brand"
-    this.selectShipsLabel="ships"
+    this.selectShipsbyBrandOptions = this.brandModels;
+    this.selectBrandLabel="Marca"
+    this.selectShipsLabel="Modelo"
   }
 
   save() {

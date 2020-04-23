@@ -1,5 +1,5 @@
 <!-- //perfil o modo edicion -->
-<div *ngIf="!adminMode">
+<div *ngIf="!adminMode && showComponent">
   <div>
     <app-table
       *ngIf="dataTable.length > 0"
@@ -21,7 +21,7 @@
 
 
 
-<div *ngIf="adminMode">
+<div *ngIf="adminMode && showComponent">
   <div>
     <app-table
       *ngIf="dataTable.length > 0"

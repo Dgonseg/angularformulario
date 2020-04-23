@@ -25,11 +25,13 @@ const routes: Routes = [
   { path: 'sign-in', component: SignInComponent},
   { path: 'add-user', component: AddUserComponent},
   { path: 'profile', component: ProfileComponent},
+  { path: 'dashboard', component: dashboardComponent },
+  { path: 'admin', component: AdminComponent },
+
+
   // { path: 'register-user', component: SignUpComponent, canActivate: [SecureInnerPagesGuard]},
   // { path: 'register-user', component: SignUpComponent, canActivate: [SecureInnerPagesGuard]},
   // { path: 'dashboard', component: dashboardComponent, canActivate: [AuthGuard] },
-  { path: 'dashboard', component: dashboardComponent },
-  { path: 'admin', component: AdminComponent },
   // { path: 'forgot-password', component: ForgotPasswordComponent, canActivate: [SecureInnerPagesGuard] },
   // { path: 'verify-email-address', component: VerifyEmailComponent, canActivate: [SecureInnerPagesGuard] }
 ];

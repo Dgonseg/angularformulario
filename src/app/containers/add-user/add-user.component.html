@@ -15,10 +15,18 @@
           <input formControlName="username" matInput placeholder="Nick StarCitizen" value="" required>
         </mat-form-field>
          <!-- <label *ngIf="username.invalid" [ngClass] = "'error'">El nick es requerido </label> -->
-         <!-- rol -->
+         <!-- Main rol -->
          <mat-form-field class="example-full-width">
-          <mat-label>Rol</mat-label>
-          <input  formControlName="rol" matInput placeholder="Rol Ej:Comercio" value="" required>
+          <mat-label>Rol Principal</mat-label>
+          <mat-select formControlName="rolprincipal">
+            <mat-option *ngFor="let rol of roles" [value]="rol">{{rol.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Otros Roles</mat-label>
+          <mat-select formControlName="rol" multiple>
+            <mat-option *ngFor="let rol of roles" [value]="rol">{{rol.name}}</mat-option>
+          </mat-select>
         </mat-form-field>
          <!-- <label *ngIf="rol.invalid" [ngClass] = "'error'">El rol es requerido </label> -->
         <!-- Favorite -->

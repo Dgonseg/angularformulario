@@ -13,12 +13,13 @@ import {Profile} from '../../shared/interfaces/profile';
 export class AddUserComponent implements OnInit {
   userForm = new FormGroup({
     username: new FormControl([Validators.required]),
-    rol: new FormControl([Validators.required]),
+    rolprincipal: new FormControl([Validators.required]),
+    rol: new FormControl(),
     favorite:  new FormControl([Validators.required]),
     org:  new FormControl(),
     descripcion: new FormControl()
   })
-
+  roles= [];
   userProfile: Profile;
 
   constructor(
@@ -28,6 +29,16 @@ export class AddUserComponent implements OnInit {
     ) { }
 
   ngOnInit() {
+
+    this.dataService.getGameRoles()
+    .subscribe((roles) => {
+      console.log('as',this.roles);
+      roles.forEach((rol)=>{
+        const dataRol = rol.payload.doc.data();
+        this.roles.push(dataRol);
+      })
+      console.log(this.roles);
+    })
   }
 
   save(): void {
@@ -36,6 +47,7 @@ export class AddUserComponent implements OnInit {
 
     this.userProfile = {
       username: this.userForm.get('username').value,
+      rolPrincipal: this.userForm.get('rolprincipal').value, 
       rol: this.userForm.get('rol').value,
       favorite:  this.userForm.get('favorite').value,
       org:  this.userForm.get('org').value,
@@ -44,8 +56,6 @@ export class AddUserComponent implements OnInit {
     }
 
     this.dataService.createUser(this.userProfile)
-    .subscribe((result) => {
-      this.router.navigate(['profile']);
-    })
+    this.router.navigate(['profile']);
   }
 }

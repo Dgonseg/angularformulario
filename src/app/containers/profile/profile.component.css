@@ -12,3 +12,8 @@
 .table {
   padding-left: 20px; 
 }
+
+.tablenodata {
+  padding: 10px;
+  width: 80%;
+}

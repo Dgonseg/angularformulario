@@ -22,6 +22,9 @@ export class FormComponent implements OnInit {
   dataTable: any;
   datatableColumns:String[]
   brands =[];
+  brandModels =[];
+  showComponent = true;
+  
 
 
   constructor(private db: DataService) { }
@@ -39,7 +42,6 @@ export class FormComponent implements OnInit {
       },
       (ko)=>{console.log('ko',  ko)}
     );
-    this.selectShipsbyBrandOptions = ['Banu', 'anvil'];
     this.selectBrandOptions = [];
     this.dataTable = [];
   }
@@ -56,7 +58,12 @@ export class FormComponent implements OnInit {
   }
 
   getmodel(brand) {
+    this.showComponent = false;
     this.db.getModel(brand)
-
+    .subscribe((models)=> {
+      console.log('models', models);
+      this.brandModels = models;
+      this.showComponent = true;
+    })
   }
 }

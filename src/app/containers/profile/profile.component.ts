@@ -15,7 +15,8 @@ export class ProfileComponent implements OnInit {
   marcafavorita: string;
   personalDescription: string;
   org:String;
-  
+  showProfile: boolean = false
+  userShips = [];
 
   constructor(
     public authService: AuthService,
@@ -27,11 +28,15 @@ export class ProfileComponent implements OnInit {
 
     this.dataService.getUser(userMail.email)
       .subscribe((user)=> {
-          this.name = user.username;
-          this.rol = user.role;
-          this.naveFavorita = user.favorit;
-          this.org = user.org;
-          this.personalDescription = user.description;
+        if(user.length > 0){
+          this.name = user[0].username;
+          this.rol = user[0].rol;
+          this.naveFavorita = user[0].favorite;
+          this.org = user[0].org;
+          this.personalDescription = user[0].descripcion;
+
+          this.showProfile = true;
+        }
       })
   }
 

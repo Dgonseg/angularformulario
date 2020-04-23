@@ -15,7 +15,6 @@ export class SelectComponent implements OnInit {
 
   @Input() insertMode: boolean;
 
-  // @Input() selectBrad: any
    @Output() changeBrand: EventEmitter<any> = new EventEmitter();
 
 
@@ -23,6 +22,7 @@ export class SelectComponent implements OnInit {
   newModel: any;
 
   ngOnInit() {
+    console.log('select', this.selectShipsbyBrandOptions );
     this.brand = {
       name: '',
       ships: []
@@ -38,12 +38,12 @@ export class SelectComponent implements OnInit {
 
 
   returnValues() {
-    let value =  this.brand
+    let value =  this.brand.name
     this.resetValues();
     return value
   }
 
-    returnValuesNewModel() {
+  returnValuesNewModel() {
     let value =  this.newModel
     this.resetValues();
     return value

@@ -158,9 +158,9 @@ export class AuthService {
   }
   getUserData() {
     // return localStorage.getItem('user');
-    return {
-      mail :'test'
-    }
+    // return {
+    //   mail :'test'
+    // }
   }
 
   // Sign out 

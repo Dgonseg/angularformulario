@@ -44,7 +44,7 @@ import { TableComponent } from './components/table/table.component';
 
 // containers
 import { AdminComponent } from './containers/admin/admin.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { ProfileComponent } from './containers/profile/profile.component';
 import { AddUserComponent } from './containers/add-user/add-user.component';
 
 var firebaseConfig = {

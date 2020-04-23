@@ -13,7 +13,7 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { AddUserComponent } from './containers/add-user/add-user.component';
-import { ProfileComponent } from './components/profile/profile.component';
+import { ProfileComponent } from './containers/profile/profile.component';
 //guards
 import {SecureInnerPagesGuard} from './shared/guard/secure-inner-pages.guard';
 import {AuthGuard} from './shared/guard/auth.guard';

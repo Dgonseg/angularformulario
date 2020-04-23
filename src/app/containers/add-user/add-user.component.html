@@ -8,33 +8,33 @@
           mat-raised-button color="primary">Guardar</button>
         Creación Usuario
       </mat-card-title>
-      <form class="example-form">
+      <form [formGroup] ="userForm" class="example-form">
         <!-- /nick -->
         <mat-form-field class="example-full-width">
           <mat-label>Nick StarCitizen</mat-label>
-          <input [formControl]="userForm.userName" matInput placeholder="Nick StarCitizen" value="" required>
+          <input formControlName="username" matInput placeholder="Nick StarCitizen" value="" required>
         </mat-form-field>
-         <label *ngIf="userForm.userName.invalid" [ngClass] = "'error'">El nick es requerido </label>
+         <!-- <label *ngIf="username.invalid" [ngClass] = "'error'">El nick es requerido </label> -->
          <!-- rol -->
          <mat-form-field class="example-full-width">
           <mat-label>Rol</mat-label>
-          <input  [formControl]="userForm.rol" matInput placeholder="Rol Ej:Comercio" value="" required>
+          <input  formControlName="rol" matInput placeholder="Rol Ej:Comercio" value="" required>
         </mat-form-field>
-         <label *ngIf="userForm.rol.invalid" [ngClass] = "'error'">El rol es requerido </label>
+         <!-- <label *ngIf="rol.invalid" [ngClass] = "'error'">El rol es requerido </label> -->
         <!-- Favorite -->
         <mat-form-field class="example-full-width">
           <mat-label>Nave Favorita</mat-label>
-          <input [formControl]="userForm.favorite" matInput placeholder="Nave favorita" value="">
+          <input formControlName="favorite" matInput placeholder="Nave favorita" value="">
         </mat-form-field>
         <!-- Organizacion -->
         <mat-form-field class="example-full-width">
           <mat-label>Organizacion</mat-label>
-          <input [formControl]="userForm.org" matInput placeholder="Organizacion" value="">
+          <input formControlName="org" matInput placeholder="Organizacion" value="">
         </mat-form-field>
          <!-- Descripción -->
         <mat-form-field class="example-full-width">
           <mat-label>Descripción</mat-label>
-          <textarea [formControl]="userForm.descripcion" matInput placeholder=""></textarea>
+          <textarea formControlName="descripcion" matInput placeholder=""></textarea>
         </mat-form-field>
       </form>
     </mat-card>

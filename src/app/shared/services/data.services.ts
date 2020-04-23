@@ -34,7 +34,7 @@ export class DataService {
 
   }
 
-
+  // create
   createModel(model) {
     console.log(model);
     this.db.collection("modelo").doc(model.brand.id).set(model)
@@ -46,4 +46,14 @@ export class DataService {
     //         .then(res => {}, err => reject(err));
     // }); 
   }
+
+  createUser(user) {
+    return new Promise<any>((resolve, reject) =>{
+      this.db.collection("users")
+      .add(user)
+      .then(res => {}, err => reject(err));
+    })
+  }
+
+  getUser
 }

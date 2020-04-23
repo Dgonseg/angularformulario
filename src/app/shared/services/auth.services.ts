@@ -139,6 +139,9 @@ export class AuthService {
     //   merge: true
     // })
   }
+  getUserData() {
+    return localStorage.getItem('user');
+  }
 
   // Sign out 
   SignOut() {

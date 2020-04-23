@@ -45,7 +45,7 @@ import { TableComponent } from './components/table/table.component';
 // containers
 import { AdminComponent } from './containers/admin/admin.component';
 import { ProfileComponent } from './components/profile/profile.component';
-import { AddUserComponent } from './components/add-user/add-user.component';
+import { AddUserComponent } from './containers/add-user/add-user.component';
 
 var firebaseConfig = {
     apiKey: "AIzaSyDmeg09xntmdUxvyJwIxAWFAOC_Z0UTGzQ",

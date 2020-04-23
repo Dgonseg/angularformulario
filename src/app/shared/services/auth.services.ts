@@ -157,7 +157,7 @@ export class AuthService {
     // })
   }
   getUserData() {
-    // return localStorage.getItem('user');
+    return localStorage.getItem('user');
     // return {
     //   mail :'test'
     // }
@@ -169,6 +169,9 @@ export class AuthService {
       localStorage.removeItem('user');
       this.router.navigate(['sign-in']);
     })
+  }
+  removeCache() {
+     localStorage.removeItem('user');
   }
 
   getUserInformation() {

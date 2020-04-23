@@ -15,4 +15,8 @@ export class SignInComponent implements OnInit {
   ngOnInit() {
   }
 
+  clearCache() {
+    this.authService.removeCache();
+  }
+
 }

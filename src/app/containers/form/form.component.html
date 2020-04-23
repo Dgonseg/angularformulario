@@ -1,15 +1,24 @@
 <!-- //perfil o modo edicion -->
 <div *ngIf="!adminMode">
   <div>
-    <app-table
+    <!-- <app-table
       *ngIf="dataTable.length > 0"
       [dataTable]="dataTable"
       [datatableColumns]="datatableColumns"
-      ></app-table>
+      ></app-table> -->
   </div>
   <div class="test">
     <app-addship
-      *ngIf="brands.length > 0"
+      *ngIf="!selectedBrand"
+      [brands]="brands"
+      [brandModels]="brandModels"
+      (populateTable)="populateTable($event)"
+      (selectBrad)="selectBrad($event)"
+      >
+    </app-addship>
+    <app-addship
+      *ngIf="selectedBrand"
+      [selectedBrand]="selectedBrand"
       [brands]="brands"
       [brandModels]="brandModels"
       (populateTable)="populateTable($event)"
@@ -23,11 +32,11 @@
 
 <div *ngIf="adminMode">
   <div>
-    <app-table
+    <!-- <app-table
       *ngIf="dataTable.length > 0"
       [dataTable]="dataTable"
       [datatableColumns]="datatableColumns"
-      ></app-table>
+      ></app-table> -->
   </div>
   <div class="test">
     <app-addship

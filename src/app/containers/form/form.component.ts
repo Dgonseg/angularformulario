@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import {TableComponent} from "../../components/table/table.component";
 import {DataService} from '../../shared/services/data.services';
+import { AuthService } from "../../shared/services/auth.services";
 
 @Component({
   selector: 'app-form',
@@ -24,32 +25,48 @@ export class FormComponent implements OnInit {
   brands =[];
   brandModels =[];
   showComponent = true;
+  selectedBrand: any;
   
 
 
-  constructor(private db: DataService) { }
+  constructor(
+    private db: DataService,
+    public authService: AuthService,
+    private dataService: DataService) { }
 
   ngOnInit() {
-    this.db.getBrand().subscribe(
-      (brands)=>{
-          var test = [];
-          brands.forEach((brand: any) => {
-           this.brands.push({
-            id: brand.payload.doc.id,
-            data: brand.payload.doc.data()
-          });
-        })
-      },
-      (ko)=>{console.log('ko',  ko)}
-    );
+    this.getBrand()
     this.selectBrandOptions = [];
     this.dataTable = [];
   }
 
   populateTable($event) {
-    this.dataTable.push($event);
-    this.datatableColumns= ['name','ships'];
-    this.tableComponent.refresh();
+    // this.dataTable.push($event);
+    // this.datatableColumns= ['name','ships'];
+    // this.tableComponent.refresh();
+    let userMail = this.authService.getUserData();
+    console.log('userMail', userMail);
+
+    // this.dataService.getUser(userMail.email)
+    this.dataService.getUserId('test').subscribe((user)=> {
+        console.log('user', user)
+        
+      })
+  }
+
+  getBrand(){
+    this.db.getBrand().subscribe(
+    (brands)=>{
+      var test = [];
+      brands.forEach((brand: any) => {
+        this.brands.push({
+          id: brand.payload.doc.id,
+          data: brand.payload.doc.data()
+        });
+       })
+      },
+      (ko)=>{console.log('ko',  ko)}
+    );
   }
 
   selectBrad($event) {
@@ -59,10 +76,12 @@ export class FormComponent implements OnInit {
 
   getmodel(brand) {
     this.showComponent = false;
+    
     this.db.getModel(brand)
     .subscribe((models)=> {
       console.log('models', models);
       this.brandModels = models;
+      this.selectedBrand = brand;
       this.showComponent = true;
     })
   }

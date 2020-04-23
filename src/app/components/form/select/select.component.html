@@ -9,7 +9,7 @@
   <mat-form-field *ngIf="brand.name && selectShipsbyBrandOptions.length > 0" class="mat-app-background basic-container">
     <mat-label>{{selectShipsLabel}}</mat-label>
     <mat-select [(ngModel)]="brand.ships" #ctrl="ngModel" multiple>
-      <mat-option *ngFor="let ship of selectShipsbyBrandOptions" [value]="ship">{{ship|json}}</mat-option>
+      <mat-option *ngFor="let ship of selectShipsbyBrandOptions" [value]="ship">{{ship.model}}</mat-option>
     </mat-select>
   </mat-form-field>
 </div>
@@ -27,5 +27,3 @@
       <input matInput placeholder="Modelo" [(ngModel)]="newModel.model" value="brand.ships">
   </mat-form-field>
 </div>
-
-{{ctrl}}

@@ -52,7 +52,7 @@ export class AddUserComponent implements OnInit {
       favorite:  this.userForm.get('favorite').value,
       org:  this.userForm.get('org').value,
       descripcion: this.userForm.get('descripcion').value,
-      mail: userMail.mail
+      mail: userMail.email
     }
 
     this.dataService.createUser(this.userProfile)

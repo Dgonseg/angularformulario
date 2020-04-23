@@ -15,6 +15,8 @@ export class AddshipComponent implements OnInit {
   @Input() brands: any[]
 
   @Input() brandModels : boolean;
+  @Input() selectedBrand : any;
+
 
   // /new
   selectShipsbyBrandOptions: any;
@@ -26,14 +28,15 @@ export class AddshipComponent implements OnInit {
   constructor(private db: DataService) { }
 
   ngOnInit() {
-    this.selectBrandOptions = ['Banu', 'anvil'];
     this.selectShipsbyBrandOptions = this.brandModels;
     this.selectBrandLabel="Marca"
     this.selectShipsLabel="Modelo"
   }
 
   save() {
+    console.log('normalsave')
     let shipValue =  this.selectComponent.returnValues();
+
     this.populateTable.emit(shipValue);
   }
 

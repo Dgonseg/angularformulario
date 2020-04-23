@@ -25,12 +25,15 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     let userMail = this.authService.getUserData();
+    console.log('userMail', userMail);
 
-    this.dataService.getUser(userMail.email)
+    // this.dataService.getUser(userMail.email)
+    this.dataService.getUser('test')
       .subscribe((user)=> {
+        console.log('user', user)
         if(user.length > 0){
           this.name = user[0].username;
-          this.rol = user[0].rol;
+          this.rol = user[0].rolPrincipal.name;
           this.naveFavorita = user[0].favorite;
           this.org = user[0].org;
           this.personalDescription = user[0].descripcion;

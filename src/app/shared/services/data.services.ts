@@ -33,8 +33,11 @@ export class DataService {
   }
 
   getUser(mail): any {
-    return  this.db.collection('users', ref => ref.where('mail', '==', mail))
-                    .valueChanges({ mail });
+    return  this.db.collection('users', ref => ref.where('mail', '==', mail)).valueChanges({ mail });
+  }
+  getUserId(mail): any {
+    return  this.db.collection('users', ref => ref.where('mail', '==', mail)).valueChanges();
+    // return this.db.collection('users').valueChanges();
   }
 
   getGameRoles(): Observable<any> {

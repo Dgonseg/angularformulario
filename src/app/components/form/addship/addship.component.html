@@ -1,6 +1,7 @@
 <div *ngIf="!adminMode">
   <h1>Añadir Nave</h1>
   <form-select
+    [selectedBrand]="selectedBrand"
     [selectBrandLabel]="selectBrandLabel"
     [selectShipsLabel]="selectShipsLabel"
     [selectShipsbyBrandOptions]="selectShipsbyBrandOptions"

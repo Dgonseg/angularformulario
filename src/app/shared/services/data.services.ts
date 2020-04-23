@@ -28,6 +28,12 @@ export class DataService {
     return this.db.collection("modelo").doc(model.brand.id).set(model)
   }
 
+  createUserModels(userModel) {
+    console.log('createUserModels',userModel );
+    return this.db.collection("usermodels").add(userModel);
+    // .doc(model.brand.id).set(model)
+  }
+
   createUser(user): Observable<any> {
      return this.db.collection("users").add(user);   
   }

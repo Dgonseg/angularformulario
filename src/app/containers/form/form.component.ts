@@ -41,17 +41,12 @@ export class FormComponent implements OnInit {
   }
 
   populateTable($event) {
-    // this.dataTable.push($event);
-    // this.datatableColumns= ['name','ships'];
-    // this.tableComponent.refresh();
     let userMail = this.authService.getUserData();
     console.log('userMail', userMail);
 
-    // this.dataService.getUser(userMail.email)
-    this.dataService.getUserId('test').subscribe((user)=> {
-        console.log('user', user)
-        
-      })
+    var saveShip = $event
+    saveShip.userId = 'test'
+    this.dataService.createUserModels(saveShip);
   }
 
   getBrand(){

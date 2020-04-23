@@ -31,7 +31,6 @@ export class AddUserComponent implements OnInit {
 
   save(): void {
     let userMail = this.authService.getUserData();
-
     this.userProfile = {
       username: this.userForm.get('username').value,
       rol: this.userForm.get('rol').value,
@@ -40,7 +39,11 @@ export class AddUserComponent implements OnInit {
       descripcion: this.userForm.get('descripcion').value,
       mail: userMail.mail
     }
-    console.log(this.userProfile);
+    // console.log(this.userProfile);
+    // debugger
+    // var test = this.dataService.getUser(userMail.mail)
+    // .subscribe((res)=> console.log(res))
+    // // .subscribe((res)=>console.log(res))
     this.dataService.createUser(this.userProfile)
     .then((result)=>{
       console.log('go to dashboard')

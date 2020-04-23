@@ -101,11 +101,12 @@ export class AuthService {
     return firebase.auth().signInWithPopup(provider)
     .then((result) => {
       console.log(result);
-      de
+      debugger
       this.getUserInformation();
       this.saveLocalStorageUser(result.user);
       this.dataService.getUser(result.user.email)
-      .then((user)=> {
+      .subscribe((user)=> {
+        console.log('login', user);
         if(!!user.mail) {
           this.ngZone.run(() => {
             this.router.navigate(['dashboard']);

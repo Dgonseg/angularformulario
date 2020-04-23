@@ -55,9 +55,16 @@ export class DataService {
     })
   }
 
-  getUser(mail) {
-    return new Promise<any>((resolve, reject) =>{
-      this.db.collection("modelo").where("mail", "==", mail)
-    })
+  getUser(mail): any {
+    return  this.db.collection('users', ref => ref.where('mail', '==', mail))
+                    .valueChanges({ mail });
   }
+  //  return  this.db.collectionGroup('users')
+  //  .snapshotChanges()
+  //  .map(function (data) {
+  //    if(data.payload.doc.data().mail == mail) {
+  //      return data.payload.doc.data();
+  //    }
+  //  })
+  // }
 }

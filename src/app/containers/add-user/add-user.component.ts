@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import {DataService} from '../../shared/services/data.services';
 import { AuthService } from "../../shared/services/auth.services";
-
+import { Router } from "@angular/router";
 import {Profile} from '../../shared/interfaces/profile';
 
 @Component({
@@ -23,14 +23,17 @@ export class AddUserComponent implements OnInit {
 
   constructor(
     private dataService: DataService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
     ) { }
 
   ngOnInit() {
   }
 
   save(): void {
+    // local storage data
     let userMail = this.authService.getUserData();
+
     this.userProfile = {
       username: this.userForm.get('username').value,
       rol: this.userForm.get('rol').value,
@@ -39,14 +42,10 @@ export class AddUserComponent implements OnInit {
       descripcion: this.userForm.get('descripcion').value,
       mail: userMail.mail
     }
-    // console.log(this.userProfile);
-    // debugger
-    // var test = this.dataService.getUser(userMail.mail)
-    // .subscribe((res)=> console.log(res))
-    // // .subscribe((res)=>console.log(res))
+
     this.dataService.createUser(this.userProfile)
-    .then((result)=>{
-      console.log('go to dashboard')
+    .subscribe((result) => {
+      this.router.navigate(['profile']);
     })
   }
 }

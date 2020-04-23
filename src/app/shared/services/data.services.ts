@@ -47,12 +47,8 @@ export class DataService {
     // }); 
   }
 
-  createUser(user) {
-    return new Promise<any>((resolve, reject) =>{
-      this.db.collection("users")
-      .add(user)
-      .then(res => {}, err => reject(err));
-    })
+  createUser(user): Observable<any> {
+     return  this.db.collection("users").add(user)     
   }
 
   getUser(mail): any {

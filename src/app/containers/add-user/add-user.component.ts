@@ -30,14 +30,15 @@ export class AddUserComponent implements OnInit {
   }
 
   save(): void {
-    console.log('user', this.authService.getUserData())
+    let userMail = this.authService.getUserData();
+
     this.userProfile = {
       username: this.userForm.get('username').value,
       rol: this.userForm.get('rol').value,
       favorite:  this.userForm.get('favorite').value,
       org:  this.userForm.get('org').value,
       descripcion: this.userForm.get('descripcion').value,
-      mail: this.authService.getUserData()
+      mail: userMail.mail
     }
     console.log(this.userProfile);
     this.dataService.createUser(this.userProfile)

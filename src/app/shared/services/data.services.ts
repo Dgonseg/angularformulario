@@ -55,5 +55,9 @@ export class DataService {
     })
   }
 
-  getUser
+  getUser(mail) {
+    return new Promise<any>((resolve, reject) =>{
+      this.db.collection("modelo").where("mail", "==", mail)
+    })
+  }
 }

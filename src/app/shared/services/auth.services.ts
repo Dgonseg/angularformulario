@@ -7,6 +7,7 @@ import { auth } from 'firebase/app';
 // import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 // import { AngularFirestoreDocument } from '@angular/fire';
 import { Router } from "@angular/router";
+import { DataService } from './data.services';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,7 @@ export class AuthService {
   constructor(
     // public afs: AngularFirestore,   // Inject Firestore service
     // public afAuth: AngularFireAuth, // Inject Firebase auth service
+    private dataService:DataService,
     public router: Router,  
     public ngZone: NgZone // NgZone service to remove outside scope warning
   ) {
@@ -99,12 +101,26 @@ export class AuthService {
     return firebase.auth().signInWithPopup(provider)
     .then((result) => {
       console.log(result);
+      de
       this.getUserInformation();
       this.saveLocalStorageUser(result.user);
-       this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
-        })
-      this.SetUserData(result.user);
+      this.dataService.getUser(result.user.email)
+      .then((user)=> {
+        if(!!user.mail) {
+          this.ngZone.run(() => {
+            this.router.navigate(['dashboard']);
+          })
+        } else {
+           this.ngZone.run(() => {
+            this.router.navigate(['add-user']);
+          })
+        }
+
+        
+
+      })
+      
+      // this.SetUserData(result.user);
     }).catch((error) => {
       console.log(error)
       // window.alert(error)
@@ -140,7 +156,10 @@ export class AuthService {
     // })
   }
   getUserData() {
-    return localStorage.getItem('user');
+    // return localStorage.getItem('user');
+    return {
+      mail :'test'
+    }
   }
 
   // Sign out 

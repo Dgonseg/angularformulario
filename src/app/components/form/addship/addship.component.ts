@@ -36,7 +36,7 @@ export class AddshipComponent implements OnInit {
   save() {
     console.log('normalsave')
     let shipValue =  this.selectComponent.returnValues();
-
+    this.selectComponent.resetValues();
     this.populateTable.emit(shipValue);
   }
 

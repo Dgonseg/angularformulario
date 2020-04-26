@@ -54,7 +54,7 @@ export class AddUserComponent implements OnInit {
       rolPrincipal: this.userForm.get('rolprincipal').value, 
       rol: this.userForm.get('rol').value,
       favorite:  this.userForm.get('favorite').value,
-      rango:  this.userForm.get('rango').value,
+      rango:  this.userForm.get('rango').value, 
       descripcion: this.userForm.get('descripcion').value,
       mail: user.email, 
       userId: userId

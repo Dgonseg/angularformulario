@@ -70,6 +70,7 @@ export class SelectComponent implements OnInit {
       name: '',
       ships: []
     }
+    this.selectShipsbyBrandOptions = [];
   }
 
   onChange() {

@@ -61,12 +61,13 @@ export class AddUserComponent implements OnInit {
     }
 
     this.saveLocalUserID(userId);
-    
+
     this.dataService.createUser(this.userProfile);
+    debugger
     this.router.navigate(['profile']);
   }
 
   saveLocalUserID(userId) {
-    localStorage.setItem('userId', JSON.stringify(userId));
+    localStorage.setItem('userId', userId);
   }
 }

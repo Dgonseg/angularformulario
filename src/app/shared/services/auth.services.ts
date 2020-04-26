@@ -103,12 +103,13 @@ export class AuthService {
       console.log(result);
       this.getUserInformation();
       this.saveLocalStorageUser(result.user);
+
       this.dataService.getUserByEmail(result.user.email)
       .subscribe((user)=> { 
         console.log('login', user);
-        if(!!user.mail) {
+        if(!!user[0].mail) {
           this.ngZone.run(() => {
-            this.router.navigate(['dashboard']);
+            this.router.navigate(['profile']);
           })
         } else {
            this.ngZone.run(() => {
@@ -157,6 +158,10 @@ export class AuthService {
   }
   getUserId() {
     return localStorage.getItem('userId');
+  }
+
+  getUserData() {
+    return JSON.parse(localStorage.getItem('user'));
   }
 
   // Sign out 

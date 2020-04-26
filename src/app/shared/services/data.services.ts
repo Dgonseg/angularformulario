@@ -41,8 +41,8 @@ export class DataService {
   getUser(mail): any {
     return  this.db.collection('users', ref => ref.where('mail', '==', mail)).valueChanges({ mail });
   }
-  getUserId(mail): any {
-    return  this.db.collection('users', ref => ref.where('mail', '==', mail)).valueChanges();
+  getUserId(userId): any {
+    return  this.db.collection('users', ref => ref.where('userId', '==', userId)).valueChanges({userId});
     // return this.db.collection('users').valueChanges();
   }
 

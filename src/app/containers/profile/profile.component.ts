@@ -26,7 +26,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     let userId =  this.authService.getUserId();
 
-    this.dataService.getUser(userId) 
+    this.dataService.getUserId(userId) 
       .subscribe((user)=> {
         console.log('user', user)
         if(user.length > 0){

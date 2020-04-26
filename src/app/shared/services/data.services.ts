@@ -50,6 +50,11 @@ export class DataService {
     return  this.db.collection('users', ref => ref.where('mail', '==', mail)).valueChanges({ mail });    
   }
 
+  getUserModels(userId) {
+        return  this.db.collection('usersModels', ref => ref.where('userId', '==', userId)).valueChanges({userId});
+
+
+  }
   
 
   getGameRoles(): Observable<any> {

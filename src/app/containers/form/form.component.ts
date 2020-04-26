@@ -41,11 +41,14 @@ export class FormComponent implements OnInit {
   }
 
   populateTable($event) {
-    let userMail = this.authService.getUserData();
-    console.log('userMail', userMail);
+    let userId =  this.authService.getUserId();
+    let user =  this.authService.getUserData();
+    // let userMail = this.authService.getUserData();
+    console.log('userId', user);
 
     var saveShip = $event
-    saveShip.userId = 'test'
+    saveShip.userId = userId;
+    saveShip.userName = user.userName
     this.dataService.createUserModels(saveShip);
   }
 

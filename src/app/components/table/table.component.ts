@@ -1,14 +1,14 @@
 import { Component, OnInit,Input,ChangeDetectorRef,ViewChild } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
-
+import { DataService } from "../../shared/services/data.services";
+import { AuthService } from '../../shared/services/auth.services';
 
 
 
 export interface ships {
   name: string;
   ships: number;
-
 }
 
 @Component({
@@ -27,7 +27,11 @@ export class TableComponent implements OnInit {
   displayedColumns: string[];
   dataSource: any;
 
-  constructor(private changeDetectorRefs: ChangeDetectorRef) { }
+  constructor(
+    private changeDetectorRefs: ChangeDetectorRef,
+    private dataService: DataService,
+    private authService: AuthService
+  ) { }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
@@ -37,9 +41,23 @@ export class TableComponent implements OnInit {
   
 
   ngOnInit() {
+    console.log('test')
+    if(!!this.dataTable) {
+      let userId =  this.authService.getUserId();
+
+      this.dataService.getUserModels(userId)
+      .subscribe((models)=>{
+        this.dataSource = new MatTableDataSource(this.dataTable);
+      })
+      
+
+    } else {
+      
     this.displayedColumns = this.datatableColumns;
     this.dataSource = new MatTableDataSource(this.dataTable);
     this.refresh()
+    }
+
   }
 
   refresh() {

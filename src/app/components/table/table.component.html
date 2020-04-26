@@ -1,8 +1,8 @@
-
+<!-- 
 <mat-form-field *ngIf="adminMode">
   <mat-label>Filter</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
-</mat-form-field>
+</mat-form-field> -->
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="showtable">
 
@@ -21,6 +21,15 @@
       </span>
     </td>
   </ng-container>
+
+    <ng-container matColumnDef="userName">
+    <th mat-header-cell *matHeaderCellDef> Usuario </th>
+    <td mat-cell *matCellDef="let line"> 
+        {{line.userName}}
+    </td>
+  </ng-container>
+
+  
 
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from "../../shared/services/data.services";
 
 @Component({
   selector: 'app-admin',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-
-  constructor() { }
+  datatableColumns: any;
+  dataTable: any;
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
+    this.dataService.getShips()
+    .subscribe((ships)=>{
+      this.datatableColumns = ['name', 'ships', 'userName'];
+      this.dataTable = ships;
+
+    });
+
   }
 
 }

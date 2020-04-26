@@ -17,6 +17,10 @@ export class DataService {
     return this.db.collection('marca').snapshotChanges();
   }
 
+  getShips(): Observable<any> {
+    return this.db.collection('usermodels').snapshotChanges();
+  }
+
   getModel(brand): Observable<any> {
     // this.db.collection("modelo")
     return  this.db.collection('modelo', ref => ref.where('brand', '==', brand))

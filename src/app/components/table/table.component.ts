@@ -46,7 +46,7 @@ export class TableComponent implements OnInit {
     console.log('test', this.adminMode)
     if(!this.dataTable) {
       let userId = localStorage.getItem('userId');
-      userId = "RXJ1bnNodXM=";
+      // userId = "RXJ1bnNodXM=";
       this.dataService.getUserModels(userId)
       .subscribe((models)=>{
         console.log(models);

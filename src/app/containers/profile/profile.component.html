@@ -1,14 +1,11 @@
 <div class="content-profile">
   
-  <div class="table">
-    <app-table
-    [datatableColumns]= datatableColumns
-    [adminMode]="adminMode">
-    </app-table>
-  </div>
-   <div class="tablenodata" *ngIf="userShips.length <= 0">
+   <div class="table" *ngIf="userShips.length <= 0">
     <mat-card>
-     <!-- <h2>Añade tus naves</h2> -->
+      <app-table
+      [datatableColumns]= datatableColumns
+      [adminMode]="adminMode">
+      </app-table>
       <app-form [adminMode]="false"></app-form>
     </mat-card>
   </div>

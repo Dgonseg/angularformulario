@@ -1,26 +1,33 @@
 <div *ngIf="!adminMode">
-  <h1>Añadir Nave</h1>
-  <form-select
-    [selectedBrand]="selectedBrand"
-    [selectBrandLabel]="selectBrandLabel"
-    [selectShipsLabel]="selectShipsLabel"
-    [selectShipsbyBrandOptions]="selectShipsbyBrandOptions"
-    [selectBrandOptions]="brands"
-    (changeBrand) ="changeBrand($event)"
-  ></form-select>
+  <div class="addShip">
+    <!-- <button (click)="save()">save</button> -->
+    <!-- <button (click)="save()
+     mat-raised-button>Añadir</button> -->            
+    <button  color="primary" class="save" mat-raised-button (click)="save()">Añadir</button>
+    <form-select
+      [selectedBrand]="selectedBrand"
+      [selectBrandLabel]="selectBrandLabel"
+      [selectShipsLabel]="selectShipsLabel"
+      [selectShipsbyBrandOptions]="selectShipsbyBrandOptions"
+      [selectBrandOptions]="brands"
+      (changeBrand) ="changeBrand($event)"
+    ></form-select>
 
-  <button (click)="save()">save</button>
+  </div>
 </div>
 
 <div *ngIf="adminMode">
     <h1>Añadir Modelo</h1>
-  <form-select
-    [selectBrandLabel]="selectBrandLabel"
-    [selectShipsLabel]="selectShipsLabel"
-    [selectShipsbyBrandOptions]="selectShipsbyBrandOptions"
-    [selectBrandOptions]="brands"
-    [insertMode] ="true"
-  ></form-select>
+  <div class="addShip">
+    <button (click)="saveModel()">save</button>
 
-  <button (click)="saveModel()">save</button>
+    <form-select
+      [selectBrandLabel]="selectBrandLabel"
+      [selectShipsLabel]="selectShipsLabel"
+      [selectShipsbyBrandOptions]="selectShipsbyBrandOptions"
+      [selectBrandOptions]="brands"
+      [insertMode] ="true"
+    ></form-select>
+  </div>
+
 </div>

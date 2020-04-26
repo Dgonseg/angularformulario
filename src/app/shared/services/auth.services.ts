@@ -107,7 +107,7 @@ export class AuthService {
       this.dataService.getUserByEmail(result.user.email)
       .subscribe((user)=> { 
         console.log('login', user);
-        if(!!user[0].mail) {
+        if(!!user[0]) {
           this.setUserId(user[0].userId)
           this.ngZone.run(() => {
             this.router.navigate(['profile']);

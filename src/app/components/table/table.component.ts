@@ -43,10 +43,11 @@ export class TableComponent implements OnInit {
   ngOnInit() {
     console.log('test')
     if(!!this.dataTable) {
-      let userId =  this.authService.getUserId();
+      let userId = localStorage.getItem('userId');
 
       this.dataService.getUserModels(userId)
       .subscribe((models)=>{
+        console.log(models);
         this.dataSource = new MatTableDataSource(this.dataTable);
       })
       

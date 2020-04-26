@@ -43,10 +43,8 @@ export class TableComponent implements OnInit {
   
 
   ngOnInit() {
-    console.log('test', this.adminMode)
-    if(!this.dataTable) {
+    if(!this.dataTable && !this.adminMode) {
       let userId = localStorage.getItem('userId');
-      // userId = "RXJ1bnNodXM=";
       this.dataService.getUserModels(userId)
       .subscribe((models)=>{
         console.log(models);
@@ -56,10 +54,9 @@ export class TableComponent implements OnInit {
 
       })
     } else {
-      
-    this.displayedColumns = this.datatableColumns;
-    this.dataSource = new MatTableDataSource(this.dataTable);
-    this.refresh()
+      this.displayedColumns = this.datatableColumns;
+      this.dataSource = new MatTableDataSource(this.dataTable);
+      this.showtable = true;
     }
 
   }

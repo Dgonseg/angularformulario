@@ -18,7 +18,9 @@ export class DataService {
   }
 
   getShips(): Observable<any> {
+    console.log('getShips')
     return this.db.collection('usermodels').snapshotChanges();
+    // return this.db.collection('usermodels').valueChanges();
   }
 
   getModel(brand): Observable<any> {

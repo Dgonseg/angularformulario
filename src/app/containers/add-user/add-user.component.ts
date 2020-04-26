@@ -16,7 +16,7 @@ export class AddUserComponent implements OnInit {
     rolprincipal: new FormControl([Validators.required]),
     rol: new FormControl(),
     favorite:  new FormControl([Validators.required]),
-    org:  new FormControl(),
+    rango:  new FormControl(),
     descripcion: new FormControl()
   })
   roles= [];
@@ -54,7 +54,7 @@ export class AddUserComponent implements OnInit {
       rolPrincipal: this.userForm.get('rolprincipal').value, 
       rol: this.userForm.get('rol').value,
       favorite:  this.userForm.get('favorite').value,
-      org:  this.userForm.get('org').value,
+      rango:  this.userForm.get('rango').value,
       descripcion: this.userForm.get('descripcion').value,
       mail: user.email, 
       userId: userId

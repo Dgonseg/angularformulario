@@ -1,8 +1,5 @@
 <div *ngIf="!adminMode">
-  <div class="addShip">
-    <!-- <button (click)="save()">save</button> -->
-    <!-- <button (click)="save()
-     mat-raised-button>Añadir</button> -->            
+  <div class="addShip">         
     <button  color="primary" class="save" mat-raised-button (click)="save()">Añadir</button>
     <form-select
       [selectedBrand]="selectedBrand"

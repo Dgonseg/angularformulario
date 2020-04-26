@@ -12,10 +12,17 @@ export class AdminComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.dataService.getShips()
-    .subscribe((ships)=>{
+    console.log('onINit');
+    this.dataService.getShips().subscribe((ships)=>{
+      console.log('ships', ships);
       this.datatableColumns = ['name', 'ships', 'userName'];
-      this.dataTable = ships;
+      let allShips = [];
+      ships.forEach((ship)=>{
+        allShips.push(ship.payload.doc.data());
+      }
+      )
+      console.log('all', allShips);
+      this.dataTable = allShips;
 
     });
 

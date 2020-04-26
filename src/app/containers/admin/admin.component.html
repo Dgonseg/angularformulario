@@ -3,7 +3,10 @@
 		<app-form [adminMode]="true"></app-form>
 	</mat-card>
 	<mat-card>
-		<app-table [datatableColumns]="datatableColumns" [dataTable]="dataTable" [adminMode]="true">
+		<app-table
+    *ngIf="!!dataTable"
+    [datatableColumns]="datatableColumns"
+    [dataTable]="dataTable" [adminMode]="true">
 		</app-table>
 	</mat-card>
 

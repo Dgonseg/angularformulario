@@ -3,7 +3,7 @@ export interface Profile {
   rolPrincipal: String;
   rol: String;
   favorite:  String;
-  org:  String;
+  rango:  String;
   descripcion: String;
   mail: String;
   userId: String;

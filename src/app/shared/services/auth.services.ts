@@ -177,6 +177,7 @@ export class AuthService {
   }
   removeCache() {
      localStorage.removeItem('user');
+     localStorage.removeItem('userId');
   }
 
   getUserInformation() {

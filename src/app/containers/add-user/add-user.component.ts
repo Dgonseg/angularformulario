@@ -44,7 +44,7 @@ export class AddUserComponent implements OnInit {
   save(): void {
     // local storage data
     let user = this.authService.getUserData();
-    let userId = window.btoa(Date.now() + "user.email");
+    let userId = window.btoa(this.userForm.get('username').value);
 
     console.log(user);
     console.log(userId);
@@ -63,7 +63,7 @@ export class AddUserComponent implements OnInit {
     this.saveLocalUserID(userId);
 
     this.dataService.createUser(this.userProfile);
-    debugger
+    
     this.router.navigate(['profile']);
   }
 

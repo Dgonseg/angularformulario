@@ -108,6 +108,7 @@ export class AuthService {
       .subscribe((user)=> { 
         console.log('login', user);
         if(!!user[0].mail) {
+          this.setUserId(user[0].userId)
           this.ngZone.run(() => {
             this.router.navigate(['profile']);
           })
@@ -128,6 +129,9 @@ export class AuthService {
     })
   }
 
+  setUserId(userId) {
+    localStorage.setItem('userId', userId);  
+  }
   saveLocalStorageUser(user) {
      if (user) {
         this.userData = user;

@@ -21,11 +21,13 @@ export class TableComponent implements OnInit {
 
   @Input() dataTable: any;
   @Input() datatableColumns: any;
+  @Input() adminMode: any;
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
 
   displayedColumns: string[];
   dataSource: any;
+  showtable = false;
 
   constructor(
     private changeDetectorRefs: ChangeDetectorRef,
@@ -41,17 +43,18 @@ export class TableComponent implements OnInit {
   
 
   ngOnInit() {
-    console.log('test')
-    if(!!this.dataTable) {
+    console.log('test', this.adminMode)
+    if(!this.dataTable) {
       let userId = localStorage.getItem('userId');
-
+      userId = "RXJ1bnNodXM=";
       this.dataService.getUserModels(userId)
       .subscribe((models)=>{
         console.log(models);
-        this.dataSource = new MatTableDataSource(this.dataTable);
-      })
-      
+        this.dataSource = new MatTableDataSource(models);
+        this.displayedColumns = this.datatableColumns;
+        this.showtable = true;
 
+      })
     } else {
       
     this.displayedColumns = this.datatableColumns;

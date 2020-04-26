@@ -1,7 +1,10 @@
 <div class="content-profile">
   
   <div class="table">
-    <app-table></app-table>
+    <app-table
+    [datatableColumns]= datatableColumns
+    [adminMode]="adminMode">
+    </app-table>
   </div>
    <div class="tablenodata" *ngIf="userShips.length <= 0">
     <mat-card>

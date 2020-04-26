@@ -51,7 +51,8 @@ export class DataService {
   }
 
   getUserModels(userId) {
-        return  this.db.collection('usersModels', ref => ref.where('userId', '==', userId)).valueChanges({userId});
+    console.log('getUserModels', userId)
+        return  this.db.collection('usermodels', ref => ref.where('userId', '==', userId)).valueChanges({ userId });
 
 
   }

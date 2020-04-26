@@ -17,14 +17,19 @@ export class ProfileComponent implements OnInit {
   org:String;
   showProfile: boolean = false
   userShips = [];
-
+  datatableColumns = [];
+  adminMode: boolean;
+     
   constructor(
     public authService: AuthService,
     private dataService: DataService
   ) { }
 
   ngOnInit() {
+    this.adminMode = false;
     let userId =  this.authService.getUserId();
+    this.datatableColumns = ['name', 'ships'];
+
 
     this.dataService.getUserId(userId) 
       .subscribe((user)=> {

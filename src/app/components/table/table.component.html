@@ -1,15 +1,15 @@
 
-<mat-form-field>
+<mat-form-field *ngIf="adminMode">
   <mat-label>Filter</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium">
 </mat-form-field>
 
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="showtable">
 
   <!-- Name Column -->
   <ng-container matColumnDef="name">
     <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let line"> {{line.name}} </td>
+    <td mat-cell *matCellDef="let line"> {{line.name.name|}} </td>
   </ng-container>
 
   <!-- Weight Column -->

@@ -43,8 +43,12 @@ export class AddUserComponent implements OnInit {
 
   save(): void {
     // local storage data
-    let userMail = this.authService.getUserData();
+    let user = this.authService.getUserData();
+    let userId = window.btoa(Date.now() + "user.email");
 
+    console.log(user);
+    console.log(userId);
+    
     this.userProfile = {
       username: this.userForm.get('username').value,
       rolPrincipal: this.userForm.get('rolprincipal').value, 
@@ -52,10 +56,17 @@ export class AddUserComponent implements OnInit {
       favorite:  this.userForm.get('favorite').value,
       org:  this.userForm.get('org').value,
       descripcion: this.userForm.get('descripcion').value,
-      mail: userMail.email
+      mail: user.email, 
+      userId: userId
     }
 
-    this.dataService.createUser(this.userProfile)
+    this.saveLocalUserID(userId);
+    
+    this.dataService.createUser(this.userProfile);
     this.router.navigate(['profile']);
+  }
+
+  saveLocalUserID(userId) {
+    localStorage.setItem('userId', JSON.stringify(userId));
   }
 }

@@ -46,6 +46,12 @@ export class DataService {
     // return this.db.collection('users').valueChanges();
   }
 
+  getUserByEmail(mail) {
+    return  this.db.collection('users', ref => ref.where('mail', '==', mail)).valueChanges({ mail });    
+  }
+
+  
+
   getGameRoles(): Observable<any> {
     return this.db.collection('rol').snapshotChanges();
   }

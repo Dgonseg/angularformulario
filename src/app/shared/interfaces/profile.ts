@@ -6,4 +6,5 @@ export interface Profile {
   org:  String;
   descripcion: String;
   mail: String;
+  userId: String;
 }

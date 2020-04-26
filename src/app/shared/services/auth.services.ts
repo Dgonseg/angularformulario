@@ -101,11 +101,10 @@ export class AuthService {
     return firebase.auth().signInWithPopup(provider)
     .then((result) => {
       console.log(result);
-      debugger
       this.getUserInformation();
       this.saveLocalStorageUser(result.user);
-      this.dataService.getUser(result.user.email)
-      .subscribe((user)=> {
+      this.dataService.getUserByEmail(result.user.email)
+      .subscribe((user)=> { 
         console.log('login', user);
         if(!!user.mail) {
           this.ngZone.run(() => {
@@ -156,11 +155,8 @@ export class AuthService {
     //   merge: true
     // })
   }
-  getUserData() {
-    return localStorage.getItem('user');
-    // return {
-    //   mail :'test'
-    // }
+  getUserId() {
+    return localStorage.getItem('userId');
   }
 
   // Sign out 

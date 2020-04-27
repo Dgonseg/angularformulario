@@ -13,16 +13,16 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
     console.log('onINit');
-    this.dataService.getShips().subscribe((ships)=>{
+    this.dataService.getUserModels().subscribe((ships)=>{
       console.log('ships', ships);
-      this.datatableColumns = ['name', 'ships', 'userName'];
-      let allShips = [];
-      ships.forEach((ship)=>{
-        allShips.push(ship.payload.doc.data());
-      }
-      )
-      console.log('all', allShips);
-      this.dataTable = allShips;
+      this.datatableColumns = ['name', 'ships', 'userName', 'actions'];
+      // let allShips = [];
+      // ships.forEach((ship)=>{
+      //   allShips.push(ship.payload.doc.data());
+      // }
+      // )
+      // console.log('all', allShips);
+      this.dataTable = ships;
 
     });
 

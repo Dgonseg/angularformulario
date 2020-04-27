@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection  } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +9,8 @@ import { Observable } from 'rxjs';
 export class DataService {
   brand: any;
   db:any;
+
+  private userModels: AngularFirestoreCollection<any>;
 
   constructor(db: AngularFirestore) {
     this.db = db;
@@ -20,13 +23,15 @@ export class DataService {
   getShips(): Observable<any> {
     console.log('getShips')
     return this.db.collection('usermodels').snapshotChanges();
-    // return this.db.collection('usermodels').valueChanges();
   }
 
   getModel(brand): Observable<any> {
-    // this.db.collection("modelo")
     return  this.db.collection('modelo', ref => ref.where('brand', '==', brand))
                     .valueChanges({ name });
+  }
+
+  deleteShip(id){
+    return  this.db.collection('usermodels').doc(id).delete();
   }
 
   // create
@@ -37,7 +42,6 @@ export class DataService {
   createUserModels(userModel) {
     console.log('createUserModels',userModel );
     return this.db.collection("usermodels").add(userModel);
-    // .doc(model.brand.id).set(model)
   }
 
   createUser(user): Observable<any> {
@@ -49,19 +53,24 @@ export class DataService {
   }
   getUserId(userId): any {
     return  this.db.collection('users', ref => ref.where('userId', '==', userId)).valueChanges({userId});
-    // return this.db.collection('users').valueChanges();
   }
 
   getUserByEmail(mail) {
     return  this.db.collection('users', ref => ref.where('mail', '==', mail)).valueChanges({ mail });    
   }
 
-  getUserModels(userId) {
-    console.log('getUserModels', userId)
-        return  this.db.collection('usermodels', ref => ref.where('userId', '==', userId)).valueChanges({ userId });
+  getUserModels() {
+    this.userModels = this.db.collection('usermodels');
 
+   return  this.userModels.snapshotChanges().pipe(
+          map(actions => actions.map(a => {
+            const data = a.payload.doc.data();
+            const id = a.payload.doc.id;
+            return { id, ...data };
+          }))
+        );
 
-  }
+      }
   
 
   getGameRoles(): Observable<any> {

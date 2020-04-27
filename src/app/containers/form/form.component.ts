@@ -11,6 +11,8 @@ import { AuthService } from "../../shared/services/auth.services";
 export class FormComponent implements OnInit {
   @ViewChild(TableComponent) tableComponent: TableComponent;
   @Input() adminMode: boolean;
+  @Input() activateAdd: any;
+  
 
   selectOptions: String[];
   selectOptions1: String[];
@@ -50,6 +52,7 @@ export class FormComponent implements OnInit {
     saveShip.userId = userId;
     saveShip.userName = userName;
     this.dataService.createUserModels(saveShip);
+    this.activateAdd();
   }
 
   getBrand() {

@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.adminMode = false;
     let userId =  this.authService.getUserId();
-    this.datatableColumns = ['name', 'ships'];
+    this.datatableColumns = ['name', 'ships', 'actions'];
 
 
     this.dataService.getUserId(userId) 

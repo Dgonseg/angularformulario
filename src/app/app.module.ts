@@ -24,9 +24,6 @@ import { InputComponent } from './components/form/input/input.component';
 // firebase
 import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase/app';
-// import { AngularFireAuthModule } from "@angular/fire/auth";
-// import { registerFirestore } from '@firebase/firestore';
-// import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
@@ -46,6 +43,7 @@ import { TableComponent } from './components/table/table.component';
 import { AdminComponent } from './containers/admin/admin.component';
 import { ProfileComponent } from './containers/profile/profile.component';
 import { AddUserComponent } from './containers/add-user/add-user.component';
+import { EditUserComponent } from './containers/edit-user/edit-user.component';
 
 var firebaseConfig = {
     apiKey: "AIzaSyDmeg09xntmdUxvyJwIxAWFAOC_Z0UTGzQ",
@@ -93,7 +91,8 @@ if (!firebase.apps.length) {
     TableComponent,
     AdminComponent,
     ProfileComponent,
-    AddUserComponent],
+    AddUserComponent,
+    EditUserComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

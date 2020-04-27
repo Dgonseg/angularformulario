@@ -1,0 +1,49 @@
+<div class="creacion" *ngIf="showForm">
+    <mat-card>
+      <mat-card-title class="title" >
+        <button 
+          class="card-button"
+          (click)="save()"
+          mat-raised-button color="primary">Actualizar</button>
+        Edición Usuario
+      </mat-card-title>
+      <form [formGroup] ="userForm" class="example-form">
+        <!-- /nick -->
+        <mat-form-field class="example-full-width">
+          <mat-label>Nick StarCitizen</mat-label>
+          <input formControlName="username" matInput placeholder="" required>
+        </mat-form-field>
+         <!-- Main rol -->
+         <mat-form-field class="example-full-width">
+          <mat-label>Rol Principal</mat-label>
+          <mat-select formControlName="rolprincipal">
+            <mat-option *ngFor="let rol of roles" [value]="">{{rol.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Otros Roles</mat-label>
+          <mat-select formControlName="rol" multiple>
+            <mat-option *ngFor="let rol of roles" [value]="rol">{{rol.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+         <!-- <label *ngIf="rol.invalid" [ngClass] = "'error'">El rol es requerido </label> -->
+        <!-- Favorite -->
+        <mat-form-field class="example-full-width">
+          <mat-label>Nave Favorita</mat-label>
+          <input formControlName="favorite" matInput placeholder="Nave favorita" >
+        </mat-form-field>
+        <!-- Organizacion -->
+        <mat-form-field class="example-full-width">
+          <mat-label>Rango</mat-label>
+          <input formControlName="rango" matInput placeholder="Organizacion">
+        </mat-form-field>
+         <!-- Descripción -->
+        <mat-form-field class="example-full-width">
+          <mat-label>Descripción</mat-label>
+          <textarea formControlName="descripcion" matInput placeholder=""></textarea>
+        </mat-form-field>
+      </form>
+    </mat-card>
+  </div>

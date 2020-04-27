@@ -1,19 +1,14 @@
 <div class="content-profile">
-  
-   <div class="table" *ngIf="userShips.length <= 0">
-    <mat-card>
-      <app-table
-      [datatableColumns]= datatableColumns
-      [adminMode]="adminMode">
-      </app-table>
-    </mat-card>
-  </div>
+
   <div class="profile" *ngIf="showProfile">
     <mat-card>
       <img mat-card-image>
       <mat-card-title>
         {{name}}
       </mat-card-title>
+      <span [routerLink]="['/edit-user', userId]" class="material-icons">
+        create
+      </span>
       <mat-card-subtitle>
         {{rol}}/{{naveFavorita}}
       </mat-card-subtitle>
@@ -25,5 +20,15 @@
       </mat-card-subtitle>
     </mat-card>
   </div>
+  
+   <div class="table" *ngIf="userShips.length <= 0">
+    <mat-card>
+      <app-table
+      [datatableColumns]= datatableColumns
+      [adminMode]="adminMode">
+      </app-table>
+    </mat-card>
+  </div>
+
 
 </div>

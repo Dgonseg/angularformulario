@@ -6,6 +6,16 @@
 
 	<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="showtable">
 
+    <!-- brand Column -->
+		<ng-container matColumnDef="brand">
+			<th class="tableHeader" mat-header-cell *matHeaderCellDef> Marca </th>
+			<td class="tableCell" mat-cell *matCellDef="let line"> {{line.brand}} </td>
+		</ng-container>
+    <!-- moidel Column -->
+		<ng-container matColumnDef="model">
+			<th class="tableHeader" mat-header-cell *matHeaderCellDef> Modelo </th>
+			<td class="tableCell" mat-cell *matCellDef="let line"> {{line.model}} </td>
+		</ng-container>
 		<!-- Name Column -->
 		<ng-container matColumnDef="name">
 			<th class="tableHeader" mat-header-cell *matHeaderCellDef> Marca </th>

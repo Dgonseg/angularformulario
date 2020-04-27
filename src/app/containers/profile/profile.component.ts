@@ -14,11 +14,12 @@ export class ProfileComponent implements OnInit {
   naveFavorita: string;
   marcafavorita: string;
   personalDescription: string;
-  org:String;
+  rango:String;
   showProfile: boolean = false
   userShips = [];
   datatableColumns = [];
   adminMode: boolean;
+  userId: String;
      
   constructor(
     public authService: AuthService,
@@ -35,6 +36,7 @@ export class ProfileComponent implements OnInit {
       .subscribe((user)=> {
         console.log('user', user)
         if(user.length > 0){
+          this.userId = user[0].userId;
           this.name = user[0].username;
           this.rol = user[0].rolPrincipal.name;
           this.naveFavorita = user[0].favorite;

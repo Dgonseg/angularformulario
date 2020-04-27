@@ -13,6 +13,7 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { AddUserComponent } from './containers/add-user/add-user.component';
+import { EditUserComponent } from './containers/edit-user/edit-user.component';
 import { ProfileComponent } from './containers/profile/profile.component';
 //guards
 import {SecureInnerPagesGuard} from './shared/guard/secure-inner-pages.guard';
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full'},
   { path: 'sign-in', component: SignInComponent},
   { path: 'add-user', component: AddUserComponent},
+  { path: 'edit-user/:id', component: EditUserComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'dashboard', component: dashboardComponent },
   { path: 'admin', component: AdminComponent },

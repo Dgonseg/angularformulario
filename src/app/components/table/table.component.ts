@@ -26,6 +26,7 @@ export class TableComponent implements OnInit {
   @Input() dataTable: any;
   @Input() datatableColumns: any;
   @Input() adminMode: any;
+  @Input() modelMode: any;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   displayedColumns: string[];
@@ -101,15 +102,27 @@ export class TableComponent implements OnInit {
   
   formatDataTable(){
     let dataTableFormated = [];
-    this.dataTable.forEach(line=>{
+    if(!this.modelMode){
+      this.dataTable.forEach(line=>{
+        dataTableFormated.push({
+          id: line.id,
+          name: line.name.name,
+          ships: line.ships,
+          userName: line.userName
+        })
+      })
+
+    } else {
+      this.dataTable.forEach(line=>{
       console.log(line)
       dataTableFormated.push({
-        id: line.id,
-        name: line.name.name,
-        ships: line.ships,
-        userName: line.userName
+        brand:line.brand.name,
+        model: line.model
       })
     })
+
+    }
+
     console.log(dataTableFormated)
     return  dataTableFormated
 

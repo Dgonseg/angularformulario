@@ -13,8 +13,10 @@
       <mat-card class="content-table">
         <app-table
         *ngIf="!!dataTable"
+        [modelMode]= "false"
         [datatableColumns]="datatableColumns"
-        [dataTable]="dataTable" [adminMode]="true">
+        [dataTable]="dataTable"
+        [adminMode]="true">
         </app-table>
       </mat-card>
     </mat-expansion-panel>
@@ -27,6 +29,13 @@
       </mat-expansion-panel-header>
         <mat-card class="content-model">
           <app-form [adminMode]="true"></app-form>
+           <app-table
+            *ngIf="!!dataModelTable"
+            [modelMode]= "true"
+            [datatableColumns]="datatableModelColumns"
+            [dataTable]="dataModelTable"
+            [adminMode]="true">
+            </app-table>
         </mat-card>
     </mat-expansion-panel>
     <mat-expansion-panel (opened)="panelOpenState = true"

@@ -23,6 +23,18 @@ export class DataService {
   getShips(): Observable<any> {
     return this.db.collection('usermodels').snapshotChanges();
   }
+  getModels():  Observable<any> {
+    this.userModels = this.db.collection('modelo');
+
+    return  this.userModels.snapshotChanges().pipe(
+            map(actions => actions.map(a => {
+              const data = a.payload.doc.data();
+              const id = a.payload.doc.id;
+              return { id, ...data };
+            }))
+          );
+
+  }
 
   getModel(brand): Observable<any> {
     return  this.db.collection('modelo', ref => ref.where('brand', '==', brand))
@@ -69,7 +81,7 @@ export class DataService {
           }))
         );
 
-      }
+  }
   
 
   getGameRoles(): Observable<any> {

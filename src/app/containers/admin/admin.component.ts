@@ -9,22 +9,23 @@ import { DataService } from "../../shared/services/data.services";
 export class AdminComponent implements OnInit {
   datatableColumns: any;
   dataTable: any;
+  dataModelTable: any;
+  datatableModelColumns: any;
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    console.log('onINit');
     this.dataService.getUserModels().subscribe((ships)=>{
       console.log('ships', ships);
       this.datatableColumns = ['name', 'ships', 'userName', 'actions'];
-      // let allShips = [];
-      // ships.forEach((ship)=>{
-      //   allShips.push(ship.payload.doc.data());
-      // }
-      // )
-      // console.log('all', allShips);
       this.dataTable = ships;
 
     });
+    this.dataService.getModels().subscribe((ships)=>{
+      console.log('getModels', ships);
+      this.datatableModelColumns = ['brand', 'model'];
+      this.dataModelTable = ships;
+    });
+
 
   }
 

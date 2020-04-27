@@ -1,13 +1,11 @@
-<div class="content">
-	<mat-card>
-		<app-form [adminMode]="true"></app-form>
-	</mat-card>
-	<mat-card>
+	<mat-card class="content-table">
 		<app-table
     *ngIf="!!dataTable"
     [datatableColumns]="datatableColumns"
     [dataTable]="dataTable" [adminMode]="true">
 		</app-table>
 	</mat-card>
+  <mat-card class="content-model">
+		<app-form [adminMode]="true"></app-form>
+	</mat-card>
 
-</div>

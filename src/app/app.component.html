@@ -1,11 +1,11 @@
 <mat-sidenav-container class="example-container">
-   <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+   <mat-sidenav class="sidenadcontainer "#sidenav mode="side" [(opened)]="opened">
     <app-menu></app-menu>
     </mat-sidenav>
   <mat-sidenav-content>
 
     <mat-toolbar class ="toolbar" *ngIf="authService.isLoggedIn()">
-      <button (click)="sidenav.toggle()">
+      <button  class="menubutton" (click)="sidenav.toggle()">
         <mat-icon fontSet="fas" fontIcon="fa-bars"></mat-icon>
       </button>
       <!-- <div class="example-button-container">

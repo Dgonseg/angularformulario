@@ -38,7 +38,7 @@
 	<div *ngIf="!adminMode">
 		<button *ngIf="!addActivate" color="primary" mat-raised-button (click)="activateAdd()">Añadir</button>
 	</div>
-	<div>
+	<div class="addbutton">
 		<app-form *ngIf="addActivate" [activateAdd]="activateAdd" [adminMode]="false"></app-form>
 		<button *ngIf="addActivate" color="primary" mat-raised-button (click)="activateAdd()">Cancelar Añadir</button>
 	</div>

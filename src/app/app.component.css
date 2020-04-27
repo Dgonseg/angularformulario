@@ -10,7 +10,6 @@
   margin: 30px;
 }
 .example-container {
-  background-color: #FAFAFA;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -21,4 +20,13 @@
 
 .toolbar {
   background-color: lightblue;
+}
+
+
+.menubutton {
+  display: contents;
+}
+
+.sidenadcontainer {
+   background-color: #FAFAFA;
 }

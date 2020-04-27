@@ -7,3 +7,11 @@ table {
   font-size: 14px;
   width: 100%;
 }
+
+.tableHeader {
+  padding-bottom: 10px;
+}
+
+.tableCell {
+      padding-top: 15px;
+}

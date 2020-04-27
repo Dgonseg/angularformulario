@@ -38,7 +38,7 @@ export class ProfileComponent implements OnInit {
           this.name = user[0].username;
           this.rol = user[0].rolPrincipal.name;
           this.naveFavorita = user[0].favorite;
-          this.rango = user[0].org;
+          this.rango = user[0].rango;
           this.personalDescription = user[0].descripcion;
 
           this.showProfile = true;

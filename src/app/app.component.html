@@ -4,7 +4,7 @@
     </mat-sidenav>
   <mat-sidenav-content>
 
-    <mat-toolbar *ngIf="authService.isLoggedIn()">
+    <mat-toolbar  class="toolbar" *ngIf="authService.isLoggedIn()">
       <button mat-raised-button (click)="sidenav.toggle()">
         Menu
       </button>

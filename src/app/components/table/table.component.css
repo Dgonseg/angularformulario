@@ -16,6 +16,20 @@ table {
   padding-top: 15px;
 }
 
-.addbuttom {
+.addbutton {
+  display: flex;
+}
+
+.add {
   margin-top: 20px;
+  /* margin-bottom: 10px; */
+}
+
+.clear {
+  margin-top: 20px;
+  margin-left: 5px; 
+}
+
+.clearbuttton {
+  display: contents;
 }

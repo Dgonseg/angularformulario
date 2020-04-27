@@ -2,6 +2,8 @@
 	<mat-label>Filter</mat-label>
 	<input matInput (keyup)="applyFilter($event)" placeholder="Nom">
 </mat-form-field>
+
+
 	<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="showtable">
 
 		<!-- Name Column -->
@@ -12,7 +14,7 @@
 
 		<!-- Weight Column -->
 		<ng-container matColumnDef="ships">
-			<th  class="tableHeader"mat-header-cell *matHeaderCellDef> Modelo </th>
+			<th class="tableHeader" mat-header-cell *matHeaderCellDef> Modelo </th>
 			<td class="tableCell" mat-cell *matCellDef="let line">
 				<span *ngFor=" let ship of line.ships">
         {{ship.model}}
@@ -21,27 +23,36 @@
 		</ng-container>
 
 		<ng-container matColumnDef="userName">
-			<th  class="tableHeader" mat-header-cell *matHeaderCellDef> Usuario </th>
+			<th class="tableHeader" mat-header-cell *matHeaderCellDef> Usuario </th>
 			<td class="tableCell" mat-cell *matCellDef="let line">
 				{{line.userName}}
 			</td>
 		</ng-container>
 		<ng-container matColumnDef="actions">
-			<th class="tableHeader" mat-header-cell *matHeaderCellDef> Actions </th>
+			<th class="tableHeader" mat-header-cell *matHeaderCellDef></th>
 			<td class="tableCell" (click)="deleteShip(line)" mat-cell *matCellDef="let line">
-				<span>Borrar</span>
+				<!-- <span>Borrar</span> -->
+				<span class="material-icons">
+          delete
+        </span>
 			</td>
 		</ng-container>
 		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 		<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 	</table>
-	<div *ngIf="!adminMode">
-		<button *ngIf="!addActivate" color="primary" mat-raised-button (click)="activateAdd()">Añadir</button>
-	</div>
-	<div class="addbutton">
-		<app-form *ngIf="addActivate" [activateAdd]="activateAdd" [adminMode]="false"></app-form>
-		<button *ngIf="addActivate" color="primary" mat-raised-button (click)="activateAdd()">Cancelar Añadir</button>
-	</div>
 
+	<div class="add" *ngIf="!adminMode">
+		<button *ngIf="!addActivate" color="primary" mat-raised-button (click)="activateAdd()">Añadir</button>
+		<div class="addbutton">
+			<app-form *ngIf="addActivate" [activateAdd]="activateAdd" [adminMode]="false"></app-form>
+			<button class="clearbuttton" *ngIf="addActivate" (click)="activateAdd()">
+        <div class="clear">
+          <span class="material-icons">
+            clear
+          </span>
+        </div>
+      </button>
+		</div>
+	</div>
 
 	<!-- <mat-paginator [pageSizeOptions]="[3, 5, 10]" showFirstLastButtons></mat-paginator> -->

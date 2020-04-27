@@ -1,11 +1,55 @@
-	<mat-card class="content-table">
-		<app-table
-    *ngIf="!!dataTable"
-    [datatableColumns]="datatableColumns"
-    [dataTable]="dataTable" [adminMode]="true">
-		</app-table>
-	</mat-card>
-  <mat-card class="content-model">
-		<app-form [adminMode]="true"></app-form>
-	</mat-card>
+	
 
+
+
+<div class="admin-content">
+  <mat-accordion>
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Ship List
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <mat-card class="content-table">
+        <app-table
+        *ngIf="!!dataTable"
+        [datatableColumns]="datatableColumns"
+        [dataTable]="dataTable" [adminMode]="true">
+        </app-table>
+      </mat-card>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                        (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+        Add Models
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+        <mat-card class="content-model">
+          <app-form [adminMode]="true"></app-form>
+        </mat-card>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                        (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Admin Users 
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+        <mat-card class="content-model">
+        <h5>cooming soon</h5>
+      </mat-card>
+    </mat-expansion-panel>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                        (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+        Create News
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+        <mat-card class="content-model">
+        <h5>cooming soon</h5>
+      </mat-card>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>

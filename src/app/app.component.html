@@ -4,9 +4,9 @@
     </mat-sidenav>
   <mat-sidenav-content>
 
-    <mat-toolbar  class="toolbar" *ngIf="authService.isLoggedIn()">
-      <button mat-raised-button (click)="sidenav.toggle()">
-        Menu
+    <mat-toolbar class ="toolbar" *ngIf="authService.isLoggedIn()">
+      <button (click)="sidenav.toggle()">
+        <mat-icon fontSet="fas" fontIcon="fa-bars"></mat-icon>
       </button>
       <!-- <div class="example-button-container">
         <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">

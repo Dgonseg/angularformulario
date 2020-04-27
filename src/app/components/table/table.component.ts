@@ -10,6 +10,7 @@ import { MatTableDataSource } from "@angular/material/table";
 import { DataService } from "../../shared/services/data.services";
 import { AuthService } from "../../shared/services/auth.services";
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {PageEvent} from '@angular/material/paginator';
 
 export interface ships {
   name: string;
@@ -32,6 +33,18 @@ export class TableComponent implements OnInit {
   showtable = false;
   dataTableFormated: any;
   addActivate: false;
+  length = 100;
+  pageSize = 5;
+  pageSizeOptions: number[] = [5, 10, 25, 100];
+
+  // MatPaginator Output
+  pageEvent: PageEvent;
+
+  setPageSizeOptions(setPageSizeOptionsInput: string) {
+    if (setPageSizeOptionsInput) {
+      this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
+    }
+  }
 
   constructor(
     private changeDetectorRefs: ChangeDetectorRef,
@@ -47,6 +60,7 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit() {
+    
     if (!this.dataTable && !this.adminMode) {
       let userId = localStorage.getItem("userId");
       if (userId) {
@@ -59,6 +73,7 @@ export class TableComponent implements OnInit {
         this.dataTable = filteredModels;
         this.dataSource = new MatTableDataSource(this.formatDataTable());
         this.displayedColumns = this.datatableColumns;
+        this.dataSource.paginator = this.paginator;
         this.showtable = true;
       });
 
@@ -68,6 +83,7 @@ export class TableComponent implements OnInit {
       this.displayedColumns = this.datatableColumns;
       
       this.dataSource = new MatTableDataSource(this.formatDataTable());
+      this.dataSource.paginator = this.paginator;
       this.showtable = true;
     }
   }

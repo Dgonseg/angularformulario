@@ -21,8 +21,8 @@ export class AdminComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    this.getUserModels();
-    this.getModels();
+    // this.getUserModels();
+    // this.getModels();
     this.getUser();
   }
 
@@ -45,6 +45,7 @@ export class AdminComponent implements OnInit {
   getUser() {
     console.log('allUsers')
     this.dataService.getAllUser().subscribe((users)=>{
+      console.log('getAllUser', users)
       this.datatableUserColumns = ['username', 'rango', 'deleteUser'];
       this.datatableUser = users;
     });

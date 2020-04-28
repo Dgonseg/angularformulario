@@ -21,8 +21,8 @@ export class AdminComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
-    // this.getUserModels();
-    // this.getModels();
+    this.getUserModels();
+    this.getModels();
     this.getUser();
   }
 

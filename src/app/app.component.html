@@ -1,5 +1,5 @@
 <mat-sidenav-container class="example-container">
-   <mat-sidenav class="sidenadcontainer "#sidenav mode="side" [(opened)]="opened">
+   <mat-sidenav  (click)="sidenav.toggle()" class="sidenadcontainer "#sidenav mode="side" [(opened)]="opened">
     <app-menu></app-menu>
     </mat-sidenav>
   <mat-sidenav-content>
@@ -8,11 +8,6 @@
       <button  class="menubutton" (click)="sidenav.toggle()">
         <mat-icon fontSet="fas" fontIcon="fa-bars"></mat-icon>
       </button>
-      <!-- <div class="example-button-container">
-        <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
-          <mat-icon>menu</mat-icon>
-        </button>
-      </div> -->
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>

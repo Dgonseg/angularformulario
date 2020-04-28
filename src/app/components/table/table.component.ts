@@ -61,6 +61,7 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('this.modelModet',this.modelMode)
     
     if (!this.dataTable && !this.adminMode) {
       let userId = localStorage.getItem("userId");
@@ -81,8 +82,8 @@ export class TableComponent implements OnInit {
       }
 
     } else {
+      console.log( this.datatableColumns)
       this.displayedColumns = this.datatableColumns;
-      
       this.dataSource = new MatTableDataSource(this.formatDataTable());
       this.dataSource.paginator = this.paginator;
       this.showtable = true;
@@ -99,32 +100,63 @@ export class TableComponent implements OnInit {
       this.dataService.deleteShip(line.id);
     }
   }
+  deleteUser(line){
+    if(this.dialogConfirm()) {
+      this.dataService.deleteUser(line.id);
+    }
+  }
   
   formatDataTable(){
     let dataTableFormated = [];
-    if(!this.modelMode){
-      this.dataTable.forEach(line=>{
-        dataTableFormated.push({
-          id: line.id,
-          name: line.name.name,
-          ships: line.ships,
-          userName: line.userName
+    console.log(this.modelMode)
+    switch(this.modelMode) {
+      case 'ship':
+        this.dataTable.forEach(line=>{
+          dataTableFormated.push({
+            id: line.id,
+            name: line.name.name,
+            ships: line.ships,
+            userName: line.userName
+          })
         })
-      })
+        return  dataTableFormated
 
-    } else {
-      this.dataTable.forEach(line=>{
-      console.log(line)
-      dataTableFormated.push({
-        brand:line.brand.name,
-        model: line.model
-      })
-    })
+      break;
 
+      case 'model':
+        this.dataTable.forEach(line=>{
+          dataTableFormated.push({
+            brand:line.brand.name,
+            model: line.model
+          })
+        })
+        return  dataTableFormated
+
+      break;
+      case 'users':
+        this.dataTable.forEach(line=>{
+          console.log('line', line);
+          dataTableFormated.push({
+            id: line.id,
+            username:line.username,
+            rango: line.rango
+          })
+        })
+        console.log(dataTableFormated)
+        return  dataTableFormated
+
+      break;
+
+      case 'profile':
+       this.dataTable.forEach(line=>{
+          dataTableFormated.push({
+            id: line.id,
+            name: line.name.name,
+            ships: line.ships,
+          })
+        })
+        return  dataTableFormated
     }
-
-    console.log(dataTableFormated)
-    return  dataTableFormated
 
   }
 

@@ -20,6 +20,18 @@ export class DataService {
     return this.db.collection('marca').snapshotChanges();
   }
 
+  getAllUser(): Observable<any> {
+    this.userModels = this.db.collection('users');
+
+    return  this.userModels.snapshotChanges().pipe(
+            map(actions => actions.map(a => {
+              const data = a.payload.doc.data();
+              const id = a.payload.doc.id;
+              return { id, ...data };
+            }))
+          );
+  }
+
   getShips(): Observable<any> {
     return this.db.collection('usermodels').snapshotChanges();
   }
@@ -45,6 +57,9 @@ export class DataService {
     return  this.db.collection('usermodels').doc(id).delete();
   }
 
+  deleteUser(id) {
+    return  this.db.collection('users').doc(id).delete();
+  }
   // create
   createModel(model) {
     return this.db.collection("modelo").doc(model.brand.id).set(model)

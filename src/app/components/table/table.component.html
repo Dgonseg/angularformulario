@@ -5,48 +5,75 @@
 
 
 	<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="showtable">
+    <!-- model table -->
+      <!-- brand Column -->
+      <ng-container matColumnDef="brand">
+        <th class="tableHeader" mat-header-cell *matHeaderCellDef> Marca </th>
+        <td class="tableCell" mat-cell *matCellDef="let line"> {{line.brand}} </td>
+      </ng-container>
+      <!-- moidel Column -->
+      <ng-container matColumnDef="model">
+        <th class="tableHeader" mat-header-cell *matHeaderCellDef> Modelo </th>
+        <td class="tableCell" mat-cell *matCellDef="let line"> {{line.model}} </td>
+      </ng-container>
 
-    <!-- brand Column -->
-		<ng-container matColumnDef="brand">
-			<th class="tableHeader" mat-header-cell *matHeaderCellDef> Marca </th>
-			<td class="tableCell" mat-cell *matCellDef="let line"> {{line.brand}} </td>
-		</ng-container>
-    <!-- moidel Column -->
-		<ng-container matColumnDef="model">
-			<th class="tableHeader" mat-header-cell *matHeaderCellDef> Modelo </th>
-			<td class="tableCell" mat-cell *matCellDef="let line"> {{line.model}} </td>
-		</ng-container>
-		<!-- Name Column -->
-		<ng-container matColumnDef="name">
-			<th class="tableHeader" mat-header-cell *matHeaderCellDef> Marca </th>
-			<td class="tableCell" mat-cell *matCellDef="let line"> {{line.name}} </td>
-		</ng-container>
+    <!-- ship table -->
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th class="tableHeader" mat-header-cell *matHeaderCellDef> Marca </th>
+        <td class="tableCell" mat-cell *matCellDef="let line"> {{line.name}} </td>
+      </ng-container>
 
-		<!-- Weight Column -->
-		<ng-container matColumnDef="ships">
-			<th class="tableHeader" mat-header-cell *matHeaderCellDef> Modelo </th>
-			<td class="tableCell" mat-cell *matCellDef="let line">
-				<span *ngFor=" let ship of line.ships">
-        {{ship.model}}
-      </span>
-			</td>
-		</ng-container>
-
-		<ng-container matColumnDef="userName">
-			<th class="tableHeader" mat-header-cell *matHeaderCellDef> Usuario </th>
-			<td class="tableCell" mat-cell *matCellDef="let line">
-				{{line.userName}}
-			</td>
-		</ng-container>
-		<ng-container matColumnDef="actions">
-			<th class="tableHeader" mat-header-cell *matHeaderCellDef></th>
-			<td class="tableCell" (click)="deleteShip(line)" mat-cell *matCellDef="let line">
-				<!-- <span>Borrar</span> -->
-				<span class="material-icons">
-          delete
+      <ng-container matColumnDef="ships">
+        <th class="tableHeader" mat-header-cell *matHeaderCellDef> Modelo </th>
+        <td class="tableCell" mat-cell *matCellDef="let line">
+          <span *ngFor=" let ship of line.ships">
+          {{ship.model}}
         </span>
-			</td>
-		</ng-container>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="userName">
+        <th class="tableHeader" mat-header-cell *matHeaderCellDef> Usuario </th>
+        <td class="tableCell" mat-cell *matCellDef="let line">
+          {{line.userName}}
+        </td>
+      </ng-container>
+    <!-- User List  -->
+      <ng-container matColumnDef="username">
+        <th class="tableHeader" mat-header-cell *matHeaderCellDef> Usuario </th>
+        <td class="tableCell" mat-cell *matCellDef="let line">
+          {{line.username}}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="rango">
+        <th class="tableHeader" mat-header-cell *matHeaderCellDef> Usuario </th>
+        <td class="tableCell" mat-cell *matCellDef="let line">
+          {{line.rango}}
+        </td>
+      </ng-container>
+
+
+    <!-- Actions -->
+    
+    <ng-container matColumnDef="deleteUser">
+        <th class="tableHeader" mat-header-cell *matHeaderCellDef></th>
+        <td class="tableCell" (click)="deleteUser(line)" mat-cell *matCellDef="let line">
+          <!-- <span>Borrar</span> -->
+          <span class="material-icons">
+            delete
+          </span>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <th class="tableHeader" mat-header-cell *matHeaderCellDef></th>
+        <td class="tableCell" (click)="deleteShip(line)" mat-cell *matCellDef="let line">
+          <!-- <span>Borrar</span> -->
+          <span class="material-icons">
+            delete
+          </span>
+        </td>
+      </ng-container>
 		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 		<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 	</table>

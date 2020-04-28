@@ -13,7 +13,7 @@
       <mat-card class="content-table">
         <app-table
         *ngIf="!!dataTable"
-        [modelMode]= "false"
+        [modelMode]= "'ship'"
         [datatableColumns]="datatableColumns"
         [dataTable]="dataTable"
         [adminMode]="true">
@@ -31,7 +31,7 @@
           <app-form [adminMode]="true"></app-form>
            <app-table
             *ngIf="!!dataModelTable"
-            [modelMode]= "true"
+            [modelMode]= "'model'"
             [datatableColumns]="datatableModelColumns"
             [dataTable]="dataModelTable"
             [adminMode]="true">
@@ -46,7 +46,13 @@
         </mat-panel-title>
       </mat-expansion-panel-header>
         <mat-card class="content-model">
-        <h5>cooming soon</h5>
+          <app-table
+            *ngIf="!!datatableUser"
+            [modelMode]= "'users'"
+            [datatableColumns]="datatableUserColumns"
+            [dataTable]="datatableUser"
+            [adminMode]="true">
+          </app-table>
       </mat-card>
     </mat-expansion-panel>
     <mat-expansion-panel (opened)="panelOpenState = true"

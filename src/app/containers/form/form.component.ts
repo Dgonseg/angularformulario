@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, Input } from "@angular/core";
 import { TableComponent } from "../../components/table/table.component";
 import { DataService } from "../../shared/services/data.services";
 import { AuthService } from "../../shared/services/auth.services";
-import {SelectComponent} from '../../components/form/select/select.component';
+import {AddShipProfileComponent} from '../../components/form/add-ship-profile/add-ship-profile.component';
 
 @Component({
   selector: "app-form",
@@ -10,7 +10,7 @@ import {SelectComponent} from '../../components/form/select/select.component';
   styleUrls: ["./form.component.css"]
 })
 export class FormComponent implements OnInit {
-    @ViewChild(SelectComponent) selectComponent: SelectComponent;
+  @ViewChild(AddShipProfileComponent) addShipProfileComponent: AddShipProfileComponent;
   @ViewChild(TableComponent) tableComponent: TableComponent;
   @Input() adminMode: boolean;
   @Input() activateAdd: any;
@@ -95,8 +95,8 @@ export class FormComponent implements OnInit {
   }
 
   save() {
-    let shipValue =  this.selectComponent.returnValues();
-    this.selectComponent.resetValues();
+    let shipValue =  this.addShipProfileComponent.returnValues();
+    this.addShipProfileComponent.resetValues();
     this.populateTable(shipValue);
   }
 }

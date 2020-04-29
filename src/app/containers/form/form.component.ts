@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, Input } from "@angular/core";
 import { TableComponent } from "../../components/table/table.component";
 import { DataService } from "../../shared/services/data.services";
 import { AuthService } from "../../shared/services/auth.services";
+import {SelectComponent} from '../../components/form/select/select.component';
 
 @Component({
   selector: "app-form",
@@ -9,6 +10,7 @@ import { AuthService } from "../../shared/services/auth.services";
   styleUrls: ["./form.component.css"]
 })
 export class FormComponent implements OnInit {
+    @ViewChild(SelectComponent) selectComponent: SelectComponent;
   @ViewChild(TableComponent) tableComponent: TableComponent;
   @Input() adminMode: boolean;
   @Input() activateAdd: any;
@@ -40,6 +42,8 @@ export class FormComponent implements OnInit {
     this.selectBrandOptions = [];
     this.dataTable = [];
   }
+
+  
 
   populateTable($event) {
     let userId = this.authService.getUserId();
@@ -73,7 +77,6 @@ export class FormComponent implements OnInit {
   }
 
   selectBrad($event) {
-    console.log("thuis!!!!", $event);
     this.getmodel($event);
   }
 
@@ -86,5 +89,11 @@ export class FormComponent implements OnInit {
       this.selectedBrand = brand;
       this.showComponent = true;
     });
+  }
+
+  save() {
+    let shipValue =  this.selectComponent.returnValues();
+    this.selectComponent.resetValues();
+    this.populateTable(shipValue);
   }
 }

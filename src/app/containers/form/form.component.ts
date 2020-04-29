@@ -35,7 +35,10 @@ export class FormComponent implements OnInit {
     private db: DataService,
     public authService: AuthService,
     private dataService: DataService
-  ) {}
+  ) {
+    this.save= this.save.bind(this);
+
+  }
 
   ngOnInit() {
     this.getBrand();

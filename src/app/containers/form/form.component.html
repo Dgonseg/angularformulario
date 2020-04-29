@@ -1,42 +1,26 @@
 <!-- //perfil o modo edicion -->
 <div *ngIf="!adminMode">
   <div>
-    <!-- <app-table
-      *ngIf="dataTable.length > 0"
-      [dataTable]="dataTable"
-      [datatableColumns]="datatableColumns"
-      ></app-table> -->
+
   </div>
   <div class="test">
-    <app-addship
-      *ngIf="!selectedBrand"
-      [brands]="brands"
-      [brandModels]="brandModels"
-      (populateTable)="populateTable($event)"
-      (selectBrad)="selectBrad($event)"
-      >
-    </app-addship>
-    <app-addship
-      *ngIf="selectedBrand"
-      [selectedBrand]="selectedBrand"
-      [brands]="brands"
-      [brandModels]="brandModels"
-      (populateTable)="populateTable($event)"
-      (selectBrad)="selectBrad($event)"
-      >
-    </app-addship>
+    <div class="addShip">         
+    <button  color="primary" class="save" mat-raised-button (click)="save()">Añadir</button>
+   <app-add-ship-profile
+        [selectedBrand]="selectedBrand"
+        [selectBrandLabel]="selectBrandLabel"
+        [selectShipsLabel]="selectShipsLabel"
+        [selectShipsbyBrandOptions]="brandModels"
+        [selectBrandOptions]="brands"
+        (changeBrand) ="getmodel($event)"
+      ></app-add-ship-profile>
+  </div>
+
   </div>
 </div>
 
-
-
 <div *ngIf="adminMode">
   <div>
-    <!-- <app-table
-      *ngIf="dataTable.length > 0"
-      [dataTable]="dataTable"
-      [datatableColumns]="datatableColumns"
-      ></app-table> -->
   </div>
   <div class="test">
     <app-addship

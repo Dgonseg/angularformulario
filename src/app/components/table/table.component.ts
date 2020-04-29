@@ -100,6 +100,7 @@ export class TableComponent implements OnInit {
       this.dataService.deleteShip(line.id);
     }
   }
+
   deleteUser(line){
     if(this.dialogConfirm()) {
       this.dataService.deleteUser(line.id);
@@ -127,7 +128,8 @@ export class TableComponent implements OnInit {
         this.dataTable.forEach(line=>{
           dataTableFormated.push({
             brand:line.brand.name,
-            model: line.model
+            model: line.model,
+            id: line.id
           })
         })
         return  dataTableFormated
@@ -166,5 +168,11 @@ export class TableComponent implements OnInit {
 
   activateAdd() {
     this.addActivate = !this.addActivate;
+  }
+
+  deleteModel(line) {
+    if(this.dialogConfirm()) {
+      this.dataService.deleteModel(line.id);
+    }
   }
 }

@@ -37,7 +37,7 @@ export class AdminComponent implements OnInit {
   getModels() {
     this.dataService.getModels().subscribe((ships)=>{
   
-      this.datatableModelColumns = ['brand', 'model'];
+      this.datatableModelColumns = ['brand', 'model', 'deleteModels'];
       this.dataModelTable = ships;
     });
   }

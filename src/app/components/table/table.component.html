@@ -17,6 +17,7 @@
         <td class="tableCell" mat-cell *matCellDef="let line"> {{line.model}} </td>
       </ng-container>
 
+
     <!-- ship table -->
       <!-- Name Column -->
       <ng-container matColumnDef="name">
@@ -55,6 +56,17 @@
 
 
     <!-- Actions -->
+      
+    <ng-container matColumnDef="deleteModels">
+        <th class="tableHeader" mat-header-cell *matHeaderCellDef></th>
+        <td class="tableCell" (click)="deleteModel(line)" mat-cell *matCellDef="let line">
+          <!-- <span>Borrar</span> -->
+          <span class="material-icons">
+            delete
+          </span>
+        </td>
+    </ng-container>
+
     
     <ng-container matColumnDef="deleteUser">
         <th class="tableHeader" mat-header-cell *matHeaderCellDef></th>

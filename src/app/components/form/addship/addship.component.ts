@@ -50,3 +50,29 @@ export class AddshipComponent implements OnInit {
     this.selectBrad.emit($event)
   }
 }
+
+
+//  this.db.getModels().subscribe((models)=>{
+//       let exist = false;
+//       let brandindex = null;
+//       models.forEach((brand, index)=> {
+
+//         if(shipValue.brand.id === brand.id){
+//           exist = true;
+//           brandindex = index;
+//         }
+//       })
+//       //Update
+//       if(exist) {
+//         console.log('brandindex', brandindex);
+//       } else {// INsert
+//         newValue = {};
+//         newValue.brand = shipValue.brand;
+//         newValue.model = [];
+//         newValue.model.push(shipValue.model)
+//         console.log(newValue);
+//         this.db.createModel(newValue);
+
+//       }
+     
+//     })

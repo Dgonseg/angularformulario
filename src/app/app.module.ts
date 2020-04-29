@@ -44,6 +44,7 @@ import { AdminComponent } from './containers/admin/admin.component';
 import { ProfileComponent } from './containers/profile/profile.component';
 import { AddUserComponent } from './containers/add-user/add-user.component';
 import { EditUserComponent } from './containers/edit-user/edit-user.component';
+import { AddShipProfileComponent } from './components/form/add-ship-profile/add-ship-profile.component';
 
 var firebaseConfig = {
     apiKey: "AIzaSyDmeg09xntmdUxvyJwIxAWFAOC_Z0UTGzQ",
@@ -93,7 +94,8 @@ if (!firebase.apps.length) {
     AdminComponent,
     ProfileComponent,
     AddUserComponent,
-    EditUserComponent],
+    EditUserComponent,
+    AddShipProfileComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

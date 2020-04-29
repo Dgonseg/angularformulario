@@ -1,0 +1,15 @@
+<div *ngIf="!insertMode">
+  <mat-form-field class="mat-app-background basic-container">
+    <mat-label>{{selectBrandLabel}}</mat-label>
+    <mat-select [(ngModel)]="brand.name" #ctrl="ngModel" (ngModelChange)="onChange($event)">
+      <mat-option *ngFor="let brand of selectBrandOptions" [value]="brand.data">{{brand.data.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field  class="mat-app-background basic-container">
+    <mat-label>{{selectShipsLabel}}</mat-label>
+    <mat-select [(ngModel)]="brand.ships" #ctrl="ngModel" multiple>
+      <mat-option *ngFor="let ship of selectShipsbyBrandOptions" [value]="ship">{{ship.model}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>

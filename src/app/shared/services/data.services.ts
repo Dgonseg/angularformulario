@@ -60,9 +60,15 @@ export class DataService {
   deleteUser(id) {
     return  this.db.collection('users').doc(id).delete();
   }
+
+
+  deleteModel(id){
+    console.log('delete', id)
+    return  this.db.collection('modelo').doc(id).delete();
+  }
   // create
   createModel(model) {
-    return this.db.collection("modelo").doc(model.brand.id).set(model)
+    return this.db.collection("modelo").add(model)
   }
 
   createUserModels(userModel) {
@@ -102,4 +108,6 @@ export class DataService {
   getGameRoles(): Observable<any> {
     return this.db.collection('rol').snapshotChanges();
   }
+
+  
 }

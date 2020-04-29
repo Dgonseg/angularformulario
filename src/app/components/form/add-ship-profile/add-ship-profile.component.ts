@@ -1,12 +1,14 @@
-import { Component, OnInit, Input, Output,EventEmitter } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, OnInit,ViewChild, Output, EventEmitter, Input } from '@angular/core';
+import {SelectComponent} from '../select/select.component';
+import {DataService} from '../../../shared/services/data.services';
 
 @Component({
-  selector: 'form-select',
-  templateUrl: './select.component.html',
-  styleUrls: ['./select.component.css']
+  selector: 'app-add-ship-profile',
+  templateUrl: './add-ship-profile.component.html',
+  styleUrls: ['./add-ship-profile.component.css']
 })
-export class SelectComponent implements OnInit {
+export class AddShipProfileComponent implements OnInit {
+
   @Input() selectOptions: String[];
   @Input() selectBrandLabel: String[];
   @Input() selectShipsLabel: String[];
@@ -77,4 +79,5 @@ export class SelectComponent implements OnInit {
     this.brand.ships= [];
     this.changeBrand.emit(this.brand.name);
   }
-}   
+
+}

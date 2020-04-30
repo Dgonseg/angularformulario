@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {enableProdMode} from '@angular/core';
 // //routing
 import { AppRoutingModule } from './app.routes';
 //components
@@ -54,7 +55,9 @@ var firebaseConfig = environment.firebaseConfig;
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
 }
-
+if(environment.production){
+  enableProdMode()
+}
 
 
 @NgModule({

@@ -55,7 +55,7 @@ export class EditUserComponent implements OnInit {
         const toSelectRol = this.roles.find(c => c.id == user[0].rolPrincipal.id);
         let  toSelectOtherRol =  [];
 
-        if(user[0].rol.length >0){
+        if(user[0].rol.length > 0){
           this.roles.forEach((rol) => {
             user[0].rol.forEach((userRol)=> {
               if(rol.id==userRol.id){
@@ -92,7 +92,7 @@ export class EditUserComponent implements OnInit {
           userRols.push(rol)
         }
     })
-    console.log('this.user', this.user)
+
     this.userProfile = {
       username: this.userForm.get('username').value,
       rolPrincipal: this.userForm.get('rolprincipal').value, 
@@ -104,12 +104,21 @@ export class EditUserComponent implements OnInit {
       userId: this.user.userId
     }
 
-    console.log(this.userProfile);
-    // this.saveLocalUserID(userId);
+    this.dataService.getAllUser()
+    .subscribe((users)=>{
+      console.log(users)
+      let docID = null
+      users.forEach((user)=>{
+        if(user.userId === this.userProfile.userId){
+          docID =  user.id;
+        }
+      })
+      this.dataService.updateUser(this.userProfile, docID);
+      this.router.navigate(['profile']);
 
-    this.dataService.updateUser(this.userProfile)
+    })
     
-    this.router.navigate(['profile']);
+    
   }
 
   saveLocalUserID(userId) {

@@ -1,4 +1,4 @@
-<div class="menu" *ngIf="authService.isLoggedIn()">
+<div class="menu" *ngIf="!authService.isLoggedIn()">
   <div class="wrapper">
     <!-- Sidebar -->
     <nav id="sidebar">
@@ -21,7 +21,7 @@
             <!-- <li class="active">
                 <a href="/add-user" data-toggle="collapse" aria-expanded="false">AddUser</a>
             </li> -->
-            <li  class="active">
+            <li  class="active" *ngIf="(permiso != 3) && (permiso !=null)">
                 <a  routerLink="/admin" data-toggle="collapse" aria-expanded="false">Admin</a>
             </li>
              <li class="active">

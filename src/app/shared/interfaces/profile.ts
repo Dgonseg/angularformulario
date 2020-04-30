@@ -7,4 +7,5 @@ export interface Profile {
   descripcion: String;
   mail: String;
   userId: String;
+  permiso: any;
 }

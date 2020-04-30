@@ -57,7 +57,8 @@ export class AddUserComponent implements OnInit {
       rango:  this.userForm.get('rango').value, 
       descripcion: this.userForm.get('descripcion').value,
       mail: user.email, 
-      userId: userId
+      userId: userId,
+      permiso: {id: '3', name: 'Usuario'}
     }
 
     this.saveLocalUserID(userId);

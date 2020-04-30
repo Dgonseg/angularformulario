@@ -101,7 +101,8 @@ export class EditUserComponent implements OnInit {
       rango:  this.userForm.get('rango').value, 
       descripcion: this.userForm.get('descripcion').value,
       mail: this.user.mail, 
-      userId: this.user.userId
+      userId: this.user.userId,
+      permiso: this.user.permiso
     }
 
     this.dataService.getAllUser()

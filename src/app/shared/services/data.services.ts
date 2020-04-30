@@ -84,7 +84,7 @@ export class DataService {
     return  this.db.collection('users', ref => ref.where('mail', '==', mail)).valueChanges({ mail });
   }
   getUserId(userId): any {
-    return  this.db.collection('users', ref => ref.where('userId', '==', userId)).valueChanges({userId});
+    return  this.db.collection('users', ref => ref.where('userId', '==', userId)).valueChanges({userId})
   }
 
   getUserByEmail(mail) {
@@ -108,6 +108,23 @@ export class DataService {
   getGameRoles(): Observable<any> {
     return this.db.collection('rol').snapshotChanges();
   }
+
+  updateUser(user): Observable<any>{
+    console.log('user')
+    this.userModels = this.db.collection('users');
+
+   return  this.userModels.snapshotChanges().pipe(
+          map(actions => actions.map(a => {
+            const data = a.payload.doc.data();
+            const id = a.payload.doc.id;
+  
+            if(data.userId === user.userId){
+              return this.db.collection("users").doc(id).set(user); 
+            }
+          }))
+        );
+  }
+
 
   
 }

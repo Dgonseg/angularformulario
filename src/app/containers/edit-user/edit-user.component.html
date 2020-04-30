@@ -17,18 +17,15 @@
          <mat-form-field class="example-full-width">
           <mat-label>Rol Principal</mat-label>
           <mat-select formControlName="rolprincipal">
-            <mat-option *ngFor="let rol of roles" [value]="">{{rol.name}}</mat-option>
+            <mat-option *ngFor="let rol of roles" [value]="rol">{{rol.name}}</mat-option>
           </mat-select>
         </mat-form-field>
         <mat-form-field class="example-full-width">
           <mat-label>Otros Roles</mat-label>
           <mat-select formControlName="rol" multiple>
-            <mat-option *ngFor="let rol of roles" [value]="rol">{{rol.name}}</mat-option>
+            <mat-option *ngFor="let otherRol of roles" [value]="otherRol.id">{{otherRol.name}}</mat-option>
           </mat-select>
         </mat-form-field>
-
-
-         <!-- <label *ngIf="rol.invalid" [ngClass] = "'error'">El rol es requerido </label> -->
         <!-- Favorite -->
         <mat-form-field class="example-full-width">
           <mat-label>Nave Favorita</mat-label>

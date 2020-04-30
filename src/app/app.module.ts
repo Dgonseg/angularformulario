@@ -45,17 +45,11 @@ import { ProfileComponent } from './containers/profile/profile.component';
 import { AddUserComponent } from './containers/add-user/add-user.component';
 import { EditUserComponent } from './containers/edit-user/edit-user.component';
 import { AddShipProfileComponent } from './components/form/add-ship-profile/add-ship-profile.component';
+import { environment } from '../environments/environment';
 
-var firebaseConfig = {
-    apiKey: "AIzaSyDmeg09xntmdUxvyJwIxAWFAOC_Z0UTGzQ",
-    authDomain: "hformulario-b0a55.firebaseapp.com",
-    databaseURL: "https://hformulario-b0a55.firebaseio.com",
-    projectId: "hformulario-b0a55",
-    storageBucket: "hformulario-b0a55.appspot.com",
-    messagingSenderId: "267439002356",
-    appId: "1:267439002356:web:20d63d805ea100355244a1",
-    measurementId: "G-JX6GDSLPR9"
-  };
+// for test
+var firebaseConfig = environment.firebaseConfig;
+
 
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);

@@ -55,7 +55,7 @@ var firebaseConfig = environment.firebaseConfig;
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
 }
-if(environment.production){
+if(!environment.production){
   enableProdMode()
 }
 

@@ -9,7 +9,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  permiso: any;
+  permiso: String;
   constructor(
      public authService: AuthService,
      private dataService: DataService
@@ -20,8 +20,7 @@ export class MenuComponent implements OnInit {
     this.dataService.getUserId(localStorage.getItem("userId"))
     .subscribe((user)=>{
       console.log(user)
-      // this.permiso = user.permiso.id;
-      this.permiso = '1';
+      this.permiso = user[0].permiso.id;
     })
   }
 

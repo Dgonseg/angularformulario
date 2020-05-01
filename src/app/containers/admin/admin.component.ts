@@ -46,7 +46,7 @@ export class AdminComponent implements OnInit {
     console.log('allUsers')
     this.dataService.getAllUser().subscribe((users)=>{
       console.log('getAllUser', users)
-      this.datatableUserColumns = ['username', 'rango', 'deleteUser'];
+      this.datatableUserColumns = ['username', 'rango', 'deleteUser', 'viewUser'];
       this.datatableUser = users;
     });
   }

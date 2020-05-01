@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../shared/services/auth.services";
 import { DataService } from "../../shared/services/data.services";
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-other-profile',
@@ -24,18 +25,19 @@ export class OtherProfileComponent implements OnInit {
      
   constructor(
     public authService: AuthService,
-    private dataService: DataService
+    private dataService: DataService,
+    private activeRouter: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.adminMode = false;
-    let userId =  this.authService.getUserId();
-    this.datatableColumns = ['name', 'ships', 'actions'];
+    this.adminMode = true;
+    let userId = this.activeRouter.snapshot.paramMap.get('id');
+
+    this.datatableColumns = ['name', 'ships'];
 
 
     this.dataService.getUserId(userId) 
       .subscribe((user)=> {
-        console.log('user', user)
         if(user.length > 0){
           this.userId = user[0].userId;
           this.name = user[0].username;

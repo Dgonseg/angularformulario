@@ -11,6 +11,8 @@ import { DataService } from "../../shared/services/data.services";
 import { AuthService } from "../../shared/services/auth.services";
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {PageEvent} from '@angular/material/paginator';
+import { Router } from '@angular/router';
+
 
 export interface ships {
   name: string;
@@ -50,7 +52,8 @@ export class TableComponent implements OnInit {
   constructor(
     private changeDetectorRefs: ChangeDetectorRef,
     private dataService: DataService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {
     this.activateAdd = this.activateAdd.bind(this);
   }
@@ -145,6 +148,7 @@ export class TableComponent implements OnInit {
           console.log('line', line);
           dataTableFormated.push({
             id: line.id,
+            userId: line.userId,
             username:line.username,
             rango: line.rango
           })
@@ -158,6 +162,7 @@ export class TableComponent implements OnInit {
        this.dataTable.forEach(line=>{
           dataTableFormated.push({
             id: line.id,
+            
             name: line.name.name,
             ships: line.ships,
           })
@@ -179,5 +184,9 @@ export class TableComponent implements OnInit {
     if(this.dialogConfirm()) {
       this.dataService.deleteModel(line.id);
     }
+  }
+
+  viewUser(line) {
+    this.router.navigate(['otherProfile/', line.userId]);
   }
 }

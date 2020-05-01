@@ -47,6 +47,7 @@ import { AddUserComponent } from './containers/add-user/add-user.component';
 import { EditUserComponent } from './containers/edit-user/edit-user.component';
 import { AddShipProfileComponent } from './components/form/add-ship-profile/add-ship-profile.component';
 import { environment } from '../environments/environment';
+import { OtherProfileComponent } from './containers/other-profile/other-profile.component';
 
 // for test
 var firebaseConfig = environment.firebaseConfig;
@@ -55,7 +56,7 @@ var firebaseConfig = environment.firebaseConfig;
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
 }
-if(!environment.production){
+if(environment.production){
   enableProdMode()
 }
 
@@ -92,7 +93,8 @@ if(!environment.production){
     ProfileComponent,
     AddUserComponent,
     EditUserComponent,
-    AddShipProfileComponent],
+    AddShipProfileComponent,
+    OtherProfileComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

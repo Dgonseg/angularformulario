@@ -15,6 +15,7 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { AddUserComponent } from './containers/add-user/add-user.component';
 import { EditUserComponent } from './containers/edit-user/edit-user.component';
 import { ProfileComponent } from './containers/profile/profile.component';
+import {OtherProfileComponent} from './containers/other-profile/other-profile.component';
 //guards
 import {SecureInnerPagesGuard} from './shared/guard/secure-inner-pages.guard';
 import {AuthGuard} from './shared/guard/auth.guard';
@@ -25,12 +26,14 @@ const routes: Routes = [
   { path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard]},
   { path: 'edit-user/:id', component: EditUserComponent, canActivate: [AuthGuard]},
   // { path: 'add-user', component: AddUserComponent, canActivate: [AuthGuard]},
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+  // { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   { path: 'dashboard', component: dashboardComponent, canActivate: [AuthGuard] },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
   // { path: 'edit-user/:id', component: EditUserComponent},
   { path: 'add-user', component: AddUserComponent},
-  // { path: 'profile', component: ProfileComponent},
+  { path: 'profile', component: ProfileComponent},
+  { path: 'otherProfile', component: OtherProfileComponent},
+  
   // { path: 'dashboard', component: dashboardComponent },
   // { path: 'admin', component: AdminComponent },
   // { path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard]},

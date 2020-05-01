@@ -91,7 +91,9 @@
 	</table>
 
 	<div class="add" *ngIf="!adminMode">
+    
 		<button *ngIf="!addActivate" color="primary" mat-raised-button (click)="activateAdd()">Añadir</button>
+    <span *ngIf="!showtable && !addActivate"> <-- Añade Tus naves!</span>
 		<div class="addbutton">
 			<app-form *ngIf="addActivate" [activateAdd]="activateAdd" [adminMode]="false"></app-form>
 			<button class="clearbuttton" *ngIf="addActivate" (click)="activateAdd()">
@@ -104,8 +106,10 @@
 		</div>
 	</div>
 
-<mat-paginator [length]="length"
-               [pageSize]="pageSize"
-               [pageSizeOptions]="pageSizeOptions"
-               (page)="pageEvent = $event">
+<mat-paginator
+  *ngIf="showtable" 
+  [length]="length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="pageEvent = $event">
 </mat-paginator>

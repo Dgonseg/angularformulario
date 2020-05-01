@@ -76,7 +76,9 @@ export class TableComponent implements OnInit {
         this.dataSource = new MatTableDataSource(this.formatDataTable());
         this.displayedColumns = this.datatableColumns;
         this.dataSource.paginator = this.paginator;
-        this.showtable = true;
+        if(this.dataTable.length > 0) {
+          this.showtable = true;
+        }
       });
 
       }
@@ -86,6 +88,7 @@ export class TableComponent implements OnInit {
       this.displayedColumns = this.datatableColumns;
       this.dataSource = new MatTableDataSource(this.formatDataTable());
       this.dataSource.paginator = this.paginator;
+      console.log('datatable', this.dataTable)
       if(this.dataTable.length >0) {
         this.showtable = true;
       }

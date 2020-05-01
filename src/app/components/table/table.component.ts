@@ -3,7 +3,8 @@ import {
   OnInit,
   Input,
   ChangeDetectorRef,
-  ViewChild
+  ViewChild,
+  Inject
 } from "@angular/core";
 import { MatPaginator } from "@angular/material/paginator";
 import { MatTableDataSource } from "@angular/material/table";
@@ -12,12 +13,13 @@ import { AuthService } from "../../shared/services/auth.services";
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {PageEvent} from '@angular/material/paginator';
 import { Router } from '@angular/router';
-
+import {MatSort} from '@angular/material/sort';
 
 export interface ships {
   name: string;
   ships: number;
 }
+//table component
 
 @Component({
   selector: "app-table",
@@ -30,12 +32,14 @@ export class TableComponent implements OnInit {
   @Input() adminMode: any;
   @Input() modelMode: any;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   displayedColumns: string[];
   dataSource: any;
   showtable = false;
   dataTableFormated: any;
   addActivate: false;
+  sortedDataTable:any;
   length = 100;
   pageSize = 5;
   pageSizeOptions: number[] = [5, 10, 25, 100];
@@ -53,9 +57,11 @@ export class TableComponent implements OnInit {
     private changeDetectorRefs: ChangeDetectorRef,
     private dataService: DataService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) {
     this.activateAdd = this.activateAdd.bind(this);
+    
   }
 
   applyFilter(event: Event) {
@@ -76,11 +82,13 @@ export class TableComponent implements OnInit {
           }
         });
         this.dataTable = filteredModels;
-        this.dataSource = new MatTableDataSource(this.formatDataTable());
+        this.dataTable = this.formatDataTable();
+        this.dataSource = new MatTableDataSource(this.dataTable);  
         this.displayedColumns = this.datatableColumns;
-        this.dataSource.paginator = this.paginator;
         if(this.dataTable.length > 0) {
           this.showtable = true;
+          this.dataSource.paginator = this.paginator;
+          this.dataSource.sort = this.sort;
         }
       });
 
@@ -89,11 +97,16 @@ export class TableComponent implements OnInit {
     } else {
       console.log( this.datatableColumns)
       this.displayedColumns = this.datatableColumns;
-      this.dataSource = new MatTableDataSource(this.formatDataTable());
-      this.dataSource.paginator = this.paginator;
+      this.dataTable = this.formatDataTable();
+      this.dataSource = new MatTableDataSource(this.dataTable);
       console.log('datatable', this.dataTable)
+      
       if(this.dataTable.length >0) {
         this.showtable = true;
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
+
+
       }
     }
   }
@@ -114,6 +127,9 @@ export class TableComponent implements OnInit {
       this.dataService.deleteUser(line.id);
     }
   }
+
+  
+
   
   formatDataTable(){
     let dataTableFormated = [];
@@ -174,6 +190,7 @@ export class TableComponent implements OnInit {
 
   dialogConfirm(){
     return  confirm("Seguro que quieres borrar?");
+    debugger;
   }
 
   activateAdd() {
@@ -181,6 +198,15 @@ export class TableComponent implements OnInit {
   }
 
   deleteModel(line) {
+    // const dialogRef = this.dialog.open(ConfirmDeleteComponent, {
+    //   width: '250px'
+    // });
+
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log('The dialog was closed');
+    //   // this.animal = result;
+    // });
+  // }
     if(this.dialogConfirm()) {
       this.dataService.deleteModel(line.id);
     }
@@ -189,4 +215,25 @@ export class TableComponent implements OnInit {
   viewUser(line) {
     this.router.navigate(['otherProfile/', line.userId]);
   }
+
+  // sortData(sort: Sort) {
+  //   const data = this.dataTable.slice();
+  //   if (!sort.active || sort.direction === '') {
+  //     this.sortedDataTable = data;
+  //     return;
+  //   }
+  //   console.log('sort',sort)
+  //   this.dataTable = data.sort((a, b) => {
+  //     const isAsc = sort.direction === 'asc';
+  //     switch (sort.active) {
+  //       case 'brand': return compare(a.brand, b.brand, isAsc);
+  //       // case 'model': return compare(a.model, b.model, isAsc);
+  //       default: return 0;
+  //     }
+  //   });
+  // }
 }
+
+// function compare(a: number | string, b: number | string, isAsc: boolean) {
+//   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+// }

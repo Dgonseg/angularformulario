@@ -4,16 +4,17 @@
 </mat-form-field>
 
 
-	<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" *ngIf="showtable">
+	<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" [hidden]="!showtable" matSort>
     <!-- model table -->
       <!-- brand Column -->
       <ng-container matColumnDef="brand">
-        <th class="tableHeader" mat-header-cell *matHeaderCellDef> Marca </th>
+        <!-- <th class="tableHeader" mat-header-cell *matHeaderCellDef> Marca </th> -->
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Marca </th>
         <td class="tableCell" mat-cell *matCellDef="let line"> {{line.brand}} </td>
       </ng-container>
       <!-- moidel Column -->
       <ng-container matColumnDef="model">
-        <th class="tableHeader" mat-header-cell *matHeaderCellDef> Modelo </th>
+        <th class="tableHeader" mat-header-cell *matHeaderCellDef mat-sort-header> Modelo </th>
         <td class="tableCell" mat-cell *matCellDef="let line"> {{line.model}} </td>
       </ng-container>
 
@@ -118,7 +119,7 @@
 	</div>
 
 <mat-paginator
-  *ngIf="showtable" 
+  [hidden]="!showtable"
   [length]="length"
   [pageSize]="pageSize"
   [pageSizeOptions]="pageSizeOptions"

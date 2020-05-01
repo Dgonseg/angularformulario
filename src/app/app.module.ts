@@ -39,6 +39,7 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { MenuComponent } from './containers/menu/menu.component';
 import { AddshipComponent } from './components/form/addship/addship.component';
 import { TableComponent } from './components/table/table.component';
+import { ConfirmDeleteComponent } from './components/table/table.component';
 
 // containers
 import { AdminComponent } from './containers/admin/admin.component';
@@ -48,6 +49,7 @@ import { EditUserComponent } from './containers/edit-user/edit-user.component';
 import { AddShipProfileComponent } from './components/form/add-ship-profile/add-ship-profile.component';
 import { environment } from '../environments/environment';
 import { OtherProfileComponent } from './containers/other-profile/other-profile.component';
+import { DialogComponent } from './shared/dialog/dialog.component';
 
 // for test
 var firebaseConfig = environment.firebaseConfig;
@@ -74,6 +76,7 @@ if(environment.production){
     AngularFireAnalyticsModule,
     AngularFirestoreModule
   ],
+  entryComponents: [DialogComponent],
   providers: [AuthService,AngularFirestore],
   declarations: [
     AppComponent,
@@ -94,7 +97,8 @@ if(environment.production){
     AddUserComponent,
     EditUserComponent,
     AddShipProfileComponent,
-    OtherProfileComponent],
+    OtherProfileComponent,
+    DialogComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

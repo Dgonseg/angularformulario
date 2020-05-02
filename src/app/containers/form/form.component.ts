@@ -96,7 +96,21 @@ export class FormComponent implements OnInit {
 
   save() {
     let shipValue =  this.addShipProfileComponent.returnValues();
-    this.addShipProfileComponent.resetValues();
-    this.populateTable(shipValue);
+
+    if(shipValue.ships.length > 0){
+      this.addShipProfileComponent.resetValues();
+      shipValue.ships.forEach((shipModel) =>{
+        this.populateTable(
+          {name: shipValue.name,
+          ships:[shipModel]
+          }
+        )
+      })
+      // this.populateTable(shipValue);
+
+    }else {
+      alert("Te falta añadir modelos.")
+    }
+
   }
 }

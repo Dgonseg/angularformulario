@@ -139,14 +139,14 @@ export class TableComponent implements OnInit {
   
   formatDataTable(){
     let dataTableFormated = [];
-    console.log(this.modelMode)
+
     switch(this.modelMode) {
       case 'ship':
         this.dataTable.forEach(line=>{
           dataTableFormated.push({
             id: line.id,
             name: line.name.name,
-            ships: line.ships,
+            ship: line.ships[0].model,
             userName: line.userName
           })
         })
@@ -184,9 +184,8 @@ export class TableComponent implements OnInit {
        this.dataTable.forEach(line=>{
           dataTableFormated.push({
             id: line.id,
-            
             name: line.name.name,
-            ships: line.ships,
+            ship:  line.ships[0].model,
           })
         })
         return  dataTableFormated

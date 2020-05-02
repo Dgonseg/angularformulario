@@ -31,12 +31,14 @@ export class OtherProfileComponent implements OnInit {
 
   ngOnInit() {
     this.adminMode = true;
-    let userId = this.activeRouter.snapshot.paramMap.get('id');
+    this.userId = this.activeRouter.snapshot.paramMap.get('id');
+
+    console.log(this.userId)
 
     this.datatableColumns = ['name', 'ships'];
 
 
-    this.dataService.getUserId(userId) 
+    this.dataService.getUserId(this.userId) 
       .subscribe((user)=> {
         if(user.length > 0){
           this.userId = user[0].userId;

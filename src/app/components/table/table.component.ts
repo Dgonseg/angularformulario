@@ -31,6 +31,7 @@ export class TableComponent implements OnInit {
   @Input() datatableColumns: any;
   @Input() adminMode: any;
   @Input() modelMode: any;
+  @Input() userId: any;
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
@@ -70,10 +71,15 @@ export class TableComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('this.modelModet',this.modelMode)
-    
-    if (!this.dataTable && !this.adminMode) {
-      let userId = localStorage.getItem("userId");
+    if (!this.dataTable && (!this.adminMode || !!this.userId)) {
+      let userId
+      if(!this.userId){
+        userId = localStorage.getItem("userId");
+
+      } else {
+        userId = this.userId;
+      }
+      console.log(userId) 
       if (userId) {
         this.dataService.getUserModels().subscribe(models => {
         let filteredModels = models.filter(ship => {

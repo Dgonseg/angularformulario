@@ -106,7 +106,6 @@ export class FormComponent implements OnInit {
           }
         )
       })
-      // this.populateTable(shipValue);
 
     }else {
       alert("Te falta añadir modelos.")

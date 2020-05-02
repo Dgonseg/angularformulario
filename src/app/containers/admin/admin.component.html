@@ -7,8 +7,12 @@
 				</mat-panel-title>
 			</mat-expansion-panel-header>
 			<mat-card class="content-table">
-				<app-table *ngIf="!!dataTable" [modelMode]="'ship'" [datatableColumns]="datatableColumns"
-					[dataTable]="dataTable" [adminMode]="true">
+				<app-table
+          *ngIf="!!dataTable"
+          [modelMode]="'ship'"
+          [datatableColumns]="datatableColumns"
+					[dataTable]="dataTable"
+          [adminMode]="true">
 				</app-table>
 			</mat-card>
 		</mat-expansion-panel>

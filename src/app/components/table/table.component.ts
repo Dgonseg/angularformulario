@@ -14,6 +14,7 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 import {PageEvent} from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import {MatSort} from '@angular/material/sort';
+import { DialogComponent } from '../../shared/dialog/dialog.component';
 
 export interface ships {
   name: string;
@@ -101,11 +102,9 @@ export class TableComponent implements OnInit {
       }
 
     } else {
-      console.log( this.datatableColumns)
       this.displayedColumns = this.datatableColumns;
       this.dataTable = this.formatDataTable();
       this.dataSource = new MatTableDataSource(this.dataTable);
-      console.log('datatable', this.dataTable)
       
       if(this.dataTable.length >0) {
         this.showtable = true;
@@ -123,19 +122,28 @@ export class TableComponent implements OnInit {
   }
 
   deleteShip(line) {
-    if(this.dialogConfirm()) {
-      this.dataService.deleteShip(line.id);
-    }
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '250px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result == 'ok'){
+        this.dataService.deleteShip(line.id);
+      }
+    });
   }
 
   deleteUser(line){
-    if(this.dialogConfirm()) {
-      this.dataService.deleteUser(line.id);
-    }
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '250px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result == 'ok'){
+       this.dataService.deleteUser(line.id);
+      }
+    });
   }
-
-  
-
   
   formatDataTable(){
     let dataTableFormated = [];
@@ -193,52 +201,25 @@ export class TableComponent implements OnInit {
 
   }
 
-  dialogConfirm(){
-    return  confirm("Seguro que quieres borrar?");
-    debugger;
-  }
-
   activateAdd() {
     this.addActivate = !this.addActivate;
   }
 
   deleteModel(line) {
-    // const dialogRef = this.dialog.open(ConfirmDeleteComponent, {
-    //   width: '250px'
-    // });
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '250px'
+    });
 
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed');
-    //   // this.animal = result;
-    // });
-  // }
-    if(this.dialogConfirm()) {
-      this.dataService.deleteModel(line.id);
-    }
+    dialogRef.afterClosed().subscribe(result => {
+      // console.log('The dialog was closed', result);
+      if(result == 'ok'){
+        this.dataService.deleteModel(line.id);
+      }
+    });
   }
 
   viewUser(line) {
     this.router.navigate(['otherProfile/', line.userId]);
   }
 
-  // sortData(sort: Sort) {
-  //   const data = this.dataTable.slice();
-  //   if (!sort.active || sort.direction === '') {
-  //     this.sortedDataTable = data;
-  //     return;
-  //   }
-  //   console.log('sort',sort)
-  //   this.dataTable = data.sort((a, b) => {
-  //     const isAsc = sort.direction === 'asc';
-  //     switch (sort.active) {
-  //       case 'brand': return compare(a.brand, b.brand, isAsc);
-  //       // case 'model': return compare(a.model, b.model, isAsc);
-  //       default: return 0;
-  //     }
-  //   });
-  // }
 }
-
-// function compare(a: number | string, b: number | string, isAsc: boolean) {
-//   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
-// }

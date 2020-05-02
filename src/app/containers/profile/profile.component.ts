@@ -34,7 +34,6 @@ export class ProfileComponent implements OnInit {
 
     this.dataService.getUserId(userId) 
       .subscribe((user)=> {
-        console.log('user', user)
         if(user.length > 0){
           this.userId = user[0].userId;
           this.name = user[0].username;

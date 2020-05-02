@@ -8,7 +8,6 @@
     <!-- model table -->
       <!-- brand Column -->
       <ng-container matColumnDef="brand">
-        <!-- <th class="tableHeader" mat-header-cell *matHeaderCellDef> Marca </th> -->
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Marca </th>
         <td class="tableCell" mat-cell *matCellDef="let line"> {{line.brand}} </td>
       </ng-container>
@@ -53,9 +52,7 @@
         </td>
       </ng-container>
 
-
     <!-- Actions -->
-      
     <ng-container matColumnDef="deleteModels">
         <th class="tableHeader" mat-header-cell *matHeaderCellDef></th>
         <td class="tableCell" (click)="deleteModel(line)" mat-cell *matCellDef="let line">
@@ -65,7 +62,6 @@
         </td>
     </ng-container>
 
-    
     <ng-container matColumnDef="deleteUser">
         <th class="tableHeader" mat-header-cell *matHeaderCellDef></th>
         <td class="tableCell" (click)="deleteUser(line)" mat-cell *matCellDef="let line">
@@ -100,7 +96,6 @@
 	</table>
 
 	<div class="add" *ngIf="!adminMode">
-    
 		<button *ngIf="!addActivate" color="primary" mat-raised-button (click)="activateAdd()">Añadir</button>
     <span *ngIf="!showtable && !addActivate"> <-- Añade Tus naves!</span>
 		<div class="addbutton">

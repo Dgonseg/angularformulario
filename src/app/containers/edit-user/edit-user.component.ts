@@ -71,7 +71,7 @@ export class EditUserComponent implements OnInit {
           rolprincipal: toSelectRol,
           rol:toSelectOtherRol,
           favorite: user[0].favorite,
-          rango: user[0].rango,
+          rango: '',//user[0].rango,
           descripcion:user[0].descripcion,
         });
 
@@ -98,7 +98,7 @@ export class EditUserComponent implements OnInit {
       rolPrincipal: this.userForm.get('rolprincipal').value, 
       rol: userRols,
       favorite:  this.userForm.get('favorite').value,
-      rango:  this.userForm.get('rango').value, 
+      rango: '',// this.userForm.get('rango').value, 
       descripcion: this.userForm.get('descripcion').value,
       mail: this.user.mail, 
       userId: this.user.userId,

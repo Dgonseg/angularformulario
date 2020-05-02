@@ -211,7 +211,6 @@ export class TableComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      // console.log('The dialog was closed', result);
       if(result == 'ok'){
         this.dataService.deleteModel(line.id);
       }

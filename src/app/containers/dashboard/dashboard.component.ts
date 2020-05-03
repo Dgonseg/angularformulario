@@ -10,7 +10,7 @@ import { DataService } from "../../shared/services/data.services";
 })
 export class dashboardComponent implements OnInit {
   news: any;
-  
+  imagenUrl: any
   constructor(
     public authService: AuthService,
     private dataService: DataService,
@@ -18,6 +18,8 @@ export class dashboardComponent implements OnInit {
     ) { }
 
   getImage(imageUrl: string){
+    console.log(imageUrl)
+    return this.imagenUrl
     // let header = {responseType: ResponseContentType.Blob}
     // return this.http.get(imageUrl, header).subscribe((res)=>{
     //   console.log(res);

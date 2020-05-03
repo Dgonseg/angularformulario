@@ -1,0 +1,26 @@
+.menu {
+  width: 25%;
+}
+.container-all {
+  display: flex;
+}
+
+.content {
+  margin-left: 40%;
+  width: 50%;
+  /* border: 3px solid green; */
+  padding: 10px;
+}
+
+.example-card {
+  max-width: 400px;
+}
+
+.example-header-image {
+  background-size: cover;
+}
+
+.google-button  {
+  margin-left: 35s%;
+
+}

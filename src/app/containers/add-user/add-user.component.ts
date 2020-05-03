@@ -16,7 +16,7 @@ export class AddUserComponent implements OnInit {
     rolprincipal: new FormControl([Validators.required]),
     rol: new FormControl(),
     favorite:  new FormControl([Validators.required]),
-    rango: '',//  new FormControl(),
+    rango:  new FormControl(),
     descripcion: new FormControl()
   })
   roles= [];
@@ -46,15 +46,13 @@ export class AddUserComponent implements OnInit {
     let user = this.authService.getUserData();
     let userId = window.btoa(this.userForm.get('username').value);
 
-    console.log(user);
-    console.log(userId);
     
     this.userProfile = {
       username: this.userForm.get('username').value,
       rolPrincipal: this.userForm.get('rolprincipal').value, 
       rol: this.userForm.get('rol').value,
       favorite:  this.userForm.get('favorite').value,
-      rango: '',//  this.userForm.get('rango').value, 
+      rango: this.userForm.get('rango').value, 
       descripcion: this.userForm.get('descripcion').value,
       mail: user.email, 
       userId: userId,

@@ -34,7 +34,6 @@ const routes: Routes = [
   { path: 'add-user', component: AddUserComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'otherProfile/:id', component: OtherProfileComponent},
-  
   { path: 'dashboard', component: dashboardComponent },
   { path: 'admin', component: AdminComponent },
   // { path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard]},

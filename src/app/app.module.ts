@@ -50,6 +50,7 @@ import { AddShipProfileComponent } from './components/form/add-ship-profile/add-
 import { environment } from '../environments/environment';
 import { OtherProfileComponent } from './containers/other-profile/other-profile.component';
 import { DialogComponent } from './shared/dialog/dialog.component';
+import { NewsComponent } from './components/news/news.component';
 
 // for test
 var firebaseConfig = environment.firebaseConfig;
@@ -98,7 +99,8 @@ if(environment.production){
     EditUserComponent,
     AddShipProfileComponent,
     OtherProfileComponent,
-    DialogComponent],
+    DialogComponent,
+    NewsComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

@@ -1,0 +1,27 @@
+<button 
+  class="card-button"
+  (click)="save()"
+  mat-raised-button color="primary">
+  Guardar
+</button>
+<form [formGroup] ="newForm" class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Titulo</mat-label>
+      <input formControlName="titulo" matInput placeholder="" value="" required>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Subtitulo</mat-label>
+      <input formControlName="subtitulo" matInput placeholder="" value="" required>
+    </mat-form-field>
+     
+    <mat-form-field class="example-full-width">
+      <mat-label>ImagenUrl</mat-label>
+      <input formControlName="imagenUrl" matInput placeholder="" value="" required>
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Contenido</mat-label>
+      <textarea formControlName="contenido" matInput placeholder=""></textarea>
+    </mat-form-field>
+</form>

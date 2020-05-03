@@ -9,3 +9,12 @@
   margin-right: 10px;
   /* margin-top: 10px; */
 }
+
+.clear {
+  margin-top: 20px;
+  margin-left: 5px; 
+}
+
+.clearbuttton {
+  display: contents;
+}

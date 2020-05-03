@@ -15,10 +15,6 @@ export class AddShipProfileComponent implements OnInit {
   @Input() selectShipsbyBrandOptions: String[];
   @Input() selectBrandOptions: String[];
   @Input() selectedBrand: String[];
-
-  
-  
-
   @Input() insertMode: boolean;
 
   @Output() changeBrand: EventEmitter<any> = new EventEmitter();

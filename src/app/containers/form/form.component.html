@@ -1,39 +1,45 @@
 <!-- //perfil o modo edicion -->
 <div *ngIf="!adminMode">
-  <div>
+	<div>
 
-  </div>
-  <div class="test">
-    <div class="addShip">         
-    <button 
+	</div>
+	<div class="test">
+		<div class="addShip">
+			<!-- <button 
       color="primary"
       class="save"
       mat-raised-button
       (click)="save()">
         Añadir
-      </button>
-   <app-add-ship-profile
-        [selectedBrand]="selectedBrand"
-        [selectBrandLabel]="selectBrandLabel"
-        [selectShipsLabel]="selectShipsLabel"
-        [selectShipsbyBrandOptions]="brandModels"
-        [selectBrandOptions]="brands"
-        (changeBrand) ="getmodel($event)"
-      ></app-add-ship-profile>
-  </div>
+      </button> -->
+			<!-- <button class="clearbuttton" (click)="save()"> -->
+      <!-- <div class="clear">
+        <span class="material-icons">
+          add_circle_outline
+        </span>
+      </div> -->
+    <!-- </button> -->
+			<app-add-ship-profile [selectedBrand]="selectedBrand" [selectBrandLabel]="selectBrandLabel"
+				[selectShipsLabel]="selectShipsLabel" [selectShipsbyBrandOptions]="brandModels"
+				[selectBrandOptions]="brands" (changeBrand)="getmodel($event)"></app-add-ship-profile>
+			<button class="clearbuttton" (click)="save()">
+      <div class="clear">
+        <span class="material-icons">
+          check
+        </span>
+      </div>
+    </button>
+		</div>
 
-  </div>
+	</div>
 </div>
 
 <div *ngIf="adminMode">
-  <div>
-  </div>
-  <div class="test">
-    <app-addship
-      [adminMode]="adminMode"
-      *ngIf="brands.length > 0"
-      [brands]="brands"
-      (populateTable)="populateTable($event)">
-    </app-addship>
-  </div>
+	<div>
+	</div>
+	<div class="test">
+		<app-addship [adminMode]="adminMode" *ngIf="brands.length > 0" [brands]="brands"
+			(populateTable)="populateTable($event)">
+		</app-addship>
+	</div>
 </div>

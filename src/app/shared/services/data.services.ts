@@ -11,6 +11,7 @@ export class DataService {
   db:any;
 
   private userModels: AngularFirestoreCollection<any>;
+  private allNews: AngularFirestoreCollection<any>;
 
   constructor(db: AngularFirestore) {
     this.db = db;
@@ -71,6 +72,11 @@ export class DataService {
     return this.db.collection("modelo").add(model)
   }
 
+
+  createNew(news) {
+    return this.db.collection("news").add(news);
+  }
+
   createUserModels(userModel) {
     console.log('createUserModels',userModel );
     return this.db.collection("usermodels").add(userModel);
@@ -103,6 +109,19 @@ export class DataService {
         );
 
   }
+
+  getAllNews() {
+    this.allNews = this.db.collection('news');
+
+   return  this.allNews.snapshotChanges().pipe(
+          map(actions => actions.map(a => {
+            const data = a.payload.doc.data();
+            const id = a.payload.doc.id;
+            return { id, ...data };
+          }))
+        );
+
+  }
   
 
   getGameRoles(): Observable<any> {
@@ -117,6 +136,3 @@ export class DataService {
   
 }
 
-// if(data.userId === user.userId){
-//               return this.db.collection("users").doc(id).set(user); 
-//             }

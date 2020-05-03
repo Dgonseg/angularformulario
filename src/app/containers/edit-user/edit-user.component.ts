@@ -115,6 +115,7 @@ export class EditUserComponent implements OnInit {
         }
       })
       this.dataService.updateUser(this.userProfile, docID);
+      
       this.router.navigate(['profile']);
 
     })

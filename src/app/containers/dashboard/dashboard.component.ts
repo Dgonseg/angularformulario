@@ -17,23 +17,27 @@ export class dashboardComponent implements OnInit {
     // private http: Http
     ) { }
 
-  getImage(imageUrl: string){
-    console.log(imageUrl)
-    return this.imagenUrl
-    // let header = {responseType: ResponseContentType.Blob}
-    // return this.http.get(imageUrl, header).subscribe((res)=>{
-    //   console.log(res);
-    //   res.blob()
-      
-    // });
+  getImage(noticia: string){
+    return noticia.imagenUrl;
   }
 
   ngOnInit() {
-
     this.dataService.getAllNews().subscribe((news)=>{
       console.log(this.news)
       this.news = news;
     });
+
+  }
+
+  addLike(noticia) {
+    // let toSave = noticia;
+    console.log(noticia);
+    // let  id = 
+    // let like = {
+    //   like: 2,
+    //   id: noticia.id
+    // }
+    // this.dataService.createOrUpdateLike(id, like);
 
   }
 

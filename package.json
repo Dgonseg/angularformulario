@@ -24,6 +24,7 @@
     "firebase": "^7.14.1",
     "firebase-tools": "^8.1.1",
     "jquery": "3.5.0",
+    "lodash": "^4.17.15",
     "popper.js": "1.16.1",
     "rxjs": "6.5.5",
     "tslib": "1.11.1",

@@ -36,6 +36,7 @@ export class DataService {
   getShips(): Observable<any> {
     return this.db.collection('usermodels').snapshotChanges();
   }
+
   getModels():  Observable<any> {
     this.userModels = this.db.collection('modelo');
 
@@ -70,6 +71,10 @@ export class DataService {
   // create
   createModel(model) {
     return this.db.collection("modelo").add(model)
+  }
+
+  createOrUpdateLike(id,like) {
+    return this.db.collection("dashboard").doc(id).set(like); 
   }
 
 

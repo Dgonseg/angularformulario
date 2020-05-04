@@ -51,6 +51,7 @@ import { environment } from '../environments/environment';
 import { OtherProfileComponent } from './containers/other-profile/other-profile.component';
 import { DialogComponent } from './shared/dialog/dialog.component';
 import { NewsComponent } from './components/news/news.component';
+import { SortPipe } from './shared/sort.pipe';
 
 // for test
 var firebaseConfig = environment.firebaseConfig;
@@ -100,7 +101,8 @@ if(environment.production){
     AddShipProfileComponent,
     OtherProfileComponent,
     DialogComponent,
-    NewsComponent],
+    NewsComponent,
+    SortPipe],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

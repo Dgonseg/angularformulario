@@ -38,6 +38,11 @@ export class dashboardComponent implements OnInit {
     });
 
   }
+  getDate(date){
+    if(!!date){
+      return new Date(date.seconds*1000);
+    }
+  }
 
   addLike(noticia) {
     let  id = noticia.id;

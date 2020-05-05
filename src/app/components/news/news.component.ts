@@ -31,6 +31,8 @@ export class NewsComponent implements OnInit {
     console.log(this.newForm.get('subtitulo').value);
     console.log(this.newForm.get('contenido').value);
     console.log(this.newForm.get('imagenUrl').value);
+    console.log(this.newForm.get('date').value.toString());
+    console.log(new Date(this.newForm.get('date').value));
     
     let news = {
        titulo: this.newForm.get('titulo').value,
@@ -39,7 +41,7 @@ export class NewsComponent implements OnInit {
        imagenUrl: this.newForm.get('imagenUrl').value,
        favs: '0',
        orderId: this.newForm.get('orderId').value,
-       date:  this.newForm.get('date').value,
+       date: new Date(this.newForm.get('date').value)
      }
     this.dataService.createNew(news);
   }
@@ -52,7 +54,7 @@ export class NewsComponent implements OnInit {
        imagenUrl: this.newForm.get('imagenUrl').value,
        favs: '0',
        orderId: this.newForm.get('orderId').value,
-       date:  this.newForm.get('date').value,
+       date:  new Date(this.newForm.get('date').value)
     }
   }
 

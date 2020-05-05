@@ -46,7 +46,7 @@
     </button>
 				<button mat-raised-button (click)="addComentarios(noticia)">Comentarios</button>
 				<div class="date">
-					{{noticia.date| date}}
+					{{getDate(noticia.date)|date}}
 				</div>
 			</mat-card-actions>
 		</mat-card>

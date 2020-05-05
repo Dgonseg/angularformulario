@@ -27,3 +27,11 @@
 .image {
   height: 330px;
 }
+
+.actions{
+  display: flex
+}
+
+.date {
+  margin-left: 80px;
+}

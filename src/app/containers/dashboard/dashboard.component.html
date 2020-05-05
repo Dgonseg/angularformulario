@@ -26,7 +26,7 @@
 <!-- [colspan]="tile.cols" [rowspan]="tile.rows" -->
 <mat-grid-list cols="4" rowHeight="600px">
 	<mat-grid-tile *ngFor="let noticia of news | sortBy:'desc':'orderId' ">
-		<mat-card [routerLink]="['/new-detail', noticia.orderId]" class="example-card">
+		<mat-card class="example-card">
 			<mat-card-header>
 				<div mat-card-avatar class="example-header-image"></div>
 				<mat-card-title>{{noticia.titulo}}</mat-card-title>
@@ -45,6 +45,7 @@
       LIKE
     </button>
 				<button mat-raised-button (click)="addComentarios(noticia)">Comentarios</button>
+        <button mat-raised-button [routerLink]="['/new-detail', noticia.orderId]">Mas Detalles</button>
 				<div class="date">
 					{{getDate(noticia.date)|date}}
 				</div>

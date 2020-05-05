@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import {DataService} from '../../shared/services/data.services';
 import { AuthService } from "../../shared/services/auth.services";
@@ -10,7 +10,7 @@ import {Profile} from '../../shared/interfaces/profile';
   templateUrl: './edit-user.component.html',
   styleUrls: ['./edit-user.component.css']
 })
-export class EditUserComponent implements OnInit {
+export class EditUserComponent implements OnInit, OnDestroy {
   userForm = new FormGroup({
     username: new FormControl([Validators.required]),
     rolprincipal: new FormControl([Validators.required]),
@@ -26,7 +26,7 @@ export class EditUserComponent implements OnInit {
   user: any;
   showForm= false;
   selectedRolPrincipal : any;
-
+  interval: any;
   constructor(
     private dataService: DataService,
     private authService: AuthService,
@@ -116,8 +116,10 @@ export class EditUserComponent implements OnInit {
       })
       this.dataService.updateUser(this.userProfile, docID);
       
-      this.router.navigate(['profile']);
-
+      this.interval = setInterval(() => {
+        console.log('ok')
+        this.router.navigate(['profile']);
+      }, 5000);
     })
     
     
@@ -127,4 +129,10 @@ export class EditUserComponent implements OnInit {
     localStorage.setItem('userId', userId);
   }
 
+
+  ngOnDestroy() {
+    clearInterval(this.interval);
+    
+
+  }
 }

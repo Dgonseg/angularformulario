@@ -23,11 +23,12 @@ export class NewDetailComponent implements OnInit {
     this.dataService.getUserId(localStorage.getItem("userId"))
     .subscribe((user)=>{
       this.user = user;
-    })
+    });
+    
     this.dataService.getNew(newId)
     .subscribe((noticia)=>{
       this.noticia = noticia[0];
-    })
+    });
 
   }
   getImage(noticia: string){

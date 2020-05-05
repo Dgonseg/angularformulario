@@ -18,7 +18,6 @@ export class dashboardComponent implements OnInit {
     public authService: AuthService,
     private dataService: DataService,
     public dialog: MatDialog
-    // private http: Http
     ) { }
 
   getImage(noticia: string){
@@ -40,7 +39,7 @@ export class dashboardComponent implements OnInit {
   }
   goToDetail(noticia) {
     const id = noticia.id;
-    
+
 
   }
   getDate(date){

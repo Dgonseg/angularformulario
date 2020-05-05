@@ -98,8 +98,8 @@ export class DataService {
 
   }
 
-  getNew(id) {
-    return  this.db.collection('news', ref => ref.where('id', '==', id)).valueChanges({ id });
+  getNew(orderId) {
+    return  this.db.collection('news', ref => ref.where('orderId', '==', orderId)).valueChanges({ orderId });
 
   }
 

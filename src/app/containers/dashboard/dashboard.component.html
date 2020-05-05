@@ -25,7 +25,7 @@
 </div> -->
 <!-- [colspan]="tile.cols" [rowspan]="tile.rows" -->
 <mat-grid-list cols="4" rowHeight="600px">
-	<mat-grid-tile *ngFor="let noticia of news | sortBy:'':'orderId' " >
+	<mat-grid-tile *ngFor="let noticia of news | sortBy:'desc':'orderId' " >
 		<mat-card class="example-card">
 			<mat-card-header>
 				<div mat-card-avatar class="example-header-image"></div>

@@ -37,6 +37,7 @@ export class ComentsComponent implements OnInit {
 
 
   ngOnInit() {
+    this.coment = '';
     this.dataService.getComents(this.data.noticia.id)
     .subscribe((comentarios)=>{
       console.log('comentarios', comentarios)
@@ -50,6 +51,9 @@ export class ComentsComponent implements OnInit {
 
   addComent() {
     console.log(this.coment);
+    if(this.coment.length > 150){
+      alert('Maximo 150 carácteres')
+    }
     console.log(this.data);
     let coment = {
       coment: this.coment,

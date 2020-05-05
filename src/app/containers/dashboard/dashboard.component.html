@@ -24,7 +24,7 @@
 	</mat-card>
 </div> -->
 <!-- [colspan]="tile.cols" [rowspan]="tile.rows" -->
-<mat-grid-list cols="4" rowHeight="600px">
+<mat-grid-list cols="4" rowHeight="00px">
 	<mat-grid-tile *ngFor="let noticia of news | sortBy:'desc':'orderId' ">
 		<mat-card [routerLink]="['/new-detail', noticia.id]" class="example-card">
 			<mat-card-header>

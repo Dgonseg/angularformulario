@@ -12,10 +12,13 @@ export class NewsComponent implements OnInit {
     titulo: new FormControl([Validators.required]),
     subtitulo: new FormControl([Validators.required]),
     contenido: new FormControl(),
+    contenidoExtendido: new FormControl(),
     imagenUrl: new FormControl([Validators.required]),
     orderId: new FormControl([Validators.required]),
     date: new FormControl(),
   })
+
+  
   noticia: any;
   constructor(private dataService: DataService,) { }
 
@@ -38,6 +41,7 @@ export class NewsComponent implements OnInit {
        titulo: this.newForm.get('titulo').value,
        subtitulo: this.newForm.get('subtitulo').value,
        contenido: this.newForm.get('contenido').value,
+       contenidoExtendido: this.newForm.get('contenidoExtendido').value,
        imagenUrl: this.newForm.get('imagenUrl').value,
        favs: '0',
        orderId: this.newForm.get('orderId').value,

@@ -1,48 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from "../../shared/services/auth.services";
-import { DataService } from "../../shared/services/data.services";
-// import { Http, ResponseContentType} from '@angular/http'; 
+import { ActivatedRoute } from '@angular/router';
+import { DataService } from '../../shared/services/data.services';
+import { MatDialog } from '@angular/material/dialog';
 import { ComentsComponent } from '../../shared/coments/coments.component';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-new-detail',
+  templateUrl: './new-detail.component.html',
+  styleUrls: ['./new-detail.component.css']
 })
-export class dashboardComponent implements OnInit {
-  news: any;
-  imagenUrl: any;
+export class NewDetailComponent implements OnInit {
   user: any;
+  noticia: any;
   constructor(
-    public authService: AuthService,
+    private activeRouter: ActivatedRoute,
     private dataService: DataService,
     public dialog: MatDialog
-    // private http: Http
-    ) { }
+  ) { }
 
+  ngOnInit() {
+    const newId = this.activeRouter.snapshot.paramMap.get('id');
+    this.dataService.getUserId(localStorage.getItem("userId"))
+    .subscribe((user)=>{
+      this.user = user;
+    })
+    this.dataService.getNew(newId)
+    .subscribe((noticia)=>{
+      this.noticia = noticia[0];
+    })
+
+  }
   getImage(noticia: string){
     return noticia.imagenUrl;
   }
 
-  ngOnInit() {
-     this.dataService.getUserId(localStorage.getItem("userId"))
-    .subscribe((user)=>{
-      console.log(user)
-      this.user = user;
-    })
-
-    this.dataService.getAllNews().subscribe((news)=>{
-      console.log(this.news)
-      this.news = news;
-    });
-
-  }
-  goToDetail(noticia) {
-    const id = noticia.id;
-    
-
-  }
   getDate(date){
     if(!!date){
       return new Date(date.seconds*1000);
@@ -57,6 +47,7 @@ export class dashboardComponent implements OnInit {
 
   }
 
+  
   addComentarios(noticia) {
     console.log(noticia);
     let data = {

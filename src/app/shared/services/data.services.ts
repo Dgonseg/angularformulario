@@ -98,6 +98,11 @@ export class DataService {
 
   }
 
+  getNew(id) {
+    return  this.db.collection('news', ref => ref.where('id', '==', id)).valueChanges({ id });
+
+  }
+
   getUser(mail): any {
     return  this.db.collection('users', ref => ref.where('mail', '==', mail)).valueChanges({ mail });
   }

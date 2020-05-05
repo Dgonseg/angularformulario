@@ -1,0 +1,14 @@
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.actions{
+  display: flex
+}
+
+.date {
+  margin-left: 80px;
+  margin-top: 9px;
+  font-size: 14px;
+}

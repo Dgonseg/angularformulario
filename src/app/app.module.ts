@@ -53,6 +53,7 @@ import { DialogComponent } from './shared/dialog/dialog.component';
 import { NewsComponent } from './components/news/news.component';
 import { SortPipe } from './shared/sort.pipe';
 import { ComentsComponent } from './shared/coments/coments.component';
+import { NewDetailComponent } from './containers/new-detail/new-detail.component';
 
 // for test
 var firebaseConfig = environment.firebaseConfig;
@@ -104,7 +105,8 @@ if(environment.production){
     DialogComponent,
     NewsComponent,
     SortPipe,
-    ComentsComponent],
+    ComentsComponent,
+    NewDetailComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

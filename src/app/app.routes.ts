@@ -19,6 +19,7 @@ import {OtherProfileComponent} from './containers/other-profile/other-profile.co
 //guards
 import {SecureInnerPagesGuard} from './shared/guard/secure-inner-pages.guard';
 import {AuthGuard} from './shared/guard/auth.guard';
+import { NewDetailComponent } from './containers/new-detail/new-detail.component';
 
 const routes: Routes = [
   // { path: '', redirectTo: '/sign-in', pathMatch: 'full'},
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent},
   { path: 'otherProfile/:id', component: OtherProfileComponent},
   { path: 'dashboard', component: dashboardComponent },
+  { path: 'new-detail/:id', component: NewDetailComponent },
   { path: 'admin', component: AdminComponent },
   // { path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard]},
   // { path: 'register-user', component: SignUpComponent, canActivate: [SecureInnerPagesGuard]},

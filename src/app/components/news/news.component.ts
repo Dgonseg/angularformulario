@@ -31,6 +31,7 @@ export class NewsComponent implements OnInit {
        subtitulo: this.newForm.get('subtitulo').value,
        contenido: this.newForm.get('contenido').value,
        imagenUrl: this.newForm.get('imagenUrl').value,
+       favs: '0'
      }
     this.dataService.createNew(news);
   }

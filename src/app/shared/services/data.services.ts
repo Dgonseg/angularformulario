@@ -74,16 +74,18 @@ export class DataService {
   }
 
   createOrUpdateLike(id,like) {
-    return this.db.collection("dashboard").doc(id).set(like); 
+    return this.db.collection("news").doc(id).set(like); 
   }
 
+  createComent(id, coment){
+     return this.db.collection("Coments").doc(id).set(coment); 
 
+  }
   createNew(news) {
     return this.db.collection("news").add(news);
   }
 
   createUserModels(userModel) {
-    console.log('createUserModels',userModel );
     return this.db.collection("usermodels").add(userModel);
   }
 

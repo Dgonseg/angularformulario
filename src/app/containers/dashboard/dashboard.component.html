@@ -11,8 +11,14 @@
     {{noticia.contenido}}
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button (click)="addLike(noticia)">LIKE</button>
-    <!-- <button mat-button>Comentarios</button> -->
+    <button mat-raised-button #tooltip="matTooltip"
+        matTooltip="{{noticia.favs}}"
+        matTooltipPosition="above"
+        aria-tooltip="favs"
+        (click)="addLike(noticia)">
+      LIKE
+    </button>
+    <button mat-raised-button (click)="addComentarios(noticia)">Comentarios</button>
   </mat-card-actions>
 </mat-card>
 

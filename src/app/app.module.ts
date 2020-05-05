@@ -52,6 +52,7 @@ import { OtherProfileComponent } from './containers/other-profile/other-profile.
 import { DialogComponent } from './shared/dialog/dialog.component';
 import { NewsComponent } from './components/news/news.component';
 import { SortPipe } from './shared/sort.pipe';
+import { ComentsComponent } from './shared/coments/coments.component';
 
 // for test
 var firebaseConfig = environment.firebaseConfig;
@@ -78,7 +79,7 @@ if(environment.production){
     AngularFireAnalyticsModule,
     AngularFirestoreModule
   ],
-  entryComponents: [DialogComponent],
+  entryComponents: [DialogComponent, ComentsComponent],
   providers: [AuthService,AngularFirestore],
   declarations: [
     AppComponent,
@@ -102,7 +103,8 @@ if(environment.production){
     OtherProfileComponent,
     DialogComponent,
     NewsComponent,
-    SortPipe],
+    SortPipe,
+    ComentsComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

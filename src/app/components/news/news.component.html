@@ -1,75 +1,77 @@
-<button 
+<button
   class="card-button"
   (click)="save()"
   mat-raised-button color="primary">
   Guardar
 </button>
-<button 
+<button
   class="card-button"
   (click)="previa()"
   mat-raised-button color="primary">
   Previsualizar
 </button>
-<form [formGroup] ="newForm" class="example-form">
-    <mat-form-field class="example-full-width">
-      <mat-label>orderId</mat-label>
-      <input formControlName="orderId" matInput placeholder="" value="" required>
+<form [formGroup]="newForm" class="example-form">
+	<mat-form-field class="example-full-width">
+		<mat-label>orderId</mat-label>
+		<input formControlName="orderId" matInput placeholder="" value="" required>
     </mat-form-field>
-    <mat-form-field class="example-full-width">
-      <mat-label>Titulo</mat-label>
-      <input formControlName="titulo" matInput placeholder="" value="" required>
-    </mat-form-field>
-
-    <mat-form-field class="example-full-width">
-      <mat-label>Subtitulo</mat-label>
-      <input formControlName="subtitulo" matInput placeholder="" value="" required>
-    </mat-form-field>
-     
-    <mat-form-field class="example-full-width">
-      <mat-label>ImagenUrl</mat-label>
-      <input formControlName="imagenUrl" matInput placeholder="" value="" required>
+		<mat-form-field class="example-full-width">
+			<mat-label>Titulo</mat-label>
+			<input formControlName="titulo" matInput placeholder="" value="" required>
     </mat-form-field>
 
-    
-  
-    <mat-form-field class="example-full-width">
-      <mat-label>Contenido</mat-label>
-      <textarea formControlName="contenido" matInput placeholder=""></textarea>
+			<mat-form-field class="example-full-width">
+				<mat-label>Subtitulo</mat-label>
+				<input formControlName="subtitulo" matInput placeholder="" value="" required>
     </mat-form-field>
-    <mat-form-field>
-    <mat-label>Choose a date</mat-label>
-      <input matInput formControlName="date" [matDatepicker]="picker">
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+
+				<mat-form-field class="example-full-width">
+					<mat-label>ImagenUrl</mat-label>
+					<input formControlName="imagenUrl" matInput placeholder="" value="" required>
     </mat-form-field>
+
+
+
+					<mat-form-field class="example-full-width">
+						<mat-label>Contenido</mat-label>
+						<textarea formControlName="contenido" matInput placeholder=""></textarea>
+					</mat-form-field>
+					<mat-form-field class="example-full-width">
+						<mat-form-field>
+							<mat-label>Fecha</mat-label>
+							<input matInput formControlName="date" [matDatepicker]="picker">
+							<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+							<mat-datepicker #picker></mat-datepicker>
+						</mat-form-field>
+					</mat-form-field>
 </form>
 
- <div class="content" *ngIf="noticia">
-   <!-- // zraner -->
-  <mat-card class="example-card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{noticia.titulo}}</mat-card-title>
-    <mat-card-subtitle>{{noticia.subtitulo}}</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image  class="image" [src]="getImage(noticia)">
-  <mat-card-content>
-    {{noticia.contenido}}
-  </mat-card-content>
-  <mat-card-actions class="actions">
-    <button mat-raised-button #tooltip="matTooltip"
+<div class="content" *ngIf="noticia">
+	<!-- // zraner -->
+	<mat-card class="example-card">
+		<mat-card-header>
+			<div mat-card-avatar class="example-header-image"></div>
+			<mat-card-title>{{noticia.titulo}}</mat-card-title>
+			<mat-card-subtitle>{{noticia.subtitulo}}</mat-card-subtitle>
+		</mat-card-header>
+		<img mat-card-image  class="image" [src]="getImage(noticia)">
+		<mat-card-content>
+			{{noticia.contenido}}
+		</mat-card-content>
+		<mat-card-actions class="actions">
+			<button mat-raised-button #tooltip="matTooltip"
         matTooltip="{{noticia.favs}}"
         matTooltipPosition="above"
         aria-tooltip="favs"
         (click)="addLike(noticia)">
       LIKE
     </button>
-    <button mat-raised-button (click)="addComentarios(noticia)">Comentarios</button>
-    <div class="date">
-      {{noticia.date| date}}
-    </div>
+			<button mat-raised-button (click)="addComentarios(noticia)">Comentarios</button>
+			<div class="date">
+				{{noticia.date| date}}
+			</div>
 
-  </mat-card-actions>
- 
-</mat-card>
- </div>
+		</mat-card-actions>
+
+	</mat-card>
+</div>

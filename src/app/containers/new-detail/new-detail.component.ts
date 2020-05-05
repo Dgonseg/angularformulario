@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { DataService } from '../../shared/services/data.services';
 import { MatDialog } from '@angular/material/dialog';
 import { ComentsComponent } from '../../shared/coments/coments.component';
+
 @Component({
   selector: 'app-new-detail',
   templateUrl: './new-detail.component.html',

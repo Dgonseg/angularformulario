@@ -1,10 +1,17 @@
 <mat-card class="example-card" *ngIf="noticia">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{noticia.titulo}}</mat-card-title>
-    <mat-card-subtitle>{{noticia.subtitulo}}</mat-card-subtitle>
-     <div>
-       <span [routerLink]="['/dashboard']">Volver</span>
+    <div class="text">
+      <mat-card-title>{{noticia.titulo}}</mat-card-title>
+      <mat-card-subtitle>{{noticia.subtitulo}}</mat-card-subtitle>
+    </div>
+     <div class="contentButton">
+       
+       <span class="volver" [routerLink]="['/dashboard']">
+        <span class="material-icons">
+            arrow_back
+          </span>
+        </span>
      </div>
   </mat-card-header>
   <img mat-card-image  class="image" [src]="getImage(noticia)">
@@ -17,7 +24,7 @@
     matTooltipPosition="above"
     aria-tooltip="favs"
     (click)="addLike(noticia)">
-  LIKE
+      LIKE
     </button>
     <button mat-raised-button (click)="addComentarios(noticia)">Comentarios</button>
     <div class="date">

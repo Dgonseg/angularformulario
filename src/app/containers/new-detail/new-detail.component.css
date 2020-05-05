@@ -2,13 +2,41 @@
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
 }
+.example-card {
+  margin: 10px;
+}
 
 .actions{
+  position: relative;
   display: flex
 }
 
 .date {
-  margin-left: 80px;
-  margin-top: 9px;
-  font-size: 14px;
+  position: absolute;
+  top:20px;
+  right:0px;
+  font-size: 13px;
+}
+
+.header {
+  width: 100%;
+}
+.subtitle {
+  width: 100%;
+}
+
+.text {
+  width: 100%;
+}
+
+.contentButton {
+  width: 100%;
+  position: relative;
+}
+
+.volver {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  cursor: pointer
 }

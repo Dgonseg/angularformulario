@@ -53,16 +53,18 @@ export class ComentsComponent implements OnInit {
     console.log(this.coment);
     if(this.coment.length > 150){
       alert('Maximo 150 carácteres')
-    }
-    console.log(this.data);
-    let coment = {
-      coment: this.coment,
-      usuario: this.data.user.username,
-      idNoticia: this.data.noticia.id
-    }
-    this.dataService.createComent(coment);
-    this.coment = ""
+    }else {
+      let coment = {
+        coment: this.coment,
+        usuario: this.data.user.username,
+        idNoticia: this.data.noticia.id
+      }
+      this.dataService.createComent(coment);
+      this.coment = ""
 
+
+    }
+   
   }
 
 }

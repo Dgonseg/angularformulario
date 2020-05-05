@@ -5,3 +5,8 @@
   <textarea [(ngModel)]="coment" matInput placeholder=""></textarea>
 </mat-form-field>
 <button mat-raised-button (click)="addComent()">Comentar</button>
+<div *ngFor="let coment of comentarios ">
+
+  <span>{{coment.usuario}}:</span>
+  <span>{{coment.coment}}</span>
+</div>

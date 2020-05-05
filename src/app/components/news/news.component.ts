@@ -14,11 +14,15 @@ export class NewsComponent implements OnInit {
     contenido: new FormControl(),
     imagenUrl: new FormControl([Validators.required])
   })
-
+  noticia: any;
   constructor(private dataService: DataService,) { }
 
   ngOnInit() {
   }
+  getImage(noticia: string){
+    return noticia.imagenUrl;
+  }
+
 
   save() {
     console.log(this.newForm.get('titulo').value);
@@ -34,6 +38,16 @@ export class NewsComponent implements OnInit {
        favs: '0'
      }
     this.dataService.createNew(news);
+  }
+
+  previa(){
+    this.noticia = {
+       titulo: this.newForm.get('titulo').value,
+       subtitulo: this.newForm.get('subtitulo').value,
+       contenido: this.newForm.get('contenido').value,
+       imagenUrl: this.newForm.get('imagenUrl').value,
+       favs: '0'
+    }
   }
 
 }

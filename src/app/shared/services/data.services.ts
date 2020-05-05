@@ -77,8 +77,8 @@ export class DataService {
     return this.db.collection("news").doc(id).set(like); 
   }
 
-  createComent(id, coment){
-     return this.db.collection("Coments").doc(id).set(coment); 
+  createComent(coment){
+     return this.db.collection("Coments").add(coment); 
 
   }
   createNew(news) {
@@ -91,6 +91,11 @@ export class DataService {
 
   createUser(user): Observable<any> {
      return this.db.collection("users").add(user);   
+  }
+
+  getComents(idNoticia){
+    return  this.db.collection('Coments', ref => ref.where('idNoticia', '==', idNoticia)).valueChanges({ idNoticia });
+
   }
 
   getUser(mail): any {

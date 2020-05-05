@@ -26,8 +26,9 @@ export interface DialogData {
   styleUrls: ['./coments.component.css']
 })
 
-export class ComentsComponent {
+export class ComentsComponent implements OnInit {
   coment: any;
+  comentarios: any;
 
   constructor(
     public dialogRef: MatDialogRef<ComentsComponent>,
@@ -35,6 +36,14 @@ export class ComentsComponent {
     @Inject(MAT_DIALOG_DATA) public data: any) {}
 
 
+  ngOnInit() {
+    this.dataService.getComents(this.data.noticia.id)
+    .subscribe((comentarios)=>{
+      console.log('comentarios', comentarios)
+      this.comentarios = comentarios;
+
+    })
+  }
   onNoClick(): void {
     this.dialogRef.close();
   }
@@ -44,10 +53,10 @@ export class ComentsComponent {
     console.log(this.data);
     let coment = {
       coment: this.coment,
-      usuario: this.data.user.username
-
+      usuario: this.data.user.username,
+      idNoticia: this.data.noticia.id
     }
-    this.dataService.createComent(this.data.noticia.id, coment);
+    this.dataService.createComent(coment);
     this.coment = ""
 
   }

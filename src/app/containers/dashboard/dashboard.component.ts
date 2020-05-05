@@ -51,7 +51,7 @@ export class dashboardComponent implements OnInit {
     console.log(noticia);
     let data = {
       noticia: noticia,
-      user: this.user
+      user: this.user[0]
     }
      const dialogRef = this.dialog.open(ComentsComponent, {
       width: '500px',

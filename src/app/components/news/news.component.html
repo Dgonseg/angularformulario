@@ -4,6 +4,12 @@
   mat-raised-button color="primary">
   Guardar
 </button>
+<button 
+  class="card-button"
+  (click)="previa()"
+  mat-raised-button color="primary">
+  Previsualizar
+</button>
 <form [formGroup] ="newForm" class="example-form">
     <mat-form-field class="example-full-width">
       <mat-label>Titulo</mat-label>
@@ -25,3 +31,28 @@
       <textarea formControlName="contenido" matInput placeholder=""></textarea>
     </mat-form-field>
 </form>
+
+ <div class="content" *ngIf="noticia">
+   <!-- // zraner -->
+  <mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{noticia.titulo}}</mat-card-title>
+    <mat-card-subtitle>{{noticia.subtitulo}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image  class="image" [src]="getImage(noticia)">
+  <mat-card-content>
+    {{noticia.contenido}}
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button #tooltip="matTooltip"
+        matTooltip="{{noticia.favs}}"
+        matTooltipPosition="above"
+        aria-tooltip="favs"
+        (click)="addLike(noticia)">
+      LIKE
+    </button>
+    <button mat-raised-button (click)="addComentarios(noticia)">Comentarios</button>
+  </mat-card-actions>
+</mat-card>
+ </div>

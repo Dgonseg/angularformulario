@@ -22,3 +22,33 @@
   /* display: flex; */
   max-width: 300px;
 }
+
+.menu {
+  width: 25%;
+}
+.container-all {
+  display: flex;
+}
+
+.container-form {
+  width: 75%;
+  margin: 30px;
+}
+.content {
+  padding: 10px;
+  display: flex;
+}
+
+.example-card {
+  max-width: 400px;
+  margin: 10px;
+}
+
+.example-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.image {
+  height: 330px;
+}

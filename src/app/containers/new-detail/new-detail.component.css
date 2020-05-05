@@ -10,6 +10,9 @@
   position: relative;
   display: flex
 }
+.imageDetail {
+  max-width: 500px;
+}
 
 .date {
   position: absolute;

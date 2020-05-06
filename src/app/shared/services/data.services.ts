@@ -146,8 +146,7 @@ export class DataService {
   }
 
   updateUser(user, id):any{
-    return  this.db.collection('users').doc(id).delete()
-    .subscribe(()=>{
+    return  this.deleteUser(id).subscribe(()=>{
      return this.db.collection("users").add(user);
     })
     

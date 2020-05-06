@@ -51,9 +51,24 @@ export class dashboardComponent implements OnInit {
   addLike(noticia) {
     let  id = noticia.id;
     noticia.favs = noticia.favs*1 + 1;
+    if (!noticia.userFavs){
+      noticia.userFavs = [];
+    }else {
+       noticia.userFav.push(this.user.userId);
+    }
   
     this.dataService.createOrUpdateLike(id, noticia);
 
+  }
+
+  userFav(noticia) {
+    let ret = false;
+    if(!!noticia.userFavs){
+      if(noticia.userFavs.indexOf(this.user.userId)){
+        ret=  true;
+      }
+    }
+    return ret
   }
 
   addComentarios(noticia) {

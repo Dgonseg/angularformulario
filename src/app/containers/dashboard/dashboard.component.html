@@ -12,14 +12,30 @@
 				{{noticia.contenido}}
 			</mat-card-content>
 			<mat-card-actions class="actions">
-				<button mat-raised-button #tooltip="matTooltip"
-        [disabled]="userFav(noticia)"
+      <button
+        class="favButton"
+        *ngIf="!userFav(noticia)"
+        mat-raised-button #tooltip="matTooltip"
         matTooltip="{{noticia.favs}}"
         matTooltipPosition="above"
         aria-tooltip="favs"
         (click)="addLike(noticia)">
-      LIKE
-    </button>
+        <span class="material-icons" >
+          favorite_border
+        </span>
+      </button>
+      <button
+        class="favButton"
+        *ngIf="userFav(noticia)"
+        mat-raised-button
+        #tooltip="matTooltip"
+        matTooltip="{{noticia.favs}}"
+        matTooltipPosition="above"
+        aria-tooltip="favs">
+        <span class="material-icons">
+          favorite
+        </span>
+      </button>
 				<button mat-raised-button (click)="addComentarios(noticia)">Comentarios</button>
 				<div class="date">
 					{{getDate(noticia.date)|date}}

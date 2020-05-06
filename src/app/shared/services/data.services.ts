@@ -73,8 +73,8 @@ export class DataService {
     return this.db.collection("modelo").add(model)
   }
 
-  createOrUpdateLike(id,like) {
-    return this.db.collection("news").doc(id).set(like); 
+  createOrUpdateLike(id,noticia) {
+    return this.db.collection("news").doc(id).set(noticia); 
   }
 
   createComent(coment){
@@ -146,10 +146,8 @@ export class DataService {
   }
 
   updateUser(user, id):any{
-    return  this.deleteUser(id).subscribe(()=>{
-     return this.db.collection("users").add(user);
-    })
-    
+    this.deleteUser(id);
+    return this.db.collection("users").add(user);
   }
 
 

@@ -51,12 +51,13 @@ export class dashboardComponent implements OnInit {
   addLike(noticia) {
     let  id = noticia.id;
     noticia.favs = noticia.favs*1 + 1;
-    if (!noticia.userFavs){
+    console.log(!(!!noticia.userFavs))
+    console.log(noticia.userFavs)
+    if (!(!!noticia.userFavs)){
       noticia.userFavs = [];
     }else {
-       noticia.userFav.push(this.user.userId);
+      noticia.userFavs.push(this.user[0].userId);
     }
-  
     this.dataService.createOrUpdateLike(id, noticia);
 
   }
@@ -64,11 +65,11 @@ export class dashboardComponent implements OnInit {
   userFav(noticia) {
     let ret = false;
     if(!!noticia.userFavs){
-      if(noticia.userFavs.indexOf(this.user.userId)){
+      if(noticia.userFavs.indexOf(this.user[0].userId)>-1){
         ret=  true;
       }
     }
-    return ret
+    return ret;
   }
 
   addComentarios(noticia) {

@@ -145,8 +145,12 @@ export class DataService {
     return this.db.collection('rol').snapshotChanges();
   }
 
-  updateUser(user, id): Observable<any>{
-    return this.db.collection("users").doc(id).set(user); 
+  updateUser(user, id):any{
+    return  this.db.collection('users').doc(id).delete()
+    .subscribe(()=>{
+     return this.db.collection("users").add(user);
+    })
+    
   }
 
 

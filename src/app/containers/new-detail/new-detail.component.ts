@@ -40,16 +40,30 @@ export class NewDetailComponent implements OnInit {
       return new Date(date.seconds*1000);
     }
   }
-
   addLike(noticia) {
     let  id = noticia.id;
     noticia.favs = noticia.favs*1 + 1;
-  
+    console.log(!(!!noticia.userFavs))
+    console.log(noticia.userFavs)
+    if (!(!!noticia.userFavs)){
+      noticia.userFavs = [];
+    }else {
+      noticia.userFavs.push(this.user[0].userId);
+    }
     this.dataService.createOrUpdateLike(id, noticia);
 
   }
 
-  
+  userFav(noticia) {
+    let ret = false;
+    if(!!noticia.userFavs){
+      if(noticia.userFavs.indexOf(this.user[0].userId)>-1){
+        ret=  true;
+      }
+    }
+    return ret;
+  }
+
   addComentarios(noticia) {
     console.log(noticia);
     let data = {

@@ -1,42 +1,54 @@
-<mat-card class="example-card">
+<mat-card class="example-card" *ngIf="noticia">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{noticia.titulo}}</mat-card-title>
-    <mat-card-subtitle>{{noticia.subtitulo}}</mat-card-subtitle>
-      <button class="detail" mat-raised-button [routerLink]="['/new-detail', noticia.orderId]">Detalle</button>
-  </mat-card-header>
-  <img mat-card-image  class="image" [src]="getImage(noticia)">
-  <mat-card-content>
-    {{noticia.contenido}}
-  </mat-card-content>
-  <mat-card-actions class="actions">
-  <button
-    class="favButton"
-    *ngIf="!userFav(noticia)"
-    mat-raised-button #tooltip="matTooltip"
-    matTooltip="{{noticia.favs}}"
-    matTooltipPosition="above"
-    aria-tooltip="favs"
-    (click)="addLike(noticia)">
-    <span class="material-icons" >
-      favorite_border
-    </span>
-  </button>
-  <button
-    class="favButton"
-    *ngIf="userFav(noticia)"
-    mat-raised-button
-    #tooltip="matTooltip"
-    matTooltip="{{noticia.favs}}"
-    matTooltipPosition="above"
-    aria-tooltip="favs">
-    <span class="material-icons">
-      favorite
-    </span>
-  </button>
-    <button mat-raised-button (click)="addComentarios(noticia)">Comentarios</button>
-    <div class="date">
-      {{getDate(noticia.date)|date}}
+    <div class="text">
+      <mat-card-title>{{noticia.titulo}}</mat-card-title>
+      <mat-card-subtitle>{{noticia.subtitulo}}</mat-card-subtitle>
     </div>
-  </mat-card-actions>
+     <div class="contentButton">
+       
+       <span class="volver" [routerLink]="['/dashboard']">
+        <span class="material-icons">
+            arrow_back
+          </span>
+        </span>
+     </div>
+  </mat-card-header>
+  <img class="imageDetail" mat-card-image  class="image" [src]="getImage(noticia)">
+  <mat-card-content>
+    {{noticia.contenidoExtendido}}
+  </mat-card-content>
+			<mat-card-actions class="actions">
+      <button
+        class="favButton"
+        *ngIf="!userFav(noticia)"
+        mat-raised-button #tooltip="matTooltip"
+        matTooltip="{{noticia.favs}}"
+        matTooltipPosition="above"
+        aria-tooltip="favs"
+        (click)="addLike(noticia)">
+        <span class="material-icons" >
+          favorite_border
+        </span>
+      </button>
+      <button
+        class="favButton"
+        *ngIf="userFav(noticia)"
+        mat-raised-button
+        #tooltip="matTooltip"
+        matTooltip="{{noticia.favs}}"
+        matTooltipPosition="above"
+        aria-tooltip="favs">
+        <span class="material-icons">
+          favorite
+        </span>
+      </button>
+				<button mat-raised-button (click)="addComentarios(noticia)">Comentarios</button>
+				<div class="date">
+					{{getDate(noticia.date)|date}}
+				</div>
+			</mat-card-actions>
 </mat-card>
+
+
+

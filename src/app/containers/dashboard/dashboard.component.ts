@@ -34,7 +34,7 @@ export class dashboardComponent implements OnInit {
       return this.gridColumns = 4;
     } else if(this.innerWidth < 1660 && this.innerWidth > 1200){
      this.gridColumns = 3;
-    } else if(this.innerWidth > 60 && this.innerWidth < 1200){
+    } else if(this.innerWidth > 760 && this.innerWidth < 1200){
       this.gridColumns = 2;
     } else {
       this.gridColumns = 1;

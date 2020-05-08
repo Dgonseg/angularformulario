@@ -25,12 +25,13 @@
         <td class="tableCell" mat-cell *matCellDef="let line"> {{line.name}} </td>
       </ng-container>
 
-      <ng-container matColumnDef="ships">
-        <th class="tableHeader" mat-header-cell *matHeaderCellDef mat-sort-header> Modelo </th>
+      <ng-container matColumnDef="ships"> 
+        <th class="tableHeader" mat-header-cell *matHeaderCellDef > Modelo </th>
         <td class="tableCell" mat-cell *matCellDef="let line">
           {{line.ship}}
         </td>
       </ng-container>
+      <!-- mat-sort-header -->
 
       <ng-container matColumnDef="userName">
         <th class="tableHeader" mat-header-cell *matHeaderCellDef mat-sort-header> Usuario </th>

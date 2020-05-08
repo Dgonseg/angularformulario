@@ -3,7 +3,9 @@
   background-size: cover;
 }
 .example-card {
+  left: 15%;
   margin: 10px;
+  width: 70%;
 }
 
 .actions{
@@ -43,7 +45,11 @@
   right: 0px;
   cursor: pointer
 }
-
+/* 
 .favButton {
   display: contents;
+} */
+
+.tooltip-class{
+  color:blue;
 }

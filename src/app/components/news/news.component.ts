@@ -32,7 +32,7 @@ export class NewsComponent implements OnInit {
   save() {
     console.log(this.newForm.get('titulo').value);
     console.log(this.newForm.get('subtitulo').value);
-    console.log(this.newForm.get('contenido').value);
+    console.log(this.newForm.get('contenidoExtendido').value);
     console.log(this.newForm.get('imagenUrl').value);
     console.log(this.newForm.get('date').value.toString());
     console.log(new Date(this.newForm.get('date').value));
@@ -47,7 +47,7 @@ export class NewsComponent implements OnInit {
        orderId: this.newForm.get('orderId').value,
        date: new Date(this.newForm.get('date').value)
      }
-    this.dataService.createNew(news);
+    // this.dataService.createNew(news);
   }
 
   previa(){

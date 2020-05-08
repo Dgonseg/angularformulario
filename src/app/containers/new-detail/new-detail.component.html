@@ -15,14 +15,14 @@
      </div>
   </mat-card-header>
   <img class="imageDetail" mat-card-image  class="image" [src]="getImage(noticia)">
-  <mat-card-content>
-    {{noticia.contenidoExtendido}}
+  
+  <mat-card-content [innerHTML]="noticia.contenidoExtendido">
   </mat-card-content>
 			<mat-card-actions class="actions">
       <button
         class="favButton"
         *ngIf="!userFav(noticia)"
-        mat-raised-button #tooltip="matTooltip"
+        mat-button #tooltip="matTooltip"
         matTooltip="{{noticia.favs}}"
         matTooltipPosition="above"
         aria-tooltip="favs"
@@ -34,8 +34,9 @@
       <button
         class="favButton"
         *ngIf="userFav(noticia)"
-        mat-raised-button
+        mat-button
         #tooltip="matTooltip"
+        matTooltipClass="tooltip-class"
         matTooltip="{{noticia.favs}}"
         matTooltipPosition="above"
         aria-tooltip="favs">

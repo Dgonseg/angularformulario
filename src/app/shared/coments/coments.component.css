@@ -1,3 +1,25 @@
 .example-full-width {
   width: 100%;
 }
+
+.container {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.all {
+  position:relative;
+}
+
+.comentarios {
+  position: absolute;
+  left:357px;
+}
+
+.scroll {
+  overflow-y: scroll;
+  height: 200px;
+}

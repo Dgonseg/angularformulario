@@ -20,7 +20,9 @@
 }
 
 .detail {
-  max-height: 30px;
+  max-height: 33px;
+  position: absolute;
+  right: 9px;
 }
 .example-header-image {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
@@ -36,11 +38,13 @@
 }
 
 .date {
-  margin-left: 80px;
   margin-top: 9px;
   font-size: 14px;
+  position: absolute;
+  right: 13px;
+
 }
 
-.favButton {
-  display: contents;
-}
+/* .favButton {
+  /* display: contents; */
+/* } */ 

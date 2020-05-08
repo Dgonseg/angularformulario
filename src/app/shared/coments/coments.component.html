@@ -1,6 +1,6 @@
-<div>
+<div class="all">
   <button mat-raised-button (click)="onNoClick()">Cerrar</button>
-  <button mat-raised-button (click)="addComent()">Comentar</button>
+  <button class="comentarios" mat-raised-button (click)="addComent()">Comentar</button>
 </div>
 <div>
   <mat-form-field class="example-full-width">
@@ -9,7 +9,11 @@
   </mat-form-field>
   <span>{{coment.length}}/150</span>
 </div>
-<div *ngFor="let coment of comentarios ">
-  <span>{{coment.usuario}}:</span>
-  <span>{{coment.coment}}</span>
+<div class="scroll">
+  <div *ngFor="let coment of comentarios; let i = index">
+    <div class="container">
+      <span>{{coment.usuario}}:</span>
+      <span>{{coment.coment}}</span>
+    </div>
+  </div>
 </div>

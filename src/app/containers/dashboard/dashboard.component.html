@@ -1,4 +1,4 @@
-<mat-grid-list cols="4" rowHeight="600px">
+<mat-grid-list [cols]="gridColumns" rowHeight="600px">
 	<mat-grid-tile *ngFor="let noticia of news | sortBy:'desc':'orderId' ">
 		<mat-card class="example-card">
 			<mat-card-header>
@@ -8,14 +8,13 @@
          <button class="detail" mat-raised-button [routerLink]="['/new-detail', noticia.orderId]">Detalle</button>
 			</mat-card-header>
 			<img mat-card-image  class="image" [src]="getImage(noticia)">
-			<mat-card-content>
-				{{noticia.contenido}}
+			<mat-card-content [innerHTML]="noticia.contenido">
 			</mat-card-content>
 			<mat-card-actions class="actions">
       <button
         class="favButton"
         *ngIf="!userFav(noticia)"
-        mat-raised-button #tooltip="matTooltip"
+        mat-button #tooltip="matTooltip"
         matTooltip="{{noticia.favs}}"
         matTooltipPosition="above"
         aria-tooltip="favs"
@@ -27,7 +26,7 @@
       <button
         class="favButton"
         *ngIf="userFav(noticia)"
-        mat-raised-button
+        mat-button
         #tooltip="matTooltip"
         matTooltip="{{noticia.favs}}"
         matTooltipPosition="above"

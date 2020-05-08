@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,HostListener } from '@angular/core';
 import { AuthService } from "../../shared/services/auth.services";
 import { DataService } from "../../shared/services/data.services";
 // import { Http, ResponseContentType} from '@angular/http'; 
@@ -14,18 +14,43 @@ export class dashboardComponent implements OnInit {
   news: any;
   imagenUrl: any;
   user: any;
+  public innerWidth: any;
+  gridColumns: any;
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerWidth = window.innerWidth;
+     console.log('onResize', this.innerWidth)
+     this.calculateGridColumns();
+  }
   constructor(
     public authService: AuthService,
     private dataService: DataService,
     public dialog: MatDialog
     ) { }
 
+
+  calculateGridColumns() {
+    if(this.innerWidth > 1660){
+      return this.gridColumns = 4;
+    } else if(this.innerWidth < 1660 && this.innerWidth > 1200){
+     this.gridColumns = 3;
+    } else if(this.innerWidth > 60 && this.innerWidth < 1200){
+      this.gridColumns = 2;
+    } else {
+      this.gridColumns = 1;
+    }
+
+  }
   getImage(noticia: string){
     return noticia.imagenUrl;
   }
 
   ngOnInit() {
-     this.dataService.getUserId(localStorage.getItem("userId"))
+    this.innerWidth = window.innerWidth;
+    this.calculateGridColumns()
+
+    console.log('onInit', this.innerWidth)
+    this.dataService.getUserId(localStorage.getItem("userId"))
     .subscribe((user)=>{
       console.log(user)
       this.user = user;

@@ -54,6 +54,8 @@ import { NewsComponent } from './components/news/news.component';
 import { SortPipe } from './shared/sort.pipe';
 import { ComentsComponent } from './shared/coments/coments.component';
 import { NewDetailComponent } from './containers/new-detail/new-detail.component';
+import { InsigniaComponent } from './components/insignia/insignia.component';
+import { InsigniaService } from './shared/services/insignia.service';
 
 // for test
 var firebaseConfig = environment.firebaseConfig;
@@ -81,7 +83,7 @@ if(environment.production){
     AngularFirestoreModule
   ],
   entryComponents: [DialogComponent, ComentsComponent],
-  providers: [AuthService,AngularFirestore],
+  providers: [AuthService,AngularFirestore, InsigniaService],
   declarations: [
     AppComponent,
     SelectComponent,
@@ -106,7 +108,8 @@ if(environment.production){
     NewsComponent,
     SortPipe,
     ComentsComponent,
-    NewDetailComponent],
+    NewDetailComponent,
+    InsigniaComponent],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

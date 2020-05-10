@@ -23,6 +23,7 @@ import { NewDetailComponent } from './containers/new-detail/new-detail.component
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full'},
+  //guard
   { path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard]},
   { path: 'edit-user/:id', component: EditUserComponent, canActivate: [AuthGuard]},
   { path: 'add-user', component: AddUserComponent, canActivate: [AuthGuard]},
@@ -32,12 +33,15 @@ const routes: Routes = [
   { path: 'new-detail/:id', component: NewDetailComponent, canActivate: [AuthGuard] },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard] },
 
-  // { path: 'add-user', component: AddUserComponent},
-  // { path: 'profile', component: ProfileComponent},
-  // { path: 'otherProfile/:id', component: OtherProfileComponent},
-  // { path: 'dashboard', component: dashboardComponent },
-  // { path: 'new-detail/:id', component: NewDetailComponent },
-  // { path: 'admin', component: AdminComponent },
+  //not guarded
+  { path: 'sign-in', component: SignInComponent},
+  { path: 'edit-user/:id', component: EditUserComponent},
+  { path: 'add-user', component: AddUserComponent},
+  { path: 'profile', component: ProfileComponent},
+  { path: 'otherProfile/:id', component: OtherProfileComponent},
+  { path: 'dashboard', component: dashboardComponent },
+  { path: 'new-detail/:id', component: NewDetailComponent },
+  { path: 'admin', component: AdminComponent },
   // { path: 'sign-in', component: SignInComponent, canActivate: [SecureInnerPagesGuard]},
   // { path: 'register-user', component: SignUpComponent, canActivate: [SecureInnerPagesGuard]},
   // { path: 'register-user', component: SignUpComponent, canActivate: [SecureInnerPagesGuard]},

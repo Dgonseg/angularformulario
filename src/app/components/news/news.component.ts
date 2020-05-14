@@ -47,7 +47,7 @@ export class NewsComponent implements OnInit {
        orderId: this.newForm.get('orderId').value,
        date: new Date(this.newForm.get('date').value)
      }
-    // this.dataService.createNew(news);
+    //this.dataService.createNew(news);
   }
 
   previa(){
